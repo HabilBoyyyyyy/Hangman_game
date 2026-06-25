@@ -1,0 +1,1213 @@
+window.WORD_BANK = window.WORD_BANK || {};
+window.WORD_BANK["movies"] = [
+  {
+    "word": "Dune",
+    "hint": "A young nobleman travels to a harsh desert planet to secure the most valuable resource in the universe.",
+    "diff": "easy"
+  },
+  {
+    "word": "Luca",
+    "hint": "A young sea monster experiences an unforgettable seaside summer on the Italian Riviera.",
+    "diff": "easy"
+  },
+  {
+    "word": "Soul",
+    "hint": "A jazz musician gets trapped in a strange realm and must find his way back to his body.",
+    "diff": "easy"
+  },
+  {
+    "word": "Coco",
+    "hint": "A young boy journeys into the Land of the Dead to uncover his family's musical history.",
+    "diff": "easy"
+  },
+  {
+    "word": "Room",
+    "hint": "A mother and her young son finally escape after being held captive in a tiny shed for years.",
+    "diff": "easy"
+  },
+  {
+    "word": "Nope",
+    "hint": "Siblings running a horse ranch discover a terrifying, cloud-dwelling UFO hovering over their property.",
+    "diff": "easy"
+  },
+  {
+    "word": "Joker",
+    "hint": "A failed comedian descends into madness and becomes a notorious criminal mastermind in Gotham.",
+    "diff": "easy"
+  },
+  {
+    "word": "Rush",
+    "hint": "Two rival Formula One drivers push themselves to the breaking point during the 1976 season.",
+    "diff": "easy"
+  },
+  {
+    "word": "Chef",
+    "hint": "A prominent chef quits his restaurant job and buys a food truck to reclaim his creative passion.",
+    "diff": "easy"
+  },
+  {
+    "word": "Lion",
+    "hint": "An Indian man adopted by an Australian family uses Google Earth to find his lost childhood home.",
+    "diff": "easy"
+  },
+  {
+    "word": "Sing",
+    "hint": "An optimistic koala hosts a grand singing competition to save his struggling theater.",
+    "diff": "easy"
+  },
+  {
+    "word": "Moana",
+    "hint": "A brave Polynesian teenager sets sail on a daring mission to save her people.",
+    "diff": "easy"
+  },
+  {
+    "word": "Logan",
+    "hint": "An aging mutant comes out of hiding to protect a young girl with powers similar to his own.",
+    "diff": "easy"
+  },
+  {
+    "word": "Thor",
+    "hint": "An arrogant god is stripped of his powers and banished to Earth to learn humility.",
+    "diff": "easy"
+  },
+  {
+    "word": "Argo",
+    "hint": "A CIA agent stages a fake sci-fi movie production to rescue hostages in Iran.",
+    "diff": "easy"
+  },
+  {
+    "word": "Lucy",
+    "hint": "A woman gains superhuman abilities after a synthetic drug is accidentally absorbed into her bloodstream.",
+    "diff": "easy"
+  },
+  {
+    "word": "Life",
+    "hint": "Astronauts aboard the ISS discover a rapidly evolving alien organism that threatens their survival.",
+    "diff": "easy"
+  },
+  {
+    "word": "Emma",
+    "hint": "A well-meaning but selfish young woman meddles in the love lives of her friends in 1800s England.",
+    "diff": "easy"
+  },
+  {
+    "word": "1917",
+    "hint": "Two British soldiers are tasked with delivering an urgent message across enemy lines during WWI.",
+    "diff": "easy"
+  },
+  {
+    "word": "Tenet",
+    "hint": "A secret agent learns to manipulate the flow of time to prevent a future global catastrophe.",
+    "diff": "easy"
+  },
+  {
+    "word": "Venom",
+    "hint": "A journalist bonds with an alien symbiote that gives him monstrous superpowers.",
+    "diff": "easy"
+  },
+  {
+    "word": "Brave",
+    "hint": "A Scottish princess defies tradition and accidentally curses her family, forcing her to undo the magic.",
+    "diff": "easy"
+  },
+  {
+    "word": "Hush",
+    "hint": "A deaf writer who retreated into the woods must fight for her life when a masked killer appears.",
+    "diff": "easy"
+  },
+  {
+    "word": "Sonic",
+    "hint": "A lightning-fast blue hedgehog teams up with a human sheriff to stop a mad scientist.",
+    "diff": "easy"
+  },
+  {
+    "word": "Creed",
+    "hint": "The son of a famous boxer seeks out his father's greatest rival to train him for the ring.",
+    "diff": "easy"
+  },
+  {
+    "word": "Glass",
+    "hint": "Three men with superhuman abilities are locked in a psychiatric facility.",
+    "diff": "easy"
+  },
+  {
+    "word": "Beast",
+    "hint": "A father and his two teenage daughters are hunted by a massive, rogue lion in South Africa.",
+    "diff": "easy"
+  },
+  {
+    "word": "Elvis",
+    "hint": "The life and music of the King of Rock and Roll is explored through his complex relationship with his manager.",
+    "diff": "easy"
+  },
+  {
+    "word": "Smile",
+    "hint": "A doctor is haunted by a terrifying curse that makes people grin unsettlingly before they die.",
+    "diff": "easy"
+  },
+  {
+    "word": "Plane",
+    "hint": "A commercial pilot must team up with an accused murderer to save his passengers after a crash landing.",
+    "diff": "easy"
+  },
+  {
+    "word": "Split",
+    "hint": "Three girls are kidnapped by a man who possesses 23 distinct personalities.",
+    "diff": "easy"
+  },
+  {
+    "word": "Carol",
+    "hint": "An aspiring photographer develops an intimate relationship with an older woman in 1950s New York.",
+    "diff": "easy"
+  },
+  {
+    "word": "Drive",
+    "hint": "A Hollywood stunt driver who moonlights as a getaway driver gets in over his head with the mob.",
+    "diff": "easy"
+  },
+  {
+    "word": "Super",
+    "hint": "An everyday man transforms himself into a wrench-wielding superhero to save his wife from a drug dealer.",
+    "diff": "easy"
+  },
+  {
+    "word": "Truth",
+    "hint": "A news producer and anchor face massive backlash after airing a controversial report about the President.",
+    "diff": "easy"
+  },
+  {
+    "word": "Burnt",
+    "hint": "A disgraced chef attempts to rebuild his career and earn his third Michelin star in London.",
+    "diff": "easy"
+  },
+  {
+    "word": "Mulan",
+    "hint": "A fearless young woman disguises herself as a man to battle northern invaders in China.",
+    "diff": "easy"
+  },
+  {
+    "word": "Heidi",
+    "hint": "A young orphan girl is taken to live with her reclusive grandfather in the Swiss Alps.",
+    "diff": "easy"
+  },
+  {
+    "word": "Shaft",
+    "hint": "A cyber security expert teams up with his estranged private-eye father to solve a murder.",
+    "diff": "easy"
+  },
+  {
+    "word": "Focus",
+    "hint": "A veteran con artist takes a novice under his wing but gets romantically involved.",
+    "diff": "easy"
+  },
+  {
+    "word": "Creep",
+    "hint": "A videographer answers a strange online ad to film a dying man's final messages to his unborn son.",
+    "diff": "easy"
+  },
+  {
+    "word": "Trash",
+    "hint": "Three boys who make a living picking through garbage find a wallet that corrupt cops desperately want.",
+    "diff": "easy"
+  },
+  {
+    "word": "Clown",
+    "hint": "A loving father puts on a clown suit for his son's birthday but finds he cannot take it off.",
+    "diff": "easy"
+  },
+  {
+    "word": "Hanna",
+    "hint": "A teenage girl raised in the wilderness by her father is trained to be the perfect assassin.",
+    "diff": "easy"
+  },
+  {
+    "word": "Sully",
+    "hint": "A heroic pilot faces an intense investigation after safely landing a damaged passenger plane on the Hudson River.",
+    "diff": "easy"
+  },
+  {
+    "word": "Dumbo",
+    "hint": "A struggling circus owner enlists a former star to care for a newborn elephant with oversized ears.",
+    "diff": "easy"
+  },
+  {
+    "word": "Finch",
+    "hint": "An ailing inventor builds a robot to protect his beloved dog in a post-apocalyptic world.",
+    "diff": "easy"
+  },
+  {
+    "word": "M3GAN",
+    "hint": "A robotics engineer builds a lifelike AI doll that becomes dangerously overprotective of her niece.",
+    "diff": "easy"
+  },
+  {
+    "word": "Dredd",
+    "hint": "A futuristic law enforcer fights his way up a 200-story high-rise to take down a drug lord.",
+    "diff": "easy"
+  },
+  {
+    "word": "Alita",
+    "hint": "A deactivated cyborg is revived by a doctor and must discover her extraordinary past.",
+    "diff": "easy"
+  },
+  {
+    "word": "Pearl",
+    "hint": "A young woman trapped on an isolated farm slowly descends into madness while dreaming of stardom.",
+    "diff": "easy"
+  },
+  {
+    "word": "Wonka",
+    "hint": "A young, eccentric chocolatier arrives in Europe to open a shop and challenge the chocolate cartel.",
+    "diff": "easy"
+  },
+  {
+    "word": "Coda",
+    "hint": "The only hearing member of a deaf family discovers a passion for singing.",
+    "diff": "easy"
+  },
+  {
+    "word": "Bros",
+    "hint": "Two men with commitment issues attempt to navigate a genuine relationship with each other.",
+    "diff": "easy"
+  },
+  {
+    "word": "Mank",
+    "hint": "A witty, alcoholic screenwriter races to finish the script for Citizen Kane.",
+    "diff": "easy"
+  },
+  {
+    "word": "Raya",
+    "hint": "A lone warrior searches for the last dragon to restore peace to her fractured fantasy world.",
+    "diff": "easy"
+  },
+  {
+    "word": "Noah",
+    "hint": "A man is chosen by the Creator to undertake a momentous mission before an apocalyptic flood.",
+    "diff": "easy"
+  },
+  {
+    "word": "Host",
+    "hint": "A group of friends accidentally invite a demonic presence into their homes during a Zoom seance.",
+    "diff": "easy"
+  },
+  {
+    "word": "Nyad",
+    "hint": "A marathon swimmer attempts to swim from Cuba to Florida without a shark cage at age 60.",
+    "diff": "easy"
+  },
+  {
+    "word": "Vice",
+    "hint": "A quiet bureaucratic insider slowly becomes the most powerful Vice President in American history.",
+    "diff": "easy"
+  },
+  {
+    "word": "Cats",
+    "hint": "A tribe of felines must decide yearly which one will ascend to the Heaviside Layer.",
+    "diff": "easy"
+  },
+  {
+    "word": "Judy",
+    "hint": "A legendary performer struggles with her health and management during a series of sold-out London shows.",
+    "diff": "easy"
+  },
+  {
+    "word": "Paul",
+    "hint": "Two British comic-book geeks traveling across the US encounter an alien outside Area 51.",
+    "diff": "easy"
+  },
+  {
+    "word": "Dope",
+    "hint": "A geeky high schooler from a tough neighborhood gets caught up in a dangerous underground drug transaction.",
+    "diff": "easy"
+  },
+  {
+    "word": "Roma",
+    "hint": "A year in the life of a middle-class family's maid in Mexico City during the 1970s.",
+    "diff": "easy"
+  },
+  {
+    "word": "Salt",
+    "hint": "A CIA officer goes on the run after a defector accuses her of being a Russian spy.",
+    "diff": "easy"
+  },
+  {
+    "word": "Hugo",
+    "hint": "An orphan living in the walls of a Paris train station gets wrapped up in a mystery involving an automaton.",
+    "diff": "easy"
+  },
+  {
+    "word": "Frozen",
+    "hint": "A princess sets off on a journey alongside an iceman to find her estranged sister whose icy powers trapped their kingdom.",
+    "diff": "medium"
+  },
+  {
+    "word": "Zootopia",
+    "hint": "A rookie bunny cop and a cynical con artist fox must work together to uncover a conspiracy in a mammalian metropolis.",
+    "diff": "medium"
+  },
+  {
+    "word": "Trolls",
+    "hint": "Happy, singing creatures must rescue their friends from giant, miserable monsters who eat them to feel joy.",
+    "diff": "medium"
+  },
+  {
+    "word": "Encanto",
+    "hint": "A Colombian teenage girl is the only member of her family without magical powers.",
+    "diff": "medium"
+  },
+  {
+    "word": "Tangled",
+    "hint": "A magically long-haired princess who has spent her life in a tower meets a handsome thief.",
+    "diff": "medium"
+  },
+  {
+    "word": "Minions",
+    "hint": "Small, yellow henchmen travel to a villain convention in the 1960s to find a new evil master to serve.",
+    "diff": "medium"
+  },
+  {
+    "word": "Onward",
+    "hint": "Two elf brothers embark on a magical quest to spend one last day with their late father.",
+    "diff": "medium"
+  },
+  {
+    "word": "Cars 2",
+    "hint": "A star race car and his tow truck best friend get caught up in international espionage.",
+    "diff": "medium"
+  },
+  {
+    "word": "Cars 3",
+    "hint": "A veteran race car is pushed out of the sport by a new generation of blazing-fast racers.",
+    "diff": "medium"
+  },
+  {
+    "word": "Planes",
+    "hint": "A crop-dusting aircraft with a fear of heights pursues his dream of competing in a famous aerial race.",
+    "diff": "medium"
+  },
+  {
+    "word": "Storks",
+    "hint": "Birds that have moved on from delivering babies to delivering packages accidentally activate a Baby Making Machine.",
+    "diff": "medium"
+  },
+  {
+    "word": "Gravity",
+    "hint": "Two astronauts work together to survive after an accident leaves them stranded in deep space.",
+    "diff": "medium"
+  },
+  {
+    "word": "Skyfall",
+    "hint": "James Bond's loyalty to M is tested when her past comes back to haunt her.",
+    "diff": "medium"
+  },
+  {
+    "word": "Spectre",
+    "hint": "A cryptic message from his past sends James Bond on a trail to uncover a sinister organization.",
+    "diff": "medium"
+  },
+  {
+    "word": "Arrival",
+    "hint": "A linguist works with the military to communicate with alien lifeforms after mysterious spacecraft land worldwide.",
+    "diff": "medium"
+  },
+  {
+    "word": "Get Out",
+    "hint": "A young Black man visits his white girlfriend's family estate and discovers a disturbing secret.",
+    "diff": "medium"
+  },
+  {
+    "word": "Parasite",
+    "hint": "A destitute family schemes to become employed by a wealthy family by infiltrating their household.",
+    "diff": "medium"
+  },
+  {
+    "word": "Birdman",
+    "hint": "A washed-up superhero actor struggles to mount a Broadway play to reclaim his former glory.",
+    "diff": "medium"
+  },
+  {
+    "word": "Deadpool",
+    "hint": "A wisecracking mercenary undergoes a rogue experiment that leaves him with accelerated healing powers.",
+    "diff": "medium"
+  },
+  {
+    "word": "Aquaman",
+    "hint": "The half-human, half-Atlantean heir to the underwater kingdom of Atlantis must step forward to lead his people.",
+    "diff": "medium"
+  },
+  {
+    "word": "Shazam",
+    "hint": "A teenage foster kid transforms into an adult superhero simply by shouting one magic word.",
+    "diff": "medium"
+  },
+  {
+    "word": "Ant-Man",
+    "hint": "A master thief dons a super-suit with the astonishing ability to shrink in scale but increase in strength.",
+    "diff": "medium"
+  },
+  {
+    "word": "Avengers",
+    "hint": "Earth's mightiest heroes must come together and learn to fight as a team to stop a mischievous god.",
+    "diff": "medium"
+  },
+  {
+    "word": "Dunkirk",
+    "hint": "Allied soldiers from Belgium, the British Empire, and France are surrounded by the German army and evacuated during WWII.",
+    "diff": "medium"
+  },
+  {
+    "word": "Sicario",
+    "hint": "An idealistic FBI agent is enlisted by a government task force to aid in the escalating war against drugs.",
+    "diff": "medium"
+  },
+  {
+    "word": "Boyhood",
+    "hint": "The life of a boy is chronicled from early childhood to his arrival at college, filmed over 12 years.",
+    "diff": "medium"
+  },
+  {
+    "word": "Whiplash",
+    "hint": "A promising young drummer enrolls at a cutthroat music conservatory where his dreams of greatness are tested.",
+    "diff": "medium"
+  },
+  {
+    "word": "Belfast",
+    "hint": "A young boy's childhood is chronicled amidst the tumult of late-1960s Northern Ireland.",
+    "diff": "medium"
+  },
+  {
+    "word": "Barbie",
+    "hint": "A famous doll suffers a crisis that leads her to question her world and her existence.",
+    "diff": "medium"
+  },
+  {
+    "word": "Babylon",
+    "hint": "A tale of outsized ambition and outrageous excess in 1920s Hollywood.",
+    "diff": "medium"
+  },
+  {
+    "word": "The Menu",
+    "hint": "A young couple travels to a remote island to eat at an exclusive restaurant where the chef has prepared a shocking menu.",
+    "diff": "medium"
+  },
+  {
+    "word": "Scream",
+    "hint": "A new killer dons the Ghostface mask to target a group of teenagers and resurrect secrets from a town's deadly past.",
+    "diff": "medium"
+  },
+  {
+    "word": "Eternals",
+    "hint": "Immortal beings emerge from hiding to protect Earth from their ancient counterparts.",
+    "diff": "medium"
+  },
+  {
+    "word": "Cruella",
+    "hint": "The rebellious early days of one of cinema's most notorious and fashion-forward villains.",
+    "diff": "medium"
+  },
+  {
+    "word": "Nobody",
+    "hint": "A docile family man slowly reveals his true character after his house is burglarized.",
+    "diff": "medium"
+  },
+  {
+    "word": "Midway",
+    "hint": "The story of the Battle of Midway, told by the leaders and the sailors who fought it.",
+    "diff": "medium"
+  },
+  {
+    "word": "Hamilton",
+    "hint": "A filmed version of the acclaimed Broadway musical about the Founding Fathers.",
+    "diff": "medium"
+  },
+  {
+    "word": "Morbius",
+    "hint": "A biochemist tries to cure himself of a rare blood disease but inadvertently infects himself with a form of vampirism.",
+    "diff": "medium"
+  },
+  {
+    "word": "Free Guy",
+    "hint": "A bank teller discovers he is actually a non-player character in a brutal, open-world video game.",
+    "diff": "medium"
+  },
+  {
+    "word": "Candyman",
+    "hint": "A visual artist explores the macabre history of an urban legend in a gentrified Chicago neighborhood.",
+    "diff": "medium"
+  },
+  {
+    "word": "Jumanji",
+    "hint": "Four teenagers are sucked into a magical video game and must survive the jungle to escape.",
+    "diff": "medium"
+  },
+  {
+    "word": "Rampage",
+    "hint": "A primatologist must save Chicago from a silverback gorilla, a wolf, and a crocodile that have mutated into giants.",
+    "diff": "medium"
+  },
+  {
+    "word": "The Meg",
+    "hint": "A deep-sea rescue diver is recruited to save the crew of a submersible from a massive, prehistoric shark.",
+    "diff": "medium"
+  },
+  {
+    "word": "Fast X",
+    "hint": "Dom Toretto and his family are targeted by the vengeful son of drug kingpin Hernan Reyes.",
+    "diff": "medium"
+  },
+  {
+    "word": "Oblivion",
+    "hint": "A drone repairman assigned to an Earth left ruined by alien war discovers a shocking truth about his mission.",
+    "diff": "medium"
+  },
+  {
+    "word": "Godzilla",
+    "hint": "The world's most famous monster is pitted against malevolent creatures who threaten humanity's very existence.",
+    "diff": "medium"
+  },
+  {
+    "word": "Warcraft",
+    "hint": "The peaceful realm of Azeroth stands on the brink of war as its civilization faces a fearsome race of invaders.",
+    "diff": "medium"
+  },
+  {
+    "word": "Aladdin",
+    "hint": "A kind-hearted street urchin and a power-hungry Grand Vizier vie for a magic lamp that has the power to make their deepest wishes come true.",
+    "diff": "medium"
+  },
+  {
+    "word": "Jungle",
+    "hint": "A group of friends joins a guide for a trek into the Bolivian Amazon, which quickly turns into a nightmare.",
+    "diff": "medium"
+  },
+  {
+    "word": "Hercules",
+    "hint": "A legendary Greek hero becomes a mercenary and is hired by the King of Thrace to train his army.",
+    "diff": "medium"
+  },
+  {
+    "word": "Exodus",
+    "hint": "The defiant leader Moses rises up against the Egyptian Pharaoh Ramses, leading 400,000 slaves on a monumental journey.",
+    "diff": "medium"
+  },
+  {
+    "word": "Kraven",
+    "hint": "A Russian immigrant goes on a mission to prove that he is the greatest hunter in the world.",
+    "diff": "medium"
+  },
+  {
+    "word": "Chappie",
+    "hint": "In the near future, an experimental police droid is stolen and reprogrammed with the ability to think and feel for itself.",
+    "diff": "medium"
+  },
+  {
+    "word": "Snitch",
+    "hint": "A father goes undercover for the DEA in order to free his son, who was imprisoned after being set up in a drug deal.",
+    "diff": "medium"
+  },
+  {
+    "word": "Dolittle",
+    "hint": "A physician who can talk to animals embarks on an epic adventure to a mythical island to find a cure for the young Queen.",
+    "diff": "medium"
+  },
+  {
+    "word": "The Town",
+    "hint": "A proficient group of bank robbers gets pursued by a relentless FBI agent while one falls in love with a hostage.",
+    "diff": "medium"
+  },
+  {
+    "word": "In Time",
+    "hint": "In a future where people stop aging at 25, a man is falsely accused of murder and must figure out how to survive.",
+    "diff": "medium"
+  },
+  {
+    "word": "Looper",
+    "hint": "A hitman in the past must execute a target sent back from the future—until the target turns out to be his older self.",
+    "diff": "medium"
+  },
+  {
+    "word": "Elysium",
+    "hint": "In the year 2154, the very wealthy live on a man-made space station while the rest of the population resides on a ruined Earth.",
+    "diff": "medium"
+  },
+  {
+    "word": "Macbeth",
+    "hint": "A Scottish duke receives a prophecy from a trio of witches that one day he will become King of Scotland.",
+    "diff": "medium"
+  },
+  {
+    "word": "The Post",
+    "hint": "Publishers and editors of the Washington Post join an unprecedented battle between the press and the government.",
+    "diff": "medium"
+  },
+  {
+    "word": "Widows",
+    "hint": "Four women with nothing in common except a debt left behind by their dead husbands' criminal activities take fate into their own hands.",
+    "diff": "medium"
+  },
+  {
+    "word": "Ad Astra",
+    "hint": "An astronaut travels to the outer edges of the solar system to find his missing father and unravel a mystery.",
+    "diff": "medium"
+  },
+  {
+    "word": "The King",
+    "hint": "A wayward prince ascends the English throne upon his father's death, and must navigate the politics of war.",
+    "diff": "medium"
+  },
+  {
+    "word": "The Host",
+    "hint": "When an unseen enemy takes over humanity by erasing their memories, one woman risks everything to protect the men she loves.",
+    "diff": "medium"
+  },
+  {
+    "word": "Upgrade",
+    "hint": "A technophobe receives an experimental computer chip implant that grants him superhuman abilities to seek revenge.",
+    "diff": "medium"
+  },
+  {
+    "word": "RoboCop",
+    "hint": "In 2028 Detroit, a multinational conglomerate sees its chance for a part-man, part-robot police officer.",
+    "diff": "medium"
+  },
+  {
+    "word": "Bird Box",
+    "hint": "A mother and her two children blindfold themselves to navigate a dangerous river and avoid mysterious creatures that cause suicide.",
+    "diff": "medium"
+  },
+  {
+    "word": "Tetris",
+    "hint": "An American video game salesman travels to the Soviet Union to secure the rights to a wildly addictive puzzle game.",
+    "diff": "medium"
+  },
+  {
+    "word": "Saltburn",
+    "hint": "An Oxford university student finds himself drawn into the charming and aristocratic world of his wealthy classmate.",
+    "diff": "medium"
+  },
+  {
+    "word": "Rustin",
+    "hint": "The story of the activist who helped organize the 1963 March on Washington.",
+    "diff": "medium"
+  },
+  {
+    "word": "Maestro",
+    "hint": "A love letter to life and art that chronicles the lifelong relationship between Leonard Bernstein and Felicia Montealegre.",
+    "diff": "medium"
+  },
+  {
+    "word": "Argylle",
+    "hint": "A reclusive author of espionage novels realizes her plots are mirroring the real-world actions of a secret spy organization.",
+    "diff": "medium"
+  },
+  {
+    "word": "Napoleon",
+    "hint": "An epic that details the checkered rise and fall of the iconic French Emperor.",
+    "diff": "medium"
+  },
+  {
+    "word": "Ferrari",
+    "hint": "During the summer of 1957, an ex-racecar driver is in crisis as bankruptcy stalks the company he and his wife built.",
+    "diff": "medium"
+  },
+  {
+    "word": "Buried",
+    "hint": "An American civilian truck driver in Iraq wakes up in a wooden coffin with only a lighter and a cell phone.",
+    "diff": "medium"
+  },
+  {
+    "word": "Iron Man 3",
+    "hint": "Tony Stark's world is torn apart by a formidable terrorist called the Mandarin, forcing him to rebuild.",
+    "diff": "hard"
+  },
+  {
+    "word": "John Wick",
+    "hint": "An ex-hitman comes out of retirement to track down the gangsters that killed his dog and stole his car.",
+    "diff": "hard"
+  },
+  {
+    "word": "Prisoners",
+    "hint": "When his daughter is abducted and the police investigation stalls, a desperate father takes matters into his own hands.",
+    "diff": "hard"
+  },
+  {
+    "word": "Gone Girl",
+    "hint": "With his wife's disappearance having become the focus of an intense media circus, a man sees the spotlight turned on him.",
+    "diff": "hard"
+  },
+  {
+    "word": "La La Land",
+    "hint": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+    "diff": "hard"
+  },
+  {
+    "word": "Spotlight",
+    "hint": "The true story of how the Boston Globe uncovered the massive scandal of child molestation within the local Catholic Archdiocese.",
+    "diff": "hard"
+  },
+  {
+    "word": "Moonlight",
+    "hint": "A chronicle of the childhood, adolescence and burgeoning adulthood of a young, African-American, gay man growing up in a rough neighborhood of Miami.",
+    "diff": "hard"
+  },
+  {
+    "word": "Green Book",
+    "hint": "A working-class Italian-American bouncer becomes the driver of an African-American classical pianist on a tour of venues through the 1960s American South.",
+    "diff": "hard"
+  },
+  {
+    "word": "Knives Out",
+    "hint": "A detective investigates the death of a patriarch of an eccentric, combative family.",
+    "diff": "hard"
+  },
+  {
+    "word": "Jojo Rabbit",
+    "hint": "A young boy in Hitler's army finds out his mother is hiding a Jewish girl in their home.",
+    "diff": "hard"
+  },
+  {
+    "word": "Nomadland",
+    "hint": "A woman in her sixties who, after losing everything in the Great Recession, embarks on a journey through the American West.",
+    "diff": "hard"
+  },
+  {
+    "word": "Oppenheimer",
+    "hint": "The story of the American scientist and his role in the development of the atomic bomb.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Whale",
+    "hint": "A reclusive, morbidly obese English teacher attempts to reconnect with his estranged teenage daughter.",
+    "diff": "hard"
+  },
+  {
+    "word": "Black Adam",
+    "hint": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods, a warrior is freed from his earthly tomb.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Batman",
+    "hint": "A vigilante detective in Gotham City investigates a hidden world of corruption tied to his own family while pursuing a serial killer.",
+    "diff": "hard"
+  },
+  {
+    "word": "Greyhound",
+    "hint": "A U.S. Navy commander must lead an Allied convoy being stalked by Nazi U-boat wolfpacks during World War II.",
+    "diff": "hard"
+  },
+  {
+    "word": "Turning Red",
+    "hint": "A 13-year-old girl is torn between staying her mother's dutiful daughter and the changes of adolescence, which periodically turn her into a giant red panda.",
+    "diff": "hard"
+  },
+  {
+    "word": "Lightyear",
+    "hint": "The definitive origin story of the legendary Space Ranger who inspired a famous toy.",
+    "diff": "hard"
+  },
+  {
+    "word": "Ambulance",
+    "hint": "Two adoptive siblings bank robbers hijack an emergency vehicle with a wounded cop and a paramedic on board.",
+    "diff": "hard"
+  },
+  {
+    "word": "Uncharted",
+    "hint": "A street-smart thief is recruited by a seasoned treasure hunter to recover a fortune lost by Ferdinand Magellan.",
+    "diff": "hard"
+  },
+  {
+    "word": "Black Widow",
+    "hint": "Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.",
+    "diff": "hard"
+  },
+  {
+    "word": "Inside Out",
+    "hint": "After a young girl is uprooted from her Midwest life and moved to San Francisco, her emotions conflict on how best to navigate a new city.",
+    "diff": "hard"
+  },
+  {
+    "word": "Despicable Me",
+    "hint": "A criminal mastermind uses a trio of orphan girls as pawns for a grand scheme, but finds their love profoundly changing him.",
+    "diff": "hard"
+  },
+  {
+    "word": "Paddington",
+    "hint": "A young Peruvian bear travels to London in search of a home and finds himself lost at Paddington Station.",
+    "diff": "hard"
+  },
+  {
+    "word": "Peter Rabbit",
+    "hint": "A mischievous and adventurous bunny's feud with Mr. McGregor escalates to greater heights than ever before.",
+    "diff": "hard"
+  },
+  {
+    "word": "San Andreas",
+    "hint": "In the aftermath of a massive earthquake in California, a rescue-chopper pilot makes a dangerous journey to rescue his daughter.",
+    "diff": "hard"
+  },
+  {
+    "word": "Fast Five",
+    "hint": "Dominic Toretto and his crew of street racers plan a massive heist to buy their freedom while in the sights of a powerful Brazilian drug lord.",
+    "diff": "hard"
+  },
+  {
+    "word": "Jason Bourne",
+    "hint": "The CIA's most lethal former operative is drawn out of the shadows to uncover more explosive truths about his past.",
+    "diff": "hard"
+  },
+  {
+    "word": "Edge of Tomorrow",
+    "hint": "A soldier fighting aliens gets to relive the same day over and over again, the day restarting every time he dies.",
+    "diff": "hard"
+  },
+  {
+    "word": "Pacific Rim",
+    "hint": "As a war between humankind and monstrous sea creatures wages on, a former pilot and a trainee are paired up to drive a seemingly obsolete special weapon.",
+    "diff": "hard"
+  },
+  {
+    "word": "Tomb Raider",
+    "hint": "The fiercely independent daughter of a missing adventurer must push herself beyond her limits when she discovers the island where her father disappeared.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Lion King",
+    "hint": "A CGI remake where a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
+    "diff": "hard"
+  },
+  {
+    "word": "Pinocchio",
+    "hint": "A dark, stop-motion retelling of the classic tale of a wooden puppet who wants to be a real boy in 1930s Italy.",
+    "diff": "hard"
+  },
+  {
+    "word": "Cinderella",
+    "hint": "A live-action retelling where a girl's cruel stepmother and stepsisters prevent her from attending the Royal Ball.",
+    "diff": "hard"
+  },
+  {
+    "word": "Maleficent",
+    "hint": "A vengeful fairy is driven to curse an infant princess, only to discover that the child may be the one person who can restore peace to their troubled land.",
+    "diff": "hard"
+  },
+  {
+    "word": "Man of Steel",
+    "hint": "An alien infant is raised on Earth and must become a symbol of hope for mankind when members of his race threaten the planet.",
+    "diff": "hard"
+  },
+  {
+    "word": "Wonder Woman",
+    "hint": "When a pilot crashes and tells of conflict in the outside world, an Amazonian princess leaves home to fight a war to end all wars.",
+    "diff": "hard"
+  },
+  {
+    "word": "Suicide Squad",
+    "hint": "A secret government agency recruits some of the most dangerous incarcerated super-villains to form a defensive task force.",
+    "diff": "hard"
+  },
+  {
+    "word": "Birds of Prey",
+    "hint": "After splitting with the Joker, Harley Quinn joins superheroes Black Canary, Huntress and Renee Montoya to save a young girl from an evil crime lord.",
+    "diff": "hard"
+  },
+  {
+    "word": "Justice League",
+    "hint": "Fueled by his restored faith in humanity, Bruce Wayne enlists the help of his newfound ally, Diana Prince, to face an even greater enemy.",
+    "diff": "hard"
+  },
+  {
+    "word": "Doctor Strange",
+    "hint": "While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.",
+    "diff": "hard"
+  },
+  {
+    "word": "Black Panther",
+    "hint": "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future.",
+    "diff": "hard"
+  },
+  {
+    "word": "Captain Marvel",
+    "hint": "An extraterrestrial Kree warrior finds herself caught in the middle of an intergalactic battle between her people and the Skrulls.",
+    "diff": "hard"
+  },
+  {
+    "word": "Guardians of the Galaxy",
+    "hint": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
+    "diff": "hard"
+  },
+  {
+    "word": "Shang-Chi",
+    "hint": "A martial arts master must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization.",
+    "diff": "hard"
+  },
+  {
+    "word": "Madame Web",
+    "hint": "A paramedic with clairvoyant abilities is forced to confront her past while trying to save three young women with powerful futures.",
+    "diff": "hard"
+  },
+  {
+    "word": "New Mutants",
+    "hint": "Five young mutants, just discovering their abilities while held in a secret facility against their will, fight to escape their past sins.",
+    "diff": "hard"
+  },
+  {
+    "word": "Dark Phoenix",
+    "hint": "Jean Grey begins to develop incredible powers that corrupt and turn her into a Dark Phoenix, causing the X-Men to decide if her life is worth more than humanity.",
+    "diff": "hard"
+  },
+  {
+    "word": "X-Men: First Class",
+    "hint": "In the 1960s, superpowered humans Charles Xavier and Erik Lensherr work together to find others like them, but their rift over mutant integration turns them into enemies.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Wolverine",
+    "hint": "Summoned to Japan by an old acquaintance, Logan becomes embroiled in a conflict that forces him to confront his own demons.",
+    "diff": "hard"
+  },
+  {
+    "word": "Fantastic Four",
+    "hint": "Four young outsiders teleport to an alternate and dangerous universe which alters their physical form in shocking ways.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Hunger Games",
+    "hint": "Katniss Everdeen voluntarily takes her younger sister's place in a televised competition in which two teenagers from each of the twelve Districts of Panem are chosen at random to fight to the death.",
+    "diff": "hard"
+  },
+  {
+    "word": "Divergent",
+    "hint": "In a world divided by factions based on virtues, a teenage girl learns she doesn't fit into any one group and discovers a plot to destroy those like her.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Maze Runner",
+    "hint": "A boy wakes up in an elevator, remembering nothing but his name, and emerges into a world of boys trapped in a massive puzzle.",
+    "diff": "hard"
+  },
+  {
+    "word": "Ready Player One",
+    "hint": "When the creator of a virtual reality called the OASIS dies, he makes a posthumous challenge to all OASIS users to find his Easter Egg, which will give the finder his fortune.",
+    "diff": "hard"
+  },
+  {
+    "word": "Alita: Battle Angel",
+    "hint": "A deactivated cyborg is revived, but cannot remember anything of her past life and goes on a quest to find out who she is.",
+    "diff": "hard"
+  },
+  {
+    "word": "Blade Runner 2049",
+    "hint": "A young blade runner's discovery of a long-buried secret leads him to track down former blade runner Rick Deckard, who's been missing for thirty years.",
+    "diff": "hard"
+  },
+  {
+    "word": "Mad Max: Fury Road",
+    "hint": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners and a drifter.",
+    "diff": "hard"
+  },
+  {
+    "word": "Inception",
+    "hint": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "diff": "hard"
+  },
+  {
+    "word": "Interstellar",
+    "hint": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Martian",
+    "hint": "An astronaut becomes stranded on Mars after his team assume him dead, and must rely on his ingenuity to find a way to signal to Earth that he is alive.",
+    "diff": "hard"
+  },
+  {
+    "word": "Prometheus",
+    "hint": "Following clues to the origin of mankind, a team finds a structure on a distant moon, but they soon realize they are not alone.",
+    "diff": "hard"
+  },
+  {
+    "word": "Alien: Covenant",
+    "hint": "The crew of a colony ship, bound for a remote planet, discover an uncharted paradise with a threat beyond their imagination.",
+    "diff": "hard"
+  },
+  {
+    "word": "Jurassic World",
+    "hint": "A new theme park, built on the original site of Jurassic Park, creates a genetically modified hybrid dinosaur, the Indominus Rex, which escapes containment.",
+    "diff": "hard"
+  },
+  {
+    "word": "World War Z",
+    "hint": "Former United Nations employee Gerry Lane traverses the world in a race against time to stop a zombie pandemic.",
+    "diff": "hard"
+  },
+  {
+    "word": "Train to Busan",
+    "hint": "While a zombie virus breaks out in South Korea, passengers struggle to survive on the train from Seoul to Busan.",
+    "diff": "hard"
+  },
+  {
+    "word": "A Quiet Place",
+    "hint": "A family is forced to live in silence while hiding from blind extraterrestrial creatures that hunt by sound.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Conjuring",
+    "hint": "Paranormal investigators Ed and Lorraine Warren work to help a family terrorized by a dark presence in their farmhouse.",
+    "diff": "hard"
+  },
+  {
+    "word": "Annabelle",
+    "hint": "A couple begins to experience terrifying supernatural occurrences involving a vintage doll shortly after their home is invaded by satanic cultists.",
+    "diff": "hard"
+  },
+  {
+    "word": "It Chapter Two",
+    "hint": "Twenty-seven years after their first encounter with the terrifying Pennywise, the Losers Club have grown up and moved away, until a devastating phone call brings them back.",
+    "diff": "hard"
+  },
+  {
+    "word": "Halloween Kills",
+    "hint": "The nightmare isn't over as unstoppable killer Michael Myers escapes from Laurie Strode's trap to continue his ritual bloodbath.",
+    "diff": "hard"
+  },
+  {
+    "word": "Evil Dead Rise",
+    "hint": "A twisted tale of two estranged sisters whose reunion is cut short by the rise of flesh-possessing demons.",
+    "diff": "hard"
+  },
+  {
+    "word": "Spider-Man: Across the Spider-Verse",
+    "hint": "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
+    "diff": "hard"
+  },
+  {
+    "word": "Guardians of the Galaxy Vol. 3",
+    "hint": "Still reeling from the loss of Gamora, Peter Quill rallies his team to defend the universe and one of their own.",
+    "diff": "hard"
+  },
+  {
+    "word": "John Wick: Chapter 4",
+    "hint": "John Wick uncovers a path to defeating The High Table, but before he can earn his freedom, Wick must face off against a new enemy.",
+    "diff": "hard"
+  },
+  {
+    "word": "Mission: Impossible - Dead Reckoning",
+    "hint": "Ethan Hunt and his IMF team embark on their most dangerous mission yet to track down a terrifying new weapon.",
+    "diff": "hard"
+  },
+  {
+    "word": "Transformers: Rise of the Beasts",
+    "hint": "During the 1990s, a new faction of Transformers - the Maximals - join the Autobots as allies in the battle for Earth.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Little Mermaid",
+    "hint": "A young mermaid makes a deal with a sea witch to trade her beautiful voice for human legs so she can discover the world above water.",
+    "diff": "hard"
+  },
+  {
+    "word": "Elemental",
+    "hint": "In a city where fire, water, land and air residents live together, a fiery young woman and a go-with-the-flow guy discover something elemental.",
+    "diff": "hard"
+  },
+  {
+    "word": "Five Nights at Freddy's",
+    "hint": "A troubled security guard begins working at an abandoned pizzeria and quickly realizes the night shift won't be so easy to make it through.",
+    "diff": "hard"
+  },
+  {
+    "word": "Killers of the Flower Moon",
+    "hint": "Members of the Osage tribe in the United States are murdered under mysterious circumstances in the 1920s.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Color Purple",
+    "hint": "A musical adaptation of Alice Walker's novel about the lifelong struggles of an African-American woman living in the South.",
+    "diff": "hard"
+  },
+  {
+    "word": "Anyone But You",
+    "hint": "After an amazing first date, Bea and Ben's fiery attraction turns ice cold - until they find themselves unexpectedly reunited at a destination wedding.",
+    "diff": "hard"
+  },
+  {
+    "word": "Poor Things",
+    "hint": "The incredible tale about the fantastical evolution of Bella Baxter, a young woman brought back to life by the brilliant and unorthodox Dr. Godwin Baxter.",
+    "diff": "hard"
+  },
+  {
+    "word": "American Fiction",
+    "hint": "A novelist who's fed up with the establishment profiting from 'Black' entertainment uses a pen name to write a book that propels him to the heart of hypocrisy.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Holdovers",
+    "hint": "A cranky history teacher at a remote prep school is forced to remain on campus over the holidays with a troubled student who has no place to go.",
+    "diff": "hard"
+  },
+  {
+    "word": "Past Lives",
+    "hint": "Two deeply connected childhood friends are wrest apart after one's family emigrates from South Korea, only to be reunited two decades later.",
+    "diff": "hard"
+  },
+  {
+    "word": "Anatomy of a Fall",
+    "hint": "A woman is suspected of her husband's murder, and their blind son faces a moral dilemma as the sole witness.",
+    "diff": "hard"
+  },
+  {
+    "word": "Spider-Man: No Way Home",
+    "hint": "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help, but when a spell goes wrong, dangerous foes from other worlds start to appear.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Avengers",
+    "hint": "Earth's mightiest heroes must come together and learn to fight as a team to stop a mischievous god and his alien army.",
+    "diff": "hard"
+  },
+  {
+    "word": "Avengers: Age of Ultron",
+    "hint": "When Tony Stark and Bruce Banner try to jump-start a dormant peacekeeping program, things go horribly wrong.",
+    "diff": "hard"
+  },
+  {
+    "word": "Avengers: Infinity War",
+    "hint": "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation.",
+    "diff": "hard"
+  },
+  {
+    "word": "Avengers: Endgame",
+    "hint": "After the devastating events of the previous film, the remaining heroes assemble once more in order to reverse Thanos' actions.",
+    "diff": "hard"
+  },
+  {
+    "word": "Iron Man 2",
+    "hint": "With the world now aware of his identity as Iron Man, Tony Stark must contend with both his declining health and a vengeful mad man tied to his father's legacy.",
+    "diff": "hard"
+  },
+  {
+    "word": "Captain America: The First Avenger",
+    "hint": "Steve Rogers, a rejected military soldier, transforms into a super-soldier after taking a dose of a 'Super-Soldier serum'.",
+    "diff": "hard"
+  },
+  {
+    "word": "Captain America: Civil War",
+    "hint": "Political involvement in the Avengers' affairs causes a rift between Captain America and Iron Man.",
+    "diff": "hard"
+  },
+  {
+    "word": "Thor: Ragnarok",
+    "hint": "Imprisoned on the planet Sakaar, Thor must race against time to return to Asgard and stop a ruthless villain.",
+    "diff": "hard"
+  },
+  {
+    "word": "Thor: Love and Thunder",
+    "hint": "Thor enlists the help of Valkyrie, Korg and ex-girlfriend Jane Foster to fight a galactic killer known as Gorr the God Butcher.",
+    "diff": "hard"
+  },
+  {
+    "word": "The Marvels",
+    "hint": "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
+    "diff": "hard"
+  }
+];

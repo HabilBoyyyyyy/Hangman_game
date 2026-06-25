@@ -1,0 +1,1998 @@
+window.WORD_BANK = window.WORD_BANK || {};
+window.WORD_BANK["food"] = [
+  {
+    "word": "taco",
+    "hint": "A Mexican dish consisting of a folded tortilla filled with meat, cheese, and lettuce.",
+    "diff": "easy"
+  },
+  {
+    "word": "meat",
+    "hint": "The flesh of an animal consumed as food.",
+    "diff": "easy"
+  },
+  {
+    "word": "rice",
+    "hint": "A widely consumed staple grain that is often boiled or steamed.",
+    "diff": "easy"
+  },
+  {
+    "word": "plum",
+    "hint": "A sweet, juicy purple or red fruit with a pit.",
+    "diff": "easy"
+  },
+  {
+    "word": "pear",
+    "hint": "A sweet, bell-shaped fruit.",
+    "diff": "easy"
+  },
+  {
+    "word": "cake",
+    "hint": "A sweet baked dessert made from flour, sugar, and eggs.",
+    "diff": "easy"
+  },
+  {
+    "word": "soup",
+    "hint": "A liquid dish, typically made by boiling meat, fish, or vegetables in stock or water.",
+    "diff": "easy"
+  },
+  {
+    "word": "fish",
+    "hint": "A scaly aquatic animal caught for food.",
+    "diff": "easy"
+  },
+  {
+    "word": "beef",
+    "hint": "Culinary name for meat from cattle.",
+    "diff": "easy"
+  },
+  {
+    "word": "pork",
+    "hint": "Culinary name for meat from a domestic pig.",
+    "diff": "easy"
+  },
+  {
+    "word": "lamb",
+    "hint": "Meat from a young sheep.",
+    "diff": "easy"
+  },
+  {
+    "word": "corn",
+    "hint": "A cereal plant that yields large grains set in rows on a cob.",
+    "diff": "easy"
+  },
+  {
+    "word": "bean",
+    "hint": "An edible seed, typically kidney-shaped.",
+    "diff": "easy"
+  },
+  {
+    "word": "kiwi",
+    "hint": "A small, fuzzy brown fruit with bright green flesh.",
+    "diff": "easy"
+  },
+  {
+    "word": "lime",
+    "hint": "A sour, green citrus fruit.",
+    "diff": "easy"
+  },
+  {
+    "word": "mint",
+    "hint": "An aromatic plant often used as a refreshing flavor in drinks and desserts.",
+    "diff": "easy"
+  },
+  {
+    "word": "salt",
+    "hint": "A white crystalline seasoning essential for human life.",
+    "diff": "easy"
+  },
+  {
+    "word": "crab",
+    "hint": "A crustacean with a broad carapace and pincers, valued as seafood.",
+    "diff": "easy"
+  },
+  {
+    "word": "tuna",
+    "hint": "A large marine fish widely eaten baked or canned.",
+    "diff": "easy"
+  },
+  {
+    "word": "clam",
+    "hint": "A marine bivalve mollusk frequently used in chowders.",
+    "diff": "easy"
+  },
+  {
+    "word": "duck",
+    "hint": "A waterbird commonly roasted for its rich meat.",
+    "diff": "easy"
+  },
+  {
+    "word": "veal",
+    "hint": "Meat from a young calf.",
+    "diff": "easy"
+  },
+  {
+    "word": "milk",
+    "hint": "A white liquid produced by mammals, commonly consumed from cows.",
+    "diff": "easy"
+  },
+  {
+    "word": "brie",
+    "hint": "A soft, creamy French cheese with a white rind.",
+    "diff": "easy"
+  },
+  {
+    "word": "feta",
+    "hint": "A crumbly white Greek cheese made from sheep's milk.",
+    "diff": "easy"
+  },
+  {
+    "word": "yams",
+    "hint": "A starchy root vegetable similar to a sweet potato.",
+    "diff": "easy"
+  },
+  {
+    "word": "leek",
+    "hint": "A vegetable related to the onion, with flat overlapping leaves.",
+    "diff": "easy"
+  },
+  {
+    "word": "okra",
+    "hint": "A green plant with edible seed pods, common in Southern US cooking.",
+    "diff": "easy"
+  },
+  {
+    "word": "date",
+    "hint": "A sweet, dark brown oval fruit grown on palm trees.",
+    "diff": "easy"
+  },
+  {
+    "word": "figs",
+    "hint": "Soft, sweet fruits full of small seeds, often eaten dried.",
+    "diff": "easy"
+  },
+  {
+    "word": "taro",
+    "hint": "A tropical Asian plant primarily grown for its edible starchy corm.",
+    "diff": "easy"
+  },
+  {
+    "word": "tofu",
+    "hint": "A soft, white food made from mashed soybeans.",
+    "diff": "easy"
+  },
+  {
+    "word": "miso",
+    "hint": "A fermented soybean paste used in Japanese cooking.",
+    "diff": "easy"
+  },
+  {
+    "word": "gyro",
+    "hint": "A Greek sandwich made of meat cooked on a vertical rotisserie.",
+    "diff": "easy"
+  },
+  {
+    "word": "naan",
+    "hint": "A leavened, oven-baked flatbread common in Indian cuisine.",
+    "diff": "easy"
+  },
+  {
+    "word": "pita",
+    "hint": "A round flatbread that can be cut open to form a pocket.",
+    "diff": "easy"
+  },
+  {
+    "word": "roll",
+    "hint": "A small, individual loaf of bread.",
+    "diff": "easy"
+  },
+  {
+    "word": "buns",
+    "hint": "Small, sweet or savory bread rolls.",
+    "diff": "easy"
+  },
+  {
+    "word": "tart",
+    "hint": "A baked dish consisting of a filling over a pastry base with an open top.",
+    "diff": "easy"
+  },
+  {
+    "word": "flan",
+    "hint": "A baked custard dessert topped with caramel.",
+    "diff": "easy"
+  },
+  {
+    "word": "pies",
+    "hint": "Baked dishes made of pastry dough casing that covers a sweet or savory filling.",
+    "diff": "easy"
+  },
+  {
+    "word": "chip",
+    "hint": "A thin slice of food, typically potato, made crisp by frying or baking.",
+    "diff": "easy"
+  },
+  {
+    "word": "dips",
+    "hint": "Thick sauces in which pieces of food are dunked before eating.",
+    "diff": "easy"
+  },
+  {
+    "word": "nuts",
+    "hint": "Hard-shelled dry fruits or seeds with an edible kernel.",
+    "diff": "easy"
+  },
+  {
+    "word": "oats",
+    "hint": "A cereal grain commonly eaten as porridge.",
+    "diff": "easy"
+  },
+  {
+    "word": "bran",
+    "hint": "The hard outer layers of cereal grain, rich in dietary fiber.",
+    "diff": "easy"
+  },
+  {
+    "word": "slaw",
+    "hint": "A salad consisting primarily of finely shredded raw cabbage.",
+    "diff": "easy"
+  },
+  {
+    "word": "hash",
+    "hint": "A dish of chopped meat, potatoes, and onions fried together.",
+    "diff": "easy"
+  },
+  {
+    "word": "mash",
+    "hint": "A dish made by crushing a cooked root vegetable, usually potatoes.",
+    "diff": "easy"
+  },
+  {
+    "word": "pate",
+    "hint": "A rich, savory paste made from finely minced or mashed meat.",
+    "diff": "easy"
+  },
+  {
+    "word": "roux",
+    "hint": "A mixture of fat and flour used in making sauces.",
+    "diff": "easy"
+  },
+  {
+    "word": "mayo",
+    "hint": "A thick, creamy dressing consisting of egg yolks, oil, and vinegar.",
+    "diff": "easy"
+  },
+  {
+    "word": "curd",
+    "hint": "A soft, white substance formed when milk sours, used as the basis for cheese.",
+    "diff": "easy"
+  },
+  {
+    "word": "ziti",
+    "hint": "A tubular pasta similar to penne but without ridges.",
+    "diff": "easy"
+  },
+  {
+    "word": "orzo",
+    "hint": "A form of short-cut pasta shaped like a large grain of rice.",
+    "diff": "easy"
+  },
+  {
+    "word": "sage",
+    "hint": "An aromatic herb with grayish-green leaves.",
+    "diff": "easy"
+  },
+  {
+    "word": "dill",
+    "hint": "An herb with fine, feathery leaves, commonly used to flavor pickles.",
+    "diff": "easy"
+  },
+  {
+    "word": "mace",
+    "hint": "A spice made from the reddish seed covering of the nutmeg.",
+    "diff": "easy"
+  },
+  {
+    "word": "kale",
+    "hint": "A hardy cabbage with coarse, curly leaves.",
+    "diff": "easy"
+  },
+  {
+    "word": "suet",
+    "hint": "The hard white fat on the kidneys and loins of cattle and sheep.",
+    "diff": "easy"
+  },
+  {
+    "word": "lard",
+    "hint": "Fat from the abdomen of a pig that is rendered and clarified for baking.",
+    "diff": "easy"
+  },
+  {
+    "word": "spam",
+    "hint": "A brand of canned cooked pork made by Hormel Foods.",
+    "diff": "easy"
+  },
+  {
+    "word": "mahi",
+    "hint": "A tropical surface-dwelling fish popular in seafood dishes.",
+    "diff": "easy"
+  },
+  {
+    "word": "dahl",
+    "hint": "A dish made of simmered and spiced split pulses, popular in India.",
+    "diff": "easy"
+  },
+  {
+    "word": "sago",
+    "hint": "A starchy food extracted from the spongy center of tropical palm stems.",
+    "diff": "easy"
+  },
+  {
+    "word": "fava",
+    "hint": "A broad bean commonly eaten in Mediterranean cuisine.",
+    "diff": "easy"
+  },
+  {
+    "word": "soya",
+    "hint": "A protein-rich bean commonly used to make milk and tofu.",
+    "diff": "easy"
+  },
+  {
+    "word": "apple",
+    "hint": "A round fruit with red or green skin and a whitish interior.",
+    "diff": "easy"
+  },
+  {
+    "word": "bread",
+    "hint": "A staple food made from dough of flour and water and baked.",
+    "diff": "easy"
+  },
+  {
+    "word": "sugar",
+    "hint": "A sweet crystalline substance obtained from various plants.",
+    "diff": "easy"
+  },
+  {
+    "word": "spice",
+    "hint": "An aromatic or pungent plant substance used to flavor food.",
+    "diff": "easy"
+  },
+  {
+    "word": "cream",
+    "hint": "The thick white or pale yellow fatty liquid which rises to the top when milk is left to stand.",
+    "diff": "easy"
+  },
+  {
+    "word": "wheat",
+    "hint": "A cereal grain that is ground to make flour for bread and pasta.",
+    "diff": "easy"
+  },
+  {
+    "word": "yeast",
+    "hint": "A microscopic fungus used to make bread dough rise.",
+    "diff": "easy"
+  },
+  {
+    "word": "bacon",
+    "hint": "Cured meat from the sides and belly of a pig.",
+    "diff": "easy"
+  },
+  {
+    "word": "steak",
+    "hint": "A high-quality cut of beef grilled or fried.",
+    "diff": "easy"
+  },
+  {
+    "word": "chops",
+    "hint": "Thick slices of meat, especially pork or lamb, often including a rib.",
+    "diff": "easy"
+  },
+  {
+    "word": "roast",
+    "hint": "A large piece of meat cooked in an oven or over a fire.",
+    "diff": "easy"
+  },
+  {
+    "word": "gravy",
+    "hint": "A sauce made from cooked meat juices together with stock and other ingredients.",
+    "diff": "easy"
+  },
+  {
+    "word": "sauce",
+    "hint": "A liquid or semi-liquid substance served with food to add moistness and flavor.",
+    "diff": "easy"
+  },
+  {
+    "word": "juice",
+    "hint": "The liquid naturally contained in fruit and vegetables.",
+    "diff": "easy"
+  },
+  {
+    "word": "drink",
+    "hint": "A liquid intended for human consumption.",
+    "diff": "easy"
+  },
+  {
+    "word": "water",
+    "hint": "A colorless, transparent, odorless liquid that forms the seas, lakes, and rain.",
+    "diff": "easy"
+  },
+  {
+    "word": "syrup",
+    "hint": "A thick, sweet liquid made by dissolving sugar in boiling water.",
+    "diff": "easy"
+  },
+  {
+    "word": "honey",
+    "hint": "A sweet, sticky yellowish-brown fluid made by bees.",
+    "diff": "easy"
+  },
+  {
+    "word": "jelly",
+    "hint": "A sweet, clear, semisolid spread made from fruit juice and sugar.",
+    "diff": "easy"
+  },
+  {
+    "word": "candy",
+    "hint": "A sweet food made with sugar or other sweeteners.",
+    "diff": "easy"
+  },
+  {
+    "word": "fudge",
+    "hint": "A soft, rich candy made of sugar, milk, butter, and flavoring.",
+    "diff": "easy"
+  },
+  {
+    "word": "fruit",
+    "hint": "The sweet and fleshy product of a tree or other plant.",
+    "diff": "easy"
+  },
+  {
+    "word": "berry",
+    "hint": "A small, round, juicy fruit without a stone.",
+    "diff": "easy"
+  },
+  {
+    "word": "melon",
+    "hint": "A large, sweet fruit growing on a vine.",
+    "diff": "easy"
+  },
+  {
+    "word": "grape",
+    "hint": "A berry growing in clusters on a vine, used to make wine.",
+    "diff": "easy"
+  },
+  {
+    "word": "peach",
+    "hint": "A round stone fruit with juicy yellow flesh and downy pinkish-yellow skin.",
+    "diff": "easy"
+  },
+  {
+    "word": "mango",
+    "hint": "A fleshy, yellowish-red tropical fruit.",
+    "diff": "easy"
+  },
+  {
+    "word": "lemon",
+    "hint": "A pale yellow, oval citrus fruit with thick skin and fragrant, sour juice.",
+    "diff": "easy"
+  },
+  {
+    "word": "olive",
+    "hint": "A small oval fruit with a hard pit and bitter flesh, used for its oil.",
+    "diff": "easy"
+  },
+  {
+    "word": "onion",
+    "hint": "A bulbous plant with strong-tasting and smelling fleshy layers.",
+    "diff": "easy"
+  },
+  {
+    "word": "chive",
+    "hint": "A small Eurasian plant related to the onion, used as a culinary herb.",
+    "diff": "easy"
+  },
+  {
+    "word": "chili",
+    "hint": "A small, spicy pepper used in cooking.",
+    "diff": "easy"
+  },
+  {
+    "word": "basil",
+    "hint": "An aromatic herb in the mint family, heavily used in Italian cooking.",
+    "diff": "easy"
+  },
+  {
+    "word": "thyme",
+    "hint": "An aromatic herb with small leaves, often used in roasting meats.",
+    "diff": "easy"
+  },
+  {
+    "word": "clove",
+    "hint": "A dried flower bud of a tropical tree, used as an aromatic spice.",
+    "diff": "easy"
+  },
+  {
+    "word": "curry",
+    "hint": "A dish of meat or vegetables cooked in an Indian-style sauce of strong spices.",
+    "diff": "easy"
+  },
+  {
+    "word": "cumin",
+    "hint": "The aromatic seeds of a plant of the parsley family, used as a spice.",
+    "diff": "easy"
+  },
+  {
+    "word": "salsa",
+    "hint": "A spicy tomato-based sauce, heavily used in Mexican cuisine.",
+    "diff": "easy"
+  },
+  {
+    "word": "pesto",
+    "hint": "A sauce of crushed basil leaves, pine nuts, garlic, parmesan cheese, and olive oil.",
+    "diff": "easy"
+  },
+  {
+    "word": "queso",
+    "hint": "A Mexican cheese dip.",
+    "diff": "easy"
+  },
+  {
+    "word": "pizza",
+    "hint": "A baked flatbread topped with tomato sauce and cheese.",
+    "diff": "easy"
+  },
+  {
+    "word": "pasta",
+    "hint": "An Italian food made from unleavened dough of wheat flour formed into shapes.",
+    "diff": "easy"
+  },
+  {
+    "word": "ramen",
+    "hint": "A Japanese noodle soup.",
+    "diff": "easy"
+  },
+  {
+    "word": "sushi",
+    "hint": "A Japanese dish consisting of small balls or rolls of vinegar-flavored cold cooked rice.",
+    "diff": "easy"
+  },
+  {
+    "word": "kebab",
+    "hint": "Pieces of meat, fish, or vegetables roasted or grilled on a skewer.",
+    "diff": "easy"
+  },
+  {
+    "word": "trout",
+    "hint": "A freshwater fish of the salmon family.",
+    "diff": "easy"
+  },
+  {
+    "word": "squid",
+    "hint": "An elongated, fast-swimming cephalopod mollusk cooked as calamari.",
+    "diff": "easy"
+  },
+  {
+    "word": "prawn",
+    "hint": "A marine crustacean resembling a large shrimp.",
+    "diff": "easy"
+  },
+  {
+    "word": "snail",
+    "hint": "A shelled gastropod eaten as escargot.",
+    "diff": "easy"
+  },
+  {
+    "word": "gouda",
+    "hint": "A mild Dutch cheese colored yellow and often coated in red wax.",
+    "diff": "easy"
+  },
+  {
+    "word": "swiss",
+    "hint": "A hard, pale yellow cheese characterized by large holes.",
+    "diff": "easy"
+  },
+  {
+    "word": "pecan",
+    "hint": "A smooth pinkish-brown nut with an edible kernel similar to a walnut.",
+    "diff": "easy"
+  },
+  {
+    "word": "seeds",
+    "hint": "The unit of reproduction of a flowering plant, capable of developing into another such plant.",
+    "diff": "easy"
+  },
+  {
+    "word": "beans",
+    "hint": "An edible seed typically growing in long pods on certain leguminous plants.",
+    "diff": "easy"
+  },
+  {
+    "word": "bagel",
+    "hint": "A dense bread roll shaped like a ring.",
+    "diff": "easy"
+  },
+  {
+    "word": "donut",
+    "hint": "A small fried cake of sweetened dough, typically in the shape of a ring.",
+    "diff": "easy"
+  },
+  {
+    "word": "toast",
+    "hint": "Sliced bread browned on both sides by exposure to radiant heat.",
+    "diff": "easy"
+  },
+  {
+    "word": "crepe",
+    "hint": "A thin pancake, typically rolled around a sweet or savory filling.",
+    "diff": "easy"
+  },
+  {
+    "word": "scone",
+    "hint": "A small unsweetened or lightly sweetened biscuit-like cake made from flour.",
+    "diff": "easy"
+  },
+  {
+    "word": "icing",
+    "hint": "A mixture of sugar with liquid or butter, used to coat cakes.",
+    "diff": "easy"
+  },
+  {
+    "word": "broth",
+    "hint": "Soup consisting of meat or vegetables cooked in stock.",
+    "diff": "easy"
+  },
+  {
+    "word": "stock",
+    "hint": "Liquid made by boiling bones, used as a basis for soup.",
+    "diff": "easy"
+  },
+  {
+    "word": "puree",
+    "hint": "A smooth, creamy substance made of liquidized or crushed fruit or vegetables.",
+    "diff": "easy"
+  },
+  {
+    "word": "guava",
+    "hint": "A tropical fruit with pale green to yellow skin and pink or white flesh.",
+    "diff": "easy"
+  },
+  {
+    "word": "carob",
+    "hint": "A brown powder made from the fruit of a Mediterranean tree, used as a substitute for chocolate.",
+    "diff": "easy"
+  },
+  {
+    "word": "cacao",
+    "hint": "The bean-like seeds from which cocoa, cocoa butter, and chocolate are made.",
+    "diff": "easy"
+  },
+  {
+    "word": "agave",
+    "hint": "A succulent plant used to make sweet syrup and tequila.",
+    "diff": "easy"
+  },
+  {
+    "word": "tomato",
+    "hint": "A glossy red, or occasionally yellow, pulpy edible fruit eaten as a vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "potato",
+    "hint": "A starchy plant tuber which is one of the most important food crops.",
+    "diff": "medium"
+  },
+  {
+    "word": "carrot",
+    "hint": "A tapering orange-colored root eaten as a vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "celery",
+    "hint": "A cultivated plant with crisp edible stalks.",
+    "diff": "medium"
+  },
+  {
+    "word": "garlic",
+    "hint": "A strong-smelling pungent-tasting bulb, used as a flavoring in cooking.",
+    "diff": "medium"
+  },
+  {
+    "word": "pepper",
+    "hint": "A pungent, hot-tasting powder prepared from dried and ground peppercorns.",
+    "diff": "medium"
+  },
+  {
+    "word": "radish",
+    "hint": "A swollen pungent-tasting edible root, especially a variety which is small, spherical, and red.",
+    "diff": "medium"
+  },
+  {
+    "word": "turnip",
+    "hint": "A round root with white or cream flesh which is eaten as a vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "peanut",
+    "hint": "An oval seed of a South American plant, eaten as a snack or used to make butter.",
+    "diff": "medium"
+  },
+  {
+    "word": "almond",
+    "hint": "The oval nut-like seed of the almond tree.",
+    "diff": "medium"
+  },
+  {
+    "word": "walnut",
+    "hint": "A large, wrinkled, edible seed of a deciduous tree.",
+    "diff": "medium"
+  },
+  {
+    "word": "cashew",
+    "hint": "An edible kidney-shaped nut.",
+    "diff": "medium"
+  },
+  {
+    "word": "orange",
+    "hint": "A round, bright-colored citrus fruit with a tough rind.",
+    "diff": "medium"
+  },
+  {
+    "word": "banana",
+    "hint": "A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin.",
+    "diff": "medium"
+  },
+  {
+    "word": "cherry",
+    "hint": "A small, round stone fruit that is typically bright or dark red.",
+    "diff": "medium"
+  },
+  {
+    "word": "grapes",
+    "hint": "Berries growing in clusters on a vine, eaten as fruit or used to make wine.",
+    "diff": "medium"
+  },
+  {
+    "word": "papaya",
+    "hint": "A tropical fruit shaped like an elongated melon, with edible orange flesh and small black seeds.",
+    "diff": "medium"
+  },
+  {
+    "word": "butter",
+    "hint": "A pale yellow edible fatty substance made by churning cream.",
+    "diff": "medium"
+  },
+  {
+    "word": "cheese",
+    "hint": "A dairy product made from the curds of milk.",
+    "diff": "medium"
+  },
+  {
+    "word": "yogurt",
+    "hint": "A semisolid sourish food prepared from milk fermented by added bacteria.",
+    "diff": "medium"
+  },
+  {
+    "word": "salmon",
+    "hint": "A large edible fish that is a popular game fish, much prized for its pink flesh.",
+    "diff": "medium"
+  },
+  {
+    "word": "shrimp",
+    "hint": "A small free-swimming crustacean with an elongated body.",
+    "diff": "medium"
+  },
+  {
+    "word": "oyster",
+    "hint": "A bivalve mollusk with rough irregular shells, eaten raw or cooked.",
+    "diff": "medium"
+  },
+  {
+    "word": "noodle",
+    "hint": "A strip, ring, or tube of pasta or a similar dough, typically made with egg and usually eaten with a sauce or in a soup.",
+    "diff": "medium"
+  },
+  {
+    "word": "burger",
+    "hint": "A patty of ground meat sandwiched between two buns.",
+    "diff": "medium"
+  },
+  {
+    "word": "hotdog",
+    "hint": "A frankfurter served hot in a long, soft roll.",
+    "diff": "medium"
+  },
+  {
+    "word": "cookie",
+    "hint": "A small sweet cake, typically round and flat.",
+    "diff": "medium"
+  },
+  {
+    "word": "muffin",
+    "hint": "A small domed cake or quick bread made from batter or dough.",
+    "diff": "medium"
+  },
+  {
+    "word": "waffle",
+    "hint": "A small crisp batter cake, baked in a waffle iron.",
+    "diff": "medium"
+  },
+  {
+    "word": "cereal",
+    "hint": "A breakfast food made from roasted grain, typically eaten with milk.",
+    "diff": "medium"
+  },
+  {
+    "word": "bagels",
+    "hint": "Dense bread rolls shaped like a ring.",
+    "diff": "medium"
+  },
+  {
+    "word": "omelet",
+    "hint": "A dish made from beaten eggs fried with butter or oil in a frying pan.",
+    "diff": "medium"
+  },
+  {
+    "word": "quiche",
+    "hint": "A baked flan or tart with a savory filling thickened with eggs.",
+    "diff": "medium"
+  },
+  {
+    "word": "fajita",
+    "hint": "A dish of Mexican origin consisting of strips of spiced meat with onions and peppers, served in a tortilla.",
+    "diff": "medium"
+  },
+  {
+    "word": "tamale",
+    "hint": "A Mexican dish of seasoned meat wrapped in cornmeal dough and steamed or baked in corn husks.",
+    "diff": "medium"
+  },
+  {
+    "word": "paella",
+    "hint": "A Spanish dish of rice, saffron, chicken, seafood, etc., cooked and served in a large shallow pan.",
+    "diff": "medium"
+  },
+  {
+    "word": "hummus",
+    "hint": "A thick paste or spread made from ground chickpeas and sesame seeds.",
+    "diff": "medium"
+  },
+  {
+    "word": "gelato",
+    "hint": "The Italian word for ice cream.",
+    "diff": "medium"
+  },
+  {
+    "word": "sorbet",
+    "hint": "A dessert consisting of frozen fruit juice or flavored water and sugar.",
+    "diff": "medium"
+  },
+  {
+    "word": "fondue",
+    "hint": "A dish in which small pieces of food are dipped into a communal pot of hot liquid.",
+    "diff": "medium"
+  },
+  {
+    "word": "caviar",
+    "hint": "The pickled roe of sturgeon or other large fish, eaten as a delicacy.",
+    "diff": "medium"
+  },
+  {
+    "word": "salami",
+    "hint": "A type of highly seasoned sausage, originally from Italy, usually eaten cold in slices.",
+    "diff": "medium"
+  },
+  {
+    "word": "mutton",
+    "hint": "The flesh of sheep, especially mature sheep, used as food.",
+    "diff": "medium"
+  },
+  {
+    "word": "lentil",
+    "hint": "A high-protein pulse which is dried and then soaked and cooked prior to eating.",
+    "diff": "medium"
+  },
+  {
+    "word": "barley",
+    "hint": "A hardy cereal that has coarse bristles extending from the ears.",
+    "diff": "medium"
+  },
+  {
+    "word": "quinoa",
+    "hint": "A goosefoot plant cultivated for its edible starchy seeds.",
+    "diff": "medium"
+  },
+  {
+    "word": "sesame",
+    "hint": "A tall annual herbaceous plant cultivated for its seed, yielding edible oil.",
+    "diff": "medium"
+  },
+  {
+    "word": "ginger",
+    "hint": "A hot, fragrant spice made from the rhizome of a plant.",
+    "diff": "medium"
+  },
+  {
+    "word": "nutmeg",
+    "hint": "The hard, aromatic, almost spherical seed of a tropical tree.",
+    "diff": "medium"
+  },
+  {
+    "word": "pastry",
+    "hint": "A dough of flour, fat, and water, used as a base and covering in baked dishes.",
+    "diff": "medium"
+  },
+  {
+    "word": "sponge",
+    "hint": "A light, porous cake made with eggs, sugar, and flour.",
+    "diff": "medium"
+  },
+  {
+    "word": "eclair",
+    "hint": "A small, soft, log-shaped pastry filled with cream and typically topped with chocolate icing.",
+    "diff": "medium"
+  },
+  {
+    "word": "sundae",
+    "hint": "A dish of ice cream with added ingredients such as fruit, nuts, and syrup.",
+    "diff": "medium"
+  },
+  {
+    "word": "franks",
+    "hint": "Short for frankfurter.",
+    "diff": "medium"
+  },
+  {
+    "word": "slider",
+    "hint": "A small hamburger or other hot sandwich made with a soft bun.",
+    "diff": "medium"
+  },
+  {
+    "word": "bisque",
+    "hint": "A rich, creamy soup typically made with shellfish.",
+    "diff": "medium"
+  },
+  {
+    "word": "squash",
+    "hint": "An edible gourd, the flesh of which may be baked or boiled.",
+    "diff": "medium"
+  },
+  {
+    "word": "endive",
+    "hint": "An edible Mediterranean plant whose bitter leaves may be used in salads.",
+    "diff": "medium"
+  },
+  {
+    "word": "daikon",
+    "hint": "A mild-flavored winter radish usually characterized by fast-growing leaves and a long, white, napiform root.",
+    "diff": "medium"
+  },
+  {
+    "word": "jicama",
+    "hint": "The edible, tuberous root of a Mexican vine.",
+    "diff": "medium"
+  },
+  {
+    "word": "capers",
+    "hint": "The pickled flower buds of a spiny southern European shrub, used to flavor food.",
+    "diff": "medium"
+  },
+  {
+    "word": "lettuce",
+    "hint": "A cultivated plant eaten as a salad vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "spinach",
+    "hint": "An edible Asian plant with large, dark green leaves which are widely eaten as a vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "cabbage",
+    "hint": "A cultivated plant eaten as a vegetable, having thick green or purple leaves surrounding a spherical heart or head.",
+    "diff": "medium"
+  },
+  {
+    "word": "pumpkin",
+    "hint": "A large rounded orange-yellow fruit with a thick rind, edible flesh, and many seeds.",
+    "diff": "medium"
+  },
+  {
+    "word": "avocado",
+    "hint": "A pear-shaped fruit with a rough leathery skin, smooth oily edible flesh, and a large stone.",
+    "diff": "medium"
+  },
+  {
+    "word": "coconut",
+    "hint": "The large oval brown seed of a tropical palm.",
+    "diff": "medium"
+  },
+  {
+    "word": "apricot",
+    "hint": "A juicy, soft fruit of an orange-yellow color resembling a small peach.",
+    "diff": "medium"
+  },
+  {
+    "word": "berries",
+    "hint": "Small, round, juicy fruits without a stone.",
+    "diff": "medium"
+  },
+  {
+    "word": "brisket",
+    "hint": "Meat cut from the breast of an animal, typically a cow.",
+    "diff": "medium"
+  },
+  {
+    "word": "sausage",
+    "hint": "An item of food in the form of a cylindrical length of minced pork or other meat encased in a skin.",
+    "diff": "medium"
+  },
+  {
+    "word": "venison",
+    "hint": "Meat from a deer.",
+    "diff": "medium"
+  },
+  {
+    "word": "poultry",
+    "hint": "Domestic fowl, such as chickens, turkeys, ducks, and geese.",
+    "diff": "medium"
+  },
+  {
+    "word": "halibut",
+    "hint": "A northern marine fish which is the largest of the flatfishes.",
+    "diff": "medium"
+  },
+  {
+    "word": "haddock",
+    "hint": "A silvery-gray bottom-dwelling fish of North Atlantic coastal waters.",
+    "diff": "medium"
+  },
+  {
+    "word": "scallop",
+    "hint": "An edible bivalve mollusk with a ribbed fan-shaped shell.",
+    "diff": "medium"
+  },
+  {
+    "word": "lobster",
+    "hint": "A large marine crustacean with a cylindrical body, stalked eyes, and the first of its five pairs of limbs modified as pincers.",
+    "diff": "medium"
+  },
+  {
+    "word": "gruyere",
+    "hint": "A firm, pale yellow Swiss cheese with a rich, nutty flavor.",
+    "diff": "medium"
+  },
+  {
+    "word": "cheddar",
+    "hint": "A kind of firm smooth cheese, originally made in a village in England.",
+    "diff": "medium"
+  },
+  {
+    "word": "ricotta",
+    "hint": "A soft, white, unsalted Italian cheese.",
+    "diff": "medium"
+  },
+  {
+    "word": "ravioli",
+    "hint": "Small pasta envelopes containing ground meat, cheese, or vegetables.",
+    "diff": "medium"
+  },
+  {
+    "word": "gnocchi",
+    "hint": "Small dumplings made from potato, semolina, or flour.",
+    "diff": "medium"
+  },
+  {
+    "word": "burrito",
+    "hint": "A Mexican dish consisting of a flour tortilla wrapped around a filling.",
+    "diff": "medium"
+  },
+  {
+    "word": "risotto",
+    "hint": "An Italian dish of rice cooked in stock with other ingredients such as meat and vegetables.",
+    "diff": "medium"
+  },
+  {
+    "word": "falafel",
+    "hint": "A Middle Eastern dish of spiced mashed chickpeas formed into balls or fritters and deep-fried.",
+    "diff": "medium"
+  },
+  {
+    "word": "tzatziki",
+    "hint": "A Greek dip made of yogurt and finely diced cucumber.",
+    "diff": "medium"
+  },
+  {
+    "word": "ketchup",
+    "hint": "A smooth sauce made chiefly from tomatoes and vinegar.",
+    "diff": "medium"
+  },
+  {
+    "word": "mustard",
+    "hint": "A hot-tasting yellow or brown paste made from the crushed seeds of a plant.",
+    "diff": "medium"
+  },
+  {
+    "word": "vinegar",
+    "hint": "A sour-tasting liquid containing acetic acid.",
+    "diff": "medium"
+  },
+  {
+    "word": "vanilla",
+    "hint": "A substance obtained from pods or produced artificially and used to flavor ice cream and baking.",
+    "diff": "medium"
+  },
+  {
+    "word": "pudding",
+    "hint": "A sweet dish served at the end of a meal.",
+    "diff": "medium"
+  },
+  {
+    "word": "brownie",
+    "hint": "A small square of rich chocolate cake, typically containing nuts.",
+    "diff": "medium"
+  },
+  {
+    "word": "cupcake",
+    "hint": "A small cake baked in a cup-shaped foil or paper container.",
+    "diff": "medium"
+  },
+  {
+    "word": "cobbler",
+    "hint": "A fruit dessert with a thick pastry crust.",
+    "diff": "medium"
+  },
+  {
+    "word": "strudel",
+    "hint": "A dessert of thin pastry rolled up around a fruit filling and baked.",
+    "diff": "medium"
+  },
+  {
+    "word": "truffle",
+    "hint": "A strong-smelling underground fungus considered a culinary delicacy, or a soft chocolate candy.",
+    "diff": "medium"
+  },
+  {
+    "word": "sashimi",
+    "hint": "A Japanese dish of bite-sized pieces of raw fish eaten with soy sauce and wasabi paste.",
+    "diff": "medium"
+  },
+  {
+    "word": "tempura",
+    "hint": "A Japanese dish of fish, shellfish, or vegetables, fried in batter.",
+    "diff": "medium"
+  },
+  {
+    "word": "goulash",
+    "hint": "A highly seasoned Hungarian soup or stew of meat and vegetables, flavored with paprika.",
+    "diff": "medium"
+  },
+  {
+    "word": "chutney",
+    "hint": "A spicy condiment made of fruits or vegetables with vinegar, spices, and sugar.",
+    "diff": "medium"
+  },
+  {
+    "word": "granola",
+    "hint": "A kind of breakfast cereal consisting typically of rolled oats, brown sugar or honey, nuts, and dried fruit.",
+    "diff": "medium"
+  },
+  {
+    "word": "oatmeal",
+    "hint": "Meal made from ground oats, used in porridge, oatcakes, or other baking.",
+    "diff": "medium"
+  },
+  {
+    "word": "popcorn",
+    "hint": "Corn of a variety with hard kernels that swell up and burst open with a pop when heated.",
+    "diff": "medium"
+  },
+  {
+    "word": "pretzel",
+    "hint": "A crisp biscuit baked in the form of a knot or stick and flavored with salt.",
+    "diff": "medium"
+  },
+  {
+    "word": "macaron",
+    "hint": "A sweet meringue-based confection.",
+    "diff": "medium"
+  },
+  {
+    "word": "parfait",
+    "hint": "A rich cold dessert made with whipped cream, eggs, and fruit.",
+    "diff": "medium"
+  },
+  {
+    "word": "broccoli",
+    "hint": "A cultivated variety of cabbage bearing heads of green or purplish flower buds.",
+    "diff": "medium"
+  },
+  {
+    "word": "zucchini",
+    "hint": "A green variety of smooth-skinned summer squash.",
+    "diff": "medium"
+  },
+  {
+    "word": "eggplant",
+    "hint": "The large egg-shaped fruit of an Old World plant, eaten as a vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "mushroom",
+    "hint": "A fungal growth that typically takes the form of a domed cap on a stalk.",
+    "diff": "medium"
+  },
+  {
+    "word": "cucumber",
+    "hint": "A long, green-skinned fruit with watery flesh, usually eaten raw in salads.",
+    "diff": "medium"
+  },
+  {
+    "word": "rutabaga",
+    "hint": "A large, round, yellow-fleshed root that is eaten as a vegetable.",
+    "diff": "medium"
+  },
+  {
+    "word": "pimiento",
+    "hint": "A red sweet pepper.",
+    "diff": "medium"
+  },
+  {
+    "word": "jalapeno",
+    "hint": "A medium-sized chili pepper that is eaten green or red and is moderately hot.",
+    "diff": "medium"
+  },
+  {
+    "word": "plantain",
+    "hint": "A low-growing plant that typically has a rosette of leaves and a slender green flower spike.",
+    "diff": "medium"
+  },
+  {
+    "word": "honeydew",
+    "hint": "A melon of a variety with smooth, pale skin and sweet green flesh.",
+    "diff": "medium"
+  },
+  {
+    "word": "tamarind",
+    "hint": "Sticky brown acidic pulp from the pod of a tree of the pea family.",
+    "diff": "medium"
+  },
+  {
+    "word": "macaroni",
+    "hint": "A variety of pasta formed in narrow tubes.",
+    "diff": "medium"
+  },
+  {
+    "word": "cilantro",
+    "hint": "Leaves of the coriander plant, used as a culinary herb.",
+    "diff": "medium"
+  },
+  {
+    "word": "rosemary",
+    "hint": "An evergreen aromatic shrub of the mint family.",
+    "diff": "medium"
+  },
+  {
+    "word": "tarragon",
+    "hint": "A perennial plant of the daisy family, with narrow aromatic leaves that are used as a culinary herb.",
+    "diff": "medium"
+  },
+  {
+    "word": "cinnamon",
+    "hint": "An aromatic spice made from the peeled, dried, and rolled bark of a Southeast Asian tree.",
+    "diff": "medium"
+  },
+  {
+    "word": "cardamom",
+    "hint": "The aromatic seeds of a plant of the ginger family.",
+    "diff": "medium"
+  },
+  {
+    "word": "molasses",
+    "hint": "Thick, dark brown juice obtained from raw sugar during the refining process.",
+    "diff": "medium"
+  },
+  {
+    "word": "marzipan",
+    "hint": "A sweet yellow or white paste of ground almonds, sugar, and egg whites.",
+    "diff": "medium"
+  },
+  {
+    "word": "dumpling",
+    "hint": "A small savory ball of dough that may be boiled, fried, or baked in a casserole.",
+    "diff": "medium"
+  },
+  {
+    "word": "meatball",
+    "hint": "A ball of minced or chopped meat, usually mixed with breadcrumbs and spices.",
+    "diff": "medium"
+  },
+  {
+    "word": "meatloaf",
+    "hint": "A dish of ground meat mixed with other ingredients and baked in a loaf shape.",
+    "diff": "medium"
+  },
+  {
+    "word": "pastrami",
+    "hint": "Highly seasoned smoked beef, typically served in thin slices.",
+    "diff": "medium"
+  },
+  {
+    "word": "pancetta",
+    "hint": "Italian cured belly of pork.",
+    "diff": "medium"
+  },
+  {
+    "word": "flounder",
+    "hint": "A small flatfish that typically occurs in shallow coastal waters.",
+    "diff": "medium"
+  },
+  {
+    "word": "mackerel",
+    "hint": "A predatory marine fish with a greenish-blue back.",
+    "diff": "medium"
+  },
+  {
+    "word": "calamari",
+    "hint": "Squid served as food.",
+    "diff": "medium"
+  },
+  {
+    "word": "parmesan",
+    "hint": "A hard, dry cheese used in grated form, especially on Italian dishes.",
+    "diff": "medium"
+  },
+  {
+    "word": "pecorino",
+    "hint": "An Italian cheese made from ewes' milk.",
+    "diff": "medium"
+  },
+  {
+    "word": "halloumi",
+    "hint": "A semi-hard, unripened cheese made from a mixture of goat's and sheep's milk.",
+    "diff": "medium"
+  },
+  {
+    "word": "espresso",
+    "hint": "Strong black coffee made by forcing steam through ground coffee beans.",
+    "diff": "medium"
+  },
+  {
+    "word": "biscotti",
+    "hint": "Small, crisp rectangular twice-baked cookies.",
+    "diff": "medium"
+  },
+  {
+    "word": "tiramisu",
+    "hint": "An Italian dessert consisting of layers of sponge cake soaked in coffee and brandy or liqueur with powdered chocolate and mascarpone cheese.",
+    "diff": "medium"
+  },
+  {
+    "word": "macaroon",
+    "hint": "A light cookie made with egg white, sugar, and usually ground almonds or coconut.",
+    "diff": "medium"
+  },
+  {
+    "word": "meringue",
+    "hint": "An item of sweet food made from a mixture of well-beaten egg whites and sugar, baked until crisp.",
+    "diff": "medium"
+  },
+  {
+    "word": "flapjack",
+    "hint": "A pancake or a sweet oat bar.",
+    "diff": "medium"
+  },
+  {
+    "word": "pancakes",
+    "hint": "Thin, flat cakes of batter, usually fried and turned in a pan.",
+    "diff": "medium"
+  },
+  {
+    "word": "sandwich",
+    "hint": "An item of food consisting of two pieces of bread with meat, cheese, or other filling between them.",
+    "diff": "medium"
+  },
+  {
+    "word": "tortilla",
+    "hint": "A thin, flat pancake of cornmeal or flour, eaten hot or cold, typically with a savory filling.",
+    "diff": "medium"
+  },
+  {
+    "word": "tostadas",
+    "hint": "Mexican flatbreads that are fried or toasted.",
+    "diff": "medium"
+  },
+  {
+    "word": "rigatoni",
+    "hint": "Pasta in the form of short hollow fluted tubes.",
+    "diff": "medium"
+  },
+  {
+    "word": "scallion",
+    "hint": "A long-necked onion with a small bulb.",
+    "diff": "medium"
+  },
+  {
+    "word": "shallots",
+    "hint": "A small bulb which resembles an onion and is used for flavoring.",
+    "diff": "medium"
+  },
+  {
+    "word": "pimentos",
+    "hint": "Red sweet peppers.",
+    "diff": "medium"
+  },
+  {
+    "word": "artichoke",
+    "hint": "A European plant cultivated for its large thistle-like flower heads.",
+    "diff": "hard"
+  },
+  {
+    "word": "asparagus",
+    "hint": "A tall plant of the lily family with fine feathery foliage, cultivated for its edible shoots.",
+    "diff": "hard"
+  },
+  {
+    "word": "aubergine",
+    "hint": "The European and Asian name for an eggplant.",
+    "diff": "hard"
+  },
+  {
+    "word": "blueberry",
+    "hint": "A small sweet blue-black edible berry.",
+    "diff": "hard"
+  },
+  {
+    "word": "raspberry",
+    "hint": "An edible soft fruit related to the blackberry, consisting of a cluster of reddish-pink drupelets.",
+    "diff": "hard"
+  },
+  {
+    "word": "cranberry",
+    "hint": "A small, red, acid berry used in cooking.",
+    "diff": "hard"
+  },
+  {
+    "word": "nectarine",
+    "hint": "A peach of a variety with smooth, plum-like skin.",
+    "diff": "hard"
+  },
+  {
+    "word": "tangerine",
+    "hint": "A small citrus fruit with a loose skin.",
+    "diff": "hard"
+  },
+  {
+    "word": "pineapple",
+    "hint": "A large juicy tropical fruit consisting of aromatic edible yellow flesh surrounded by a tough segmented skin.",
+    "diff": "hard"
+  },
+  {
+    "word": "cherimoya",
+    "hint": "A tropical fruit with scaly green skin and sweet, creamy, white flesh.",
+    "diff": "hard"
+  },
+  {
+    "word": "provolone",
+    "hint": "An Italian soft smoked cheese made from cow's milk.",
+    "diff": "hard"
+  },
+  {
+    "word": "camembert",
+    "hint": "A kind of rich, soft, creamy French cheese.",
+    "diff": "hard"
+  },
+  {
+    "word": "roquefort",
+    "hint": "A soft blue cheese made from ewes' milk.",
+    "diff": "hard"
+  },
+  {
+    "word": "hamburger",
+    "hint": "A round patty of ground beef, fried or grilled and typically served on a bun or roll.",
+    "diff": "hard"
+  },
+  {
+    "word": "spaghetti",
+    "hint": "Pasta made in solid strings, between macaroni and vermicelli in thickness.",
+    "diff": "hard"
+  },
+  {
+    "word": "vermicelli",
+    "hint": "Pasta made in long slender threads.",
+    "diff": "hard"
+  },
+  {
+    "word": "quesadilla",
+    "hint": "A tortilla filled with cheese and heated.",
+    "diff": "hard"
+  },
+  {
+    "word": "enchilada",
+    "hint": "A rolled tortilla with a filling typically of meat and served with a chili sauce.",
+    "diff": "hard"
+  },
+  {
+    "word": "croissant",
+    "hint": "A French crescent-shaped roll made of sweet flaky pastry.",
+    "diff": "hard"
+  },
+  {
+    "word": "bratwurst",
+    "hint": "A type of fine German pork sausage that is typically fried or grilled.",
+    "diff": "hard"
+  },
+  {
+    "word": "swordfish",
+    "hint": "A large highly predatory marine fish characterized by a long, flat bill.",
+    "diff": "hard"
+  },
+  {
+    "word": "whitefish",
+    "hint": "A silvery-white freshwater fish of the salmon family.",
+    "diff": "hard"
+  },
+  {
+    "word": "sourdough",
+    "hint": "Leaven for making bread, consisting of fermenting dough.",
+    "diff": "hard"
+  },
+  {
+    "word": "shortbread",
+    "hint": "A crisp, rich, crumbly type of biscuit made with butter, flour, and sugar.",
+    "diff": "hard"
+  },
+  {
+    "word": "cheesecake",
+    "hint": "A kind of rich sweet tart made with cream and soft cheese on a crumb base.",
+    "diff": "hard"
+  },
+  {
+    "word": "marmalade",
+    "hint": "A preserve made from citrus fruit, especially bitter oranges, boiled with sugar and water.",
+    "diff": "hard"
+  },
+  {
+    "word": "guacamole",
+    "hint": "A dish of mashed avocado mixed with chopped onion, tomatoes, chili peppers, and seasoning.",
+    "diff": "hard"
+  },
+  {
+    "word": "minestrone",
+    "hint": "A thick soup containing vegetables and pasta.",
+    "diff": "hard"
+  },
+  {
+    "word": "jambalaya",
+    "hint": "A dish of Creole origin consisting of rice cooked with ham, sausage, chicken, or shellfish, herbs, and spices.",
+    "diff": "hard"
+  },
+  {
+    "word": "succotash",
+    "hint": "A dish of corn and lima beans cooked together.",
+    "diff": "hard"
+  },
+  {
+    "word": "schnitzel",
+    "hint": "A thin slice of veal or other light meat, coated in breadcrumbs and fried.",
+    "diff": "hard"
+  },
+  {
+    "word": "strawberry",
+    "hint": "A sweet fleshy red fruit.",
+    "diff": "hard"
+  },
+  {
+    "word": "watermelon",
+    "hint": "A large melon with a smooth green rind and sweet red, pink, or yellow flesh.",
+    "diff": "hard"
+  },
+  {
+    "word": "boysenberry",
+    "hint": "A large red-black fruit that is a cross between a raspberry, blackberry, and loganberry.",
+    "diff": "hard"
+  },
+  {
+    "word": "blackberry",
+    "hint": "An edible soft fruit consisting of a cluster of dark purple drupelets.",
+    "diff": "hard"
+  },
+  {
+    "word": "grapefruit",
+    "hint": "A large, round, yellow citrus fruit with an acid, juicy pulp.",
+    "diff": "hard"
+  },
+  {
+    "word": "pomegranate",
+    "hint": "An orange-sized fruit with a tough reddish outer skin and sweet red gelatinous flesh containing many seeds.",
+    "diff": "hard"
+  },
+  {
+    "word": "persimmon",
+    "hint": "An edible fruit that resembles a large tomato and has very sweet flesh.",
+    "diff": "hard"
+  },
+  {
+    "word": "broccolini",
+    "hint": "A green vegetable similar to broccoli but with smaller florets and longer, thin stalks.",
+    "diff": "hard"
+  },
+  {
+    "word": "cauliflower",
+    "hint": "A cabbage of a variety which bears a large immature flower head of small creamy-white flower buds.",
+    "diff": "hard"
+  },
+  {
+    "word": "peppercorn",
+    "hint": "The dried berry of a climbing vine, used whole as a spice or crushed or ground to make pepper.",
+    "diff": "hard"
+  },
+  {
+    "word": "macadamia",
+    "hint": "An edible nut that is the seed of an Australian tree.",
+    "diff": "hard"
+  },
+  {
+    "word": "mozzarella",
+    "hint": "A mild, semisoft white Italian cheese.",
+    "diff": "hard"
+  },
+  {
+    "word": "frankfurter",
+    "hint": "A seasoned smoked sausage typically made of beef and pork.",
+    "diff": "hard"
+  },
+  {
+    "word": "tortellini",
+    "hint": "Small squares of pasta that are stuffed with meat or cheese and then rolled and folded into rings.",
+    "diff": "hard"
+  },
+  {
+    "word": "tagliatelle",
+    "hint": "Pasta in long ribbons.",
+    "diff": "hard"
+  },
+  {
+    "word": "ratatouille",
+    "hint": "A vegetable dish consisting of onions, zucchini, tomatoes, eggplant, and peppers, fried and stewed in oil.",
+    "diff": "hard"
+  },
+  {
+    "word": "prosciutto",
+    "hint": "Italian ham cured by drying and typically served in very thin slices.",
+    "diff": "hard"
+  },
+  {
+    "word": "pepperoni",
+    "hint": "Beef and pork sausage seasoned with pepper.",
+    "diff": "hard"
+  },
+  {
+    "word": "liverwurst",
+    "hint": "A sausage containing a significant amount of liver.",
+    "diff": "hard"
+  },
+  {
+    "word": "tenderloin",
+    "hint": "A tender cut of pork or beef taken from the loin.",
+    "diff": "hard"
+  },
+  {
+    "word": "pumpernickel",
+    "hint": "Dark, dense German bread made from coarsely ground whole-grain rye.",
+    "diff": "hard"
+  },
+  {
+    "word": "buttermilk",
+    "hint": "The slightly sour liquid left after butter has been churned.",
+    "diff": "hard"
+  },
+  {
+    "word": "applesauce",
+    "hint": "A puree of stewed apples.",
+    "diff": "hard"
+  },
+  {
+    "word": "mayonnaise",
+    "hint": "A thick, creamy dressing consisting of egg yolks beaten with oil and vinegar.",
+    "diff": "hard"
+  },
+  {
+    "word": "chimichurri",
+    "hint": "A piquant sauce or marinade originally from Argentina, used on grilled meat.",
+    "diff": "hard"
+  },
+  {
+    "word": "stroganoff",
+    "hint": "A dish of meat sautéed with onions and mushrooms, then served in a sour cream sauce.",
+    "diff": "hard"
+  },
+  {
+    "word": "lemongrass",
+    "hint": "A fragrant tropical grass which yields an oil that smells of lemon, widely used in Asian cooking.",
+    "diff": "hard"
+  },
+  {
+    "word": "peppermint",
+    "hint": "An aromatic plant of the mint family, or a candy flavored with its oil.",
+    "diff": "hard"
+  },
+  {
+    "word": "horseradish",
+    "hint": "A large plant of the cabbage family with a pungent root used as a condiment.",
+    "diff": "hard"
+  },
+  {
+    "word": "vinaigrette",
+    "hint": "Salad dressing of oil, wine vinegar, and seasoning.",
+    "diff": "hard"
+  },
+  {
+    "word": "bouillabaisse",
+    "hint": "A rich, spicy stew or soup made with various kinds of fish, originally from Provence.",
+    "diff": "hard"
+  },
+  {
+    "word": "marshmallow",
+    "hint": "A spongy confection made from sugar, corn syrup, gelatin, and flavoring.",
+    "diff": "hard"
+  },
+  {
+    "word": "buttercream",
+    "hint": "A soft mixture of butter and icing sugar used as a filling or topping for a cake.",
+    "diff": "hard"
+  },
+  {
+    "word": "passionfruit",
+    "hint": "The edible fruit of a passion flower.",
+    "diff": "hard"
+  },
+  {
+    "word": "dragonfruit",
+    "hint": "The fruit of a cactus, with red skin covered with prominent scales and sweet, white, or red flesh with tiny black seeds.",
+    "diff": "hard"
+  },
+  {
+    "word": "lingonberry",
+    "hint": "An edible red berry related to the cranberry.",
+    "diff": "hard"
+  },
+  {
+    "word": "loganberry",
+    "hint": "An edible red berry that is a hybrid of a blackberry and a raspberry.",
+    "diff": "hard"
+  },
+  {
+    "word": "elderberry",
+    "hint": "The dark purple or red berry of the elder tree.",
+    "diff": "hard"
+  },
+  {
+    "word": "marionberry",
+    "hint": "A blackberry cultivar.",
+    "diff": "hard"
+  },
+  {
+    "word": "chanterelle",
+    "hint": "A widely distributed edible fungus.",
+    "diff": "hard"
+  },
+  {
+    "word": "portobello",
+    "hint": "A large mature mushroom.",
+    "diff": "hard"
+  },
+  {
+    "word": "watercress",
+    "hint": "A cress which grows in running water and whose pungent leaves are used in salad.",
+    "diff": "hard"
+  },
+  {
+    "word": "sauerkraut",
+    "hint": "Chopped cabbage that has been pickled in brine.",
+    "diff": "hard"
+  },
+  {
+    "word": "clementine",
+    "hint": "A tangerine of a deep orange-red color.",
+    "diff": "hard"
+  },
+  {
+    "word": "gooseberry",
+    "hint": "A round edible yellowish-green or reddish berry with a thin translucent hairy skin.",
+    "diff": "hard"
+  },
+  {
+    "word": "huckleberry",
+    "hint": "A small dark blue or black edible berry.",
+    "diff": "hard"
+  },
+  {
+    "word": "wintergreen",
+    "hint": "A low-growing plant whose leaves are used to make flavoring or tea.",
+    "diff": "hard"
+  },
+  {
+    "word": "cantaloupe",
+    "hint": "A small, round melon of a variety with orange flesh and ribbed skin.",
+    "diff": "hard"
+  },
+  {
+    "word": "cappelletti",
+    "hint": "Small pieces of pasta containing meat or cheese.",
+    "diff": "hard"
+  },
+  {
+    "word": "chateaubriand",
+    "hint": "A thick cut of meat from the beef tenderloin.",
+    "diff": "hard"
+  },
+  {
+    "word": "chimichanga",
+    "hint": "A tortilla wrapped around a filling of meat, cheese, or other ingredients and deep-fried.",
+    "diff": "hard"
+  },
+  {
+    "word": "delicatessen",
+    "hint": "A store selling cold cuts, cheeses, and a variety of salads, as well as a selection of unusual or foreign prepared foods.",
+    "diff": "hard"
+  },
+  {
+    "word": "hollandaise",
+    "hint": "A creamy sauce of melted butter, egg yolks, and lemon juice or vinegar.",
+    "diff": "hard"
+  },
+  {
+    "word": "smorgasbord",
+    "hint": "A range of open sandwiches and delicacies served as hors d'oeuvres or a buffet.",
+    "diff": "hard"
+  },
+  {
+    "word": "sweetbread",
+    "hint": "The thymus gland or pancreas of an animal, especially a calf or lamb, eaten as food.",
+    "diff": "hard"
+  },
+  {
+    "word": "wellington",
+    "hint": "A dish in which meat is baked in a puff pastry crust.",
+    "diff": "hard"
+  },
+  {
+    "word": "zinfandel",
+    "hint": "A black wine grape grown in California.",
+    "diff": "hard"
+  },
+  {
+    "word": "bubblegum",
+    "hint": "A sweet chewing gum.",
+    "diff": "hard"
+  },
+  {
+    "word": "cappuccino",
+    "hint": "Coffee made with milk that has been frothed up with pressurized steam.",
+    "diff": "hard"
+  },
+  {
+    "word": "macaroons",
+    "hint": "Light cookies made with egg white, sugar, and usually ground almonds or coconut.",
+    "diff": "hard"
+  },
+  {
+    "word": "profiterole",
+    "hint": "A small hollow pastry typically filled with cream and covered with chocolate sauce.",
+    "diff": "hard"
+  },
+  {
+    "word": "margarine",
+    "hint": "A butter substitute made from vegetable oils or animal fats.",
+    "diff": "hard"
+  },
+  {
+    "word": "shortcake",
+    "hint": "A sweet cake or biscuit typically served with fruit and cream.",
+    "diff": "hard"
+  },
+  {
+    "word": "blackberries",
+    "hint": "Edible soft fruits consisting of clusters of dark purple drupelets.",
+    "diff": "hard"
+  },
+  {
+    "word": "blueberries",
+    "hint": "Small sweet blue-black edible berries.",
+    "diff": "hard"
+  },
+  {
+    "word": "raspberries",
+    "hint": "Edible soft fruits related to the blackberry, consisting of a cluster of reddish-pink drupelets.",
+    "diff": "hard"
+  },
+  {
+    "word": "strawberries",
+    "hint": "Sweet fleshy red fruits.",
+    "diff": "hard"
+  },
+  {
+    "word": "cranberries",
+    "hint": "Small, red, acid berries used in cooking.",
+    "diff": "hard"
+  },
+  {
+    "word": "pineapples",
+    "hint": "Large juicy tropical fruits consisting of aromatic edible yellow flesh surrounded by a tough segmented skin.",
+    "diff": "hard"
+  },
+  {
+    "word": "watermelons",
+    "hint": "Large melons with a smooth green rind and sweet red, pink, or yellow flesh.",
+    "diff": "hard"
+  },
+  {
+    "word": "grapefruits",
+    "hint": "Large, round, yellow citrus fruits with an acid, juicy pulp.",
+    "diff": "hard"
+  },
+  {
+    "word": "pomegranates",
+    "hint": "Orange-sized fruits with a tough reddish outer skin and sweet red gelatinous flesh containing many seeds.",
+    "diff": "hard"
+  },
+  {
+    "word": "persimmons",
+    "hint": "Edible fruits that resemble large tomatoes and have very sweet flesh.",
+    "diff": "hard"
+  },
+  {
+    "word": "artichokes",
+    "hint": "European plants cultivated for their large thistle-like flower heads.",
+    "diff": "hard"
+  },
+  {
+    "word": "cauliflowers",
+    "hint": "Cabbages of a variety which bear a large immature flower head of small creamy-white flower buds.",
+    "diff": "hard"
+  },
+  {
+    "word": "macadamias",
+    "hint": "Edible nuts that are the seeds of an Australian tree.",
+    "diff": "hard"
+  },
+  {
+    "word": "hamburgers",
+    "hint": "Round patties of ground beef, fried or grilled and typically served on a bun or roll.",
+    "diff": "hard"
+  },
+  {
+    "word": "frankfurters",
+    "hint": "Seasoned smoked sausages typically made of beef and pork.",
+    "diff": "hard"
+  },
+  {
+    "word": "croissants",
+    "hint": "French crescent-shaped rolls made of sweet flaky pastry.",
+    "diff": "hard"
+  },
+  {
+    "word": "enchiladas",
+    "hint": "Rolled tortillas with a filling typically of meat and served with a chili sauce.",
+    "diff": "hard"
+  },
+  {
+    "word": "quesadillas",
+    "hint": "Tortillas filled with cheese and heated.",
+    "diff": "hard"
+  },
+  {
+    "word": "tenderloins",
+    "hint": "Tender cuts of pork or beef taken from the loin.",
+    "diff": "hard"
+  },
+  {
+    "word": "cheesecakes",
+    "hint": "Rich sweet tarts made with cream and soft cheese on a crumb base.",
+    "diff": "hard"
+  },
+  {
+    "word": "marshmallows",
+    "hint": "Spongy confections made from sugar, corn syrup, gelatin, and flavoring.",
+    "diff": "hard"
+  }
+];

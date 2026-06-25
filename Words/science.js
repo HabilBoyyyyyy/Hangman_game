@@ -1,0 +1,753 @@
+window.WORD_BANK = window.WORD_BANK || {};
+window.WORD_BANK["science"] = [
+  {
+    "word": "atom",
+    "hint": "The basic building block of all matter.",
+    "diff": "easy"
+  },
+  {
+    "word": "cell",
+    "hint": "The smallest structural and functional unit of an organism.",
+    "diff": "easy"
+  },
+  {
+    "word": "mass",
+    "hint": "A measure of the amount of matter in an object.",
+    "diff": "easy"
+  },
+  {
+    "word": "star",
+    "hint": "A massive, luminous sphere of plasma held together by its own gravity.",
+    "diff": "easy"
+  },
+  {
+    "word": "core",
+    "hint": "The dense central region of a planet or star.",
+    "diff": "easy"
+  },
+  {
+    "word": "gene",
+    "hint": "A unit of heredity transferred from a parent to offspring.",
+    "diff": "easy"
+  },
+  {
+    "word": "heat",
+    "hint": "Thermal energy transferred between systems.",
+    "diff": "easy"
+  },
+  {
+    "word": "acid",
+    "hint": "A chemical substance with a pH lower than 7.",
+    "diff": "easy"
+  },
+  {
+    "word": "base",
+    "hint": "A chemical substance with a pH higher than 7.",
+    "diff": "easy"
+  },
+  {
+    "word": "bond",
+    "hint": "The force holding atoms together in a molecule.",
+    "diff": "easy"
+  },
+  {
+    "word": "data",
+    "hint": "Facts and statistics collected together for reference or analysis.",
+    "diff": "easy"
+  },
+  {
+    "word": "zinc",
+    "hint": "A metallic chemical element with the symbol Zn.",
+    "diff": "easy"
+  },
+  {
+    "word": "neon",
+    "hint": "A noble gas commonly used in brightly colored glowing signs.",
+    "diff": "easy"
+  },
+  {
+    "word": "iron",
+    "hint": "A strong, magnetic, silvery-gray metal.",
+    "diff": "easy"
+  },
+  {
+    "word": "gold",
+    "hint": "A precious yellow metal highly valued in chemistry and electronics.",
+    "diff": "easy"
+  },
+  {
+    "word": "lead",
+    "hint": "A heavy, dense, toxic metal with the chemical symbol Pb.",
+    "diff": "easy"
+  },
+  {
+    "word": "moon",
+    "hint": "A natural satellite orbiting a planet.",
+    "diff": "easy"
+  },
+  {
+    "word": "mars",
+    "hint": "The fourth planet from the Sun, known as the Red Planet.",
+    "diff": "easy"
+  },
+  {
+    "word": "vein",
+    "hint": "A blood vessel that carries blood toward the heart.",
+    "diff": "easy"
+  },
+  {
+    "word": "lung",
+    "hint": "The primary organ of the respiratory system in humans and many other animals.",
+    "diff": "easy"
+  },
+  {
+    "word": "bone",
+    "hint": "A rigid organ that constitutes part of the vertebrate skeleton.",
+    "diff": "easy"
+  },
+  {
+    "word": "skin",
+    "hint": "The largest organ covering the body of humans and other animals.",
+    "diff": "easy"
+  },
+  {
+    "word": "soil",
+    "hint": "The upper layer of earth in which plants grow.",
+    "diff": "easy"
+  },
+  {
+    "word": "wind",
+    "hint": "The perceptible natural movement of the air.",
+    "diff": "easy"
+  },
+  {
+    "word": "rock",
+    "hint": "A naturally occurring solid mass or aggregate of minerals.",
+    "diff": "easy"
+  },
+  {
+    "word": "rain",
+    "hint": "Moisture condensed from the atmosphere that falls visibly in separate drops.",
+    "diff": "easy"
+  },
+  {
+    "word": "seed",
+    "hint": "The unit of reproduction of a flowering plant.",
+    "diff": "easy"
+  },
+  {
+    "word": "root",
+    "hint": "The part of a plant that attaches it to the ground and conveys water.",
+    "diff": "easy"
+  },
+  {
+    "word": "bird",
+    "hint": "A warm-blooded egg-laying vertebrate characterized by feathers and wings.",
+    "diff": "easy"
+  },
+  {
+    "word": "fish",
+    "hint": "A limbless cold-blooded vertebrate animal with gills and fins.",
+    "diff": "easy"
+  },
+  {
+    "word": "virus",
+    "hint": "An infective agent that typically consists of a nucleic acid molecule in a protein coat.",
+    "diff": "easy"
+  },
+  {
+    "word": "orbit",
+    "hint": "The curved trajectory of an object, such as a planet, around a star.",
+    "diff": "easy"
+  },
+  {
+    "word": "fluid",
+    "hint": "A substance that has no fixed shape and yields easily to external pressure.",
+    "diff": "easy"
+  },
+  {
+    "word": "force",
+    "hint": "A push or pull upon an object resulting from its interaction with another object.",
+    "diff": "easy"
+  },
+  {
+    "word": "light",
+    "hint": "The natural agent that stimulates sight and makes things visible.",
+    "diff": "easy"
+  },
+  {
+    "word": "sound",
+    "hint": "Vibrations that travel through the air or another medium and can be heard.",
+    "diff": "easy"
+  },
+  {
+    "word": "space",
+    "hint": "The boundless three-dimensional extent in which objects and events have relative position.",
+    "diff": "easy"
+  },
+  {
+    "word": "comet",
+    "hint": "A celestial object consisting of a nucleus of ice and dust, featuring a 'tail' when near the sun.",
+    "diff": "easy"
+  },
+  {
+    "word": "laser",
+    "hint": "A device that generates an intense beam of coherent monochromatic light.",
+    "diff": "easy"
+  },
+  {
+    "word": "radar",
+    "hint": "A system for detecting the presence, direction, distance, and speed of aircraft or ships.",
+    "diff": "easy"
+  },
+  {
+    "word": "sonar",
+    "hint": "A system for the detection of objects under water by emitting sound pulses.",
+    "diff": "easy"
+  },
+  {
+    "word": "clone",
+    "hint": "An organism or cell produced asexually from one ancestor, to which it is genetically identical.",
+    "diff": "easy"
+  },
+  {
+    "word": "flora",
+    "hint": "The plants of a particular region, habitat, or geological period.",
+    "diff": "easy"
+  },
+  {
+    "word": "fauna",
+    "hint": "The animals of a particular region, habitat, or geological period.",
+    "diff": "easy"
+  },
+  {
+    "word": "gland",
+    "hint": "An organ that synthesizes substances for release into the bloodstream or into cavities.",
+    "diff": "easy"
+  },
+  {
+    "word": "blood",
+    "hint": "The red liquid that circulates in the arteries and veins of humans and other vertebrates.",
+    "diff": "easy"
+  },
+  {
+    "word": "brain",
+    "hint": "The organ serving as the center of the nervous system in vertebrate and invertebrate animals.",
+    "diff": "easy"
+  },
+  {
+    "word": "pulse",
+    "hint": "A rhythmical throbbing of the arteries as blood is propelled through them.",
+    "diff": "easy"
+  },
+  {
+    "word": "nerve",
+    "hint": "A whitish fiber that transmits impulses of sensation to the brain or spinal cord.",
+    "diff": "easy"
+  },
+  {
+    "word": "skull",
+    "hint": "The bone framework enclosing the brain of a vertebrate.",
+    "diff": "easy"
+  },
+  {
+    "word": "energy",
+    "hint": "The quantitative property that must be transferred to a body or physical system to perform work.",
+    "diff": "medium"
+  },
+  {
+    "word": "matter",
+    "hint": "Any substance that has mass and takes up space by having volume.",
+    "diff": "medium"
+  },
+  {
+    "word": "proton",
+    "hint": "A subatomic particle with a positive electric charge found in the nucleus of an atom.",
+    "diff": "medium"
+  },
+  {
+    "word": "carbon",
+    "hint": "The chemical element of atomic number 6, forming the basis of all known life.",
+    "diff": "medium"
+  },
+  {
+    "word": "oxygen",
+    "hint": "A colorless, odorless reactive gas that forms about 21 percent of the earth's atmosphere.",
+    "diff": "medium"
+  },
+  {
+    "word": "tissue",
+    "hint": "An ensemble of similar cells and their extracellular matrix from the same origin.",
+    "diff": "medium"
+  },
+  {
+    "word": "galaxy",
+    "hint": "A gravitationally bound system of stars, stellar remnants, interstellar gas, dust, and dark matter.",
+    "diff": "medium"
+  },
+  {
+    "word": "planet",
+    "hint": "An astronomical body orbiting a star or stellar remnant.",
+    "diff": "medium"
+  },
+  {
+    "word": "fossil",
+    "hint": "The preserved remains or traces of a dead organism.",
+    "diff": "medium"
+  },
+  {
+    "word": "plasma",
+    "hint": "One of the four fundamental states of matter, consisting of a gas of ions and free electrons.",
+    "diff": "medium"
+  },
+  {
+    "word": "liquid",
+    "hint": "A nearly incompressible fluid that conforms to the shape of its container.",
+    "diff": "medium"
+  },
+  {
+    "word": "vacuum",
+    "hint": "Space devoid of matter.",
+    "diff": "medium"
+  },
+  {
+    "word": "magnet",
+    "hint": "A material or object that produces a magnetic field.",
+    "diff": "medium"
+  },
+  {
+    "word": "copper",
+    "hint": "A soft, malleable, and ductile metal with very high thermal and electrical conductivity.",
+    "diff": "medium"
+  },
+  {
+    "word": "silver",
+    "hint": "A precious shiny grayish-white metal, the chemical element of atomic number 47.",
+    "diff": "medium"
+  },
+  {
+    "word": "helium",
+    "hint": "A colorless, odorless, tasteless, non-toxic, inert, monatomic gas.",
+    "diff": "medium"
+  },
+  {
+    "word": "nebula",
+    "hint": "A distinct body of interstellar clouds, which can be a nursery for new stars.",
+    "diff": "medium"
+  },
+  {
+    "word": "meteor",
+    "hint": "A streak of light in the sky caused by a meteoroid crashing into Earth's atmosphere.",
+    "diff": "medium"
+  },
+  {
+    "word": "botany",
+    "hint": "The scientific study of plants.",
+    "diff": "medium"
+  },
+  {
+    "word": "enzyme",
+    "hint": "A substance produced by a living organism which acts as a catalyst to bring about a specific biochemical reaction.",
+    "diff": "medium"
+  },
+  {
+    "word": "animal",
+    "hint": "A living organism that feeds on organic matter, typically having specialized sense organs and nervous system.",
+    "diff": "medium"
+  },
+  {
+    "word": "mammal",
+    "hint": "A warm-blooded vertebrate animal distinguished by the possession of hair or fur.",
+    "diff": "medium"
+  },
+  {
+    "word": "crystal",
+    "hint": "A solid material whose constituents are arranged in a highly ordered microscopic structure.",
+    "diff": "medium"
+  },
+  {
+    "word": "nucleus",
+    "hint": "The dense, positively charged center of an atom.",
+    "diff": "medium"
+  },
+  {
+    "word": "neutron",
+    "hint": "A subatomic particle of about the same mass as a proton but without an electric charge.",
+    "diff": "medium"
+  },
+  {
+    "word": "gravity",
+    "hint": "The natural phenomenon by which all things with mass or energy are brought toward one another.",
+    "diff": "medium"
+  },
+  {
+    "word": "biology",
+    "hint": "The natural science that studies life and living organisms.",
+    "diff": "medium"
+  },
+  {
+    "word": "physics",
+    "hint": "The natural science that studies matter, its motion and behavior through space and time.",
+    "diff": "medium"
+  },
+  {
+    "word": "geology",
+    "hint": "The earth science concerned with the solid Earth, the rocks of which it is composed, and the processes by which they change.",
+    "diff": "medium"
+  },
+  {
+    "word": "anatomy",
+    "hint": "The branch of science concerned with the bodily structure of humans, animals, and other living organisms.",
+    "diff": "medium"
+  },
+  {
+    "word": "ecology",
+    "hint": "The branch of biology that deals with the relations of organisms to one another and to their physical surroundings.",
+    "diff": "medium"
+  },
+  {
+    "word": "zoology",
+    "hint": "The scientific study of the behavior, structure, physiology, classification, and distribution of animals.",
+    "diff": "medium"
+  },
+  {
+    "word": "weather",
+    "hint": "The state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.",
+    "diff": "medium"
+  },
+  {
+    "word": "climate",
+    "hint": "The weather conditions prevailing in an area in general or over a long period.",
+    "diff": "medium"
+  },
+  {
+    "word": "volcano",
+    "hint": "A rupture in the crust of a planetary-mass object that allows hot lava, volcanic ash, and gases to escape.",
+    "diff": "medium"
+  },
+  {
+    "word": "mineral",
+    "hint": "A solid inorganic substance of natural occurrence.",
+    "diff": "medium"
+  },
+  {
+    "word": "element",
+    "hint": "A species of atom having the same number of protons in its atomic nucleus.",
+    "diff": "medium"
+  },
+  {
+    "word": "species",
+    "hint": "The basic unit of classification and a taxonomic rank of an organism.",
+    "diff": "medium"
+  },
+  {
+    "word": "habitat",
+    "hint": "The natural home or environment of an animal, plant, or other organism.",
+    "diff": "medium"
+  },
+  {
+    "word": "polymer",
+    "hint": "A substance that has a molecular structure consisting chiefly or entirely of a large number of similar units bonded together.",
+    "diff": "medium"
+  },
+  {
+    "word": "kinetic",
+    "hint": "Relating to or resulting from motion.",
+    "diff": "medium"
+  },
+  {
+    "word": "thermal",
+    "hint": "Relating to heat.",
+    "diff": "medium"
+  },
+  {
+    "word": "optical",
+    "hint": "Relating to sight, especially in relation to the physical action of light.",
+    "diff": "medium"
+  },
+  {
+    "word": "osmosis",
+    "hint": "A process by which molecules of a solvent tend to pass through a semipermeable membrane.",
+    "diff": "medium"
+  },
+  {
+    "word": "electron",
+    "hint": "A stable subatomic particle with a charge of negative electricity, found in all atoms.",
+    "diff": "medium"
+  },
+  {
+    "word": "molecule",
+    "hint": "A group of atoms bonded together, representing the smallest fundamental unit of a chemical compound.",
+    "diff": "medium"
+  },
+  {
+    "word": "reaction",
+    "hint": "A process that involves rearrangement of the molecular or ionic structure of a substance.",
+    "diff": "medium"
+  },
+  {
+    "word": "friction",
+    "hint": "The resistance that one surface or object encounters when moving over another.",
+    "diff": "medium"
+  },
+  {
+    "word": "velocity",
+    "hint": "The speed of something in a given direction.",
+    "diff": "medium"
+  },
+  {
+    "word": "momentum",
+    "hint": "The quantity of motion of a moving body, measured as a product of its mass and velocity.",
+    "diff": "medium"
+  },
+  {
+    "word": "chemistry",
+    "hint": "The scientific discipline involved with elements and compounds composed of atoms, molecules and ions.",
+    "diff": "hard"
+  },
+  {
+    "word": "astronomy",
+    "hint": "The natural science that studies celestial objects and phenomena.",
+    "diff": "hard"
+  },
+  {
+    "word": "evolution",
+    "hint": "Change in the heritable characteristics of biological populations over successive generations.",
+    "diff": "hard"
+  },
+  {
+    "word": "radiation",
+    "hint": "The emission of energy as electromagnetic waves or as moving subatomic particles.",
+    "diff": "hard"
+  },
+  {
+    "word": "synthesis",
+    "hint": "The production of chemical compounds by reaction from simpler materials.",
+    "diff": "hard"
+  },
+  {
+    "word": "ecosystem",
+    "hint": "A biological community of interacting organisms and their physical environment.",
+    "diff": "hard"
+  },
+  {
+    "word": "biosphere",
+    "hint": "The worldwide sum of all ecosystems, also known as the ecosphere.",
+    "diff": "hard"
+  },
+  {
+    "word": "satellite",
+    "hint": "An artificial body placed in orbit around the earth or moon or another planet.",
+    "diff": "hard"
+  },
+  {
+    "word": "telescope",
+    "hint": "An optical instrument designed to make distant objects appear nearer.",
+    "diff": "hard"
+  },
+  {
+    "word": "microscope",
+    "hint": "An optical instrument used for viewing very small objects.",
+    "diff": "hard"
+  },
+  {
+    "word": "experiment",
+    "hint": "A scientific procedure undertaken to make a discovery, test a hypothesis, or demonstrate a known fact.",
+    "diff": "hard"
+  },
+  {
+    "word": "hypothesis",
+    "hint": "A proposed explanation made on the basis of limited evidence as a starting point for further investigation.",
+    "diff": "hard"
+  },
+  {
+    "word": "laboratory",
+    "hint": "A room or building equipped for scientific experiments, research, or teaching.",
+    "diff": "hard"
+  },
+  {
+    "word": "temperature",
+    "hint": "The degree or intensity of heat present in a substance or object.",
+    "diff": "hard"
+  },
+  {
+    "word": "electricity",
+    "hint": "A form of energy resulting from the existence of charged particles.",
+    "diff": "hard"
+  },
+  {
+    "word": "magnetism",
+    "hint": "A physical phenomenon produced by the motion of electric charge, resulting in attractive and repulsive forces.",
+    "diff": "hard"
+  },
+  {
+    "word": "chromosome",
+    "hint": "A threadlike structure of nucleic acids and protein found in the nucleus of most living cells.",
+    "diff": "hard"
+  },
+  {
+    "word": "metabolism",
+    "hint": "The chemical processes that occur within a living organism in order to maintain life.",
+    "diff": "hard"
+  },
+  {
+    "word": "photosynthesis",
+    "hint": "The process by which green plants and some other organisms use sunlight to synthesize foods.",
+    "diff": "hard"
+  },
+  {
+    "word": "biodiversity",
+    "hint": "The variety of plant and animal life in the world or in a particular habitat.",
+    "diff": "hard"
+  },
+  {
+    "word": "vertebrate",
+    "hint": "An animal of a large group distinguished by the possession of a backbone or spinal column.",
+    "diff": "hard"
+  },
+  {
+    "word": "invertebrate",
+    "hint": "An animal lacking a backbone, such as an arthropod, mollusk, or annelid.",
+    "diff": "hard"
+  },
+  {
+    "word": "amphibian",
+    "hint": "A cold-blooded vertebrate animal of a class that comprises the frogs, toads, newts, and salamanders.",
+    "diff": "hard"
+  },
+  {
+    "word": "carnivore",
+    "hint": "An animal that feeds on flesh.",
+    "diff": "hard"
+  },
+  {
+    "word": "herbivore",
+    "hint": "An animal that feeds on plants.",
+    "diff": "hard"
+  },
+  {
+    "word": "chlorophyll",
+    "hint": "A green pigment, present in all green plants and in cyanobacteria, responsible for the absorption of light.",
+    "diff": "hard"
+  },
+  {
+    "word": "chloroplast",
+    "hint": "A plastid that contains chlorophyll and in which photosynthesis takes place.",
+    "diff": "hard"
+  },
+  {
+    "word": "mitochondria",
+    "hint": "An organelle found in large numbers in most cells, in which the biochemical processes of respiration and energy production occur.",
+    "diff": "hard"
+  },
+  {
+    "word": "nucleotide",
+    "hint": "A compound consisting of a nucleoside linked to a phosphate group, forming the basic structural unit of nucleic acids.",
+    "diff": "hard"
+  },
+  {
+    "word": "carbohydrate",
+    "hint": "Any of a large group of organic compounds occurring in foods and living tissues and including sugars, starch, and cellulose.",
+    "diff": "hard"
+  },
+  {
+    "word": "atmosphere",
+    "hint": "The envelope of gases surrounding the earth or another planet.",
+    "diff": "hard"
+  },
+  {
+    "word": "stratosphere",
+    "hint": "The layer of the earth's atmosphere above the troposphere, extending to about 32 miles above the earth's surface.",
+    "diff": "hard"
+  },
+  {
+    "word": "troposphere",
+    "hint": "The lowest region of the atmosphere, extending from the earth's surface to a height of about 3.7–6.2 miles.",
+    "diff": "hard"
+  },
+  {
+    "word": "lithosphere",
+    "hint": "The rigid outer part of the earth, consisting of the crust and upper mantle.",
+    "diff": "hard"
+  },
+  {
+    "word": "hydrosphere",
+    "hint": "All the waters on the earth's surface, such as lakes and seas, and sometimes including water over the earth's surface.",
+    "diff": "hard"
+  },
+  {
+    "word": "earthquake",
+    "hint": "A sudden and violent shaking of the ground, sometimes causing great destruction.",
+    "diff": "hard"
+  },
+  {
+    "word": "hurricane",
+    "hint": "A storm with a violent wind, in particular a tropical cyclone in the Caribbean.",
+    "diff": "hard"
+  },
+  {
+    "word": "supernova",
+    "hint": "A star that suddenly increases greatly in brightness because of a catastrophic explosion that ejects most of its mass.",
+    "diff": "hard"
+  },
+  {
+    "word": "meteorite",
+    "hint": "A meteor that survives its passage through the earth's atmosphere such that part of it strikes the ground.",
+    "diff": "hard"
+  },
+  {
+    "word": "exoplanet",
+    "hint": "A planet that orbits a star outside the solar system.",
+    "diff": "hard"
+  },
+  {
+    "word": "observatory",
+    "hint": "A room or building housing an astronomical telescope or other scientific equipment.",
+    "diff": "hard"
+  },
+  {
+    "word": "radioactive",
+    "hint": "Emitting or relating to the emission of ionizing radiation or particles.",
+    "diff": "hard"
+  },
+  {
+    "word": "ultraviolet",
+    "hint": "Electromagnetic radiation with a wavelength from 10 nm to 400 nm, shorter than that of visible light.",
+    "diff": "hard"
+  },
+  {
+    "word": "microwave",
+    "hint": "An electromagnetic wave with a wavelength in the range 0.001–0.3 m, shorter than that of a normal radio wave.",
+    "diff": "hard"
+  },
+  {
+    "word": "wavelength",
+    "hint": "The distance between successive crests of a wave, especially points in a sound wave or electromagnetic wave.",
+    "diff": "hard"
+  },
+  {
+    "word": "frequency",
+    "hint": "The rate at which a vibration occurs that constitutes a wave.",
+    "diff": "hard"
+  },
+  {
+    "word": "thermodynamics",
+    "hint": "The branch of physical science that deals with the relations between heat and other forms of energy.",
+    "diff": "hard"
+  },
+  {
+    "word": "aerodynamics",
+    "hint": "The study of the properties of moving air, and especially of the interaction between the air and solid bodies moving through it.",
+    "diff": "hard"
+  },
+  {
+    "word": "paleontology",
+    "hint": "The branch of science concerned with fossil animals and plants.",
+    "diff": "hard"
+  },
+  {
+    "word": "distillation",
+    "hint": "The action of purifying a liquid by a process of heating and cooling.",
+    "diff": "hard"
+  }
+];

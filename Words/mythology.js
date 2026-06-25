@@ -1,0 +1,191 @@
+window.WORD_BANK = window.WORD_BANK || {};
+window.WORD_BANK["mythology"] = [
+  // EASY (4-5 Letters)
+  {
+    word: "zeus",
+    hint: "The sky and thunder god in ancient Greek religion.",
+    diff: "easy",
+  },
+  {
+    word: "thor",
+    hint: "The hammer-wielding Norse god associated with thunder and lightning.",
+    diff: "easy",
+  },
+  {
+    word: "hades",
+    hint: "The ancient Greek god of the underworld.",
+    diff: "easy",
+  },
+  {word: "ares", hint: "The Greek god of courage and war.", diff: "easy"},
+  {
+    word: "odin",
+    hint: "The widely revered god in Germanic mythology, associated with wisdom and war.",
+    diff: "easy",
+  },
+  {word: "loki", hint: "The trickster god in Norse mythology.", diff: "easy"},
+  {
+    word: "heros",
+    hint: "Mortals of divine ancestry in mythology, noted for their courage.",
+    diff: "easy",
+  },
+  {
+    word: "elf",
+    hint: "A supernatural creature of folk tales, typically represented as a small, elusive figure.",
+    diff: "easy",
+  },
+  {
+    word: "fairy",
+    hint: "A small imaginary being of human form that has magical powers.",
+    diff: "easy",
+  },
+  {
+    word: "troll",
+    hint: "A mythical, cave-dwelling being depicted in folklore as either a giant or a dwarf.",
+    diff: "easy",
+  },
+  {
+    word: "titan",
+    hint: "Any of the older gods who preceded the Olympians.",
+    diff: "easy",
+  },
+  {
+    word: "nymph",
+    hint: "A mythological spirit of nature imagined as a beautiful maiden.",
+    diff: "easy",
+  },
+  {
+    word: "hydra",
+    hint: "A many-headed serpent or monster in Greek mythology.",
+    diff: "easy",
+  },
+
+  // MEDIUM (6-8 Letters)
+  {
+    word: "apollo",
+    hint: "The Greek and Roman god of archery, music, and poetry.",
+    diff: "medium",
+  },
+  {
+    word: "athena",
+    hint: "The ancient Greek goddess associated with wisdom, handicraft, and warfare.",
+    diff: "medium",
+  },
+  {
+    word: "dragon",
+    hint: "A mythical monster like a giant reptile, frequently capable of breathing fire.",
+    diff: "medium",
+  },
+  {
+    word: "medusa",
+    hint: "A Gorgon with living venomous snakes in place of hair.",
+    diff: "medium",
+  },
+  {word: "pegasus", hint: "A mythical winged divine horse.", diff: "medium"},
+  {
+    word: "chimera",
+    hint: "A fire-breathing female monster with a lion's head, a goat's body, and a serpent's tail.",
+    diff: "medium",
+  },
+  {
+    word: "griffin",
+    hint: "A mythical creature with the head and wings of an eagle and the body of a lion.",
+    diff: "medium",
+  },
+  {
+    word: "cyclops",
+    hint: "A member of a race of savage one-eyed giants.",
+    diff: "medium",
+  },
+  {
+    word: "centaur",
+    hint: "A mythological creature with the upper body of a human and the lower body of a horse.",
+    diff: "medium",
+  },
+  {
+    word: "mermaid",
+    hint: "A fictitious or mythical half-human sea creature with the head and trunk of a woman and the tail of a fish.",
+    diff: "medium",
+  },
+  {
+    word: "unicorn",
+    hint: "A mythical animal typically represented as a horse with a single straight horn.",
+    diff: "medium",
+  },
+  {
+    word: "vampire",
+    hint: "A mythical being that subsists by feeding on the life essence (generally in the form of blood) of the living.",
+    diff: "medium",
+  },
+  {
+    word: "goblin",
+    hint: "A mischievous, ugly, dwarflike creature of folklore.",
+    diff: "medium",
+  },
+  {
+    word: "kraken",
+    hint: "An enormous mythical sea monster said to appear off the coasts of Norway.",
+    diff: "medium",
+  },
+  {
+    word: "osiris",
+    hint: "The Egyptian god of the afterlife, the underworld, and rebirth.",
+    diff: "medium",
+  },
+
+  // HARD (9+ Letters)
+  {
+    word: "poseidon",
+    hint: "The ancient Greek god of the sea, storms, and earthquakes.",
+    diff: "hard",
+  },
+  {
+    word: "minotaur",
+    hint: "A mythical creature with the head of a bull and the body of a man.",
+    diff: "hard",
+  },
+  {
+    word: "aphrodite",
+    hint: "The ancient Greek goddess of sexual love and beauty.",
+    diff: "hard",
+  },
+  {
+    word: "leprechaun",
+    hint: "A mischievous sprite in Irish folklore, typically depicted as a little bearded man.",
+    diff: "hard",
+  },
+  {
+    word: "valkyrie",
+    hint: "Any of the female figures who choose those who may die in battle and those who may live.",
+    diff: "hard",
+  },
+  {
+    word: "prometheus",
+    hint: "A Titan god of fire who is credited with the creation of humanity from clay.",
+    diff: "hard",
+  },
+  {
+    word: "excalibur",
+    hint: "The legendary sword of King Arthur, sometimes attributed with magical powers.",
+    diff: "hard",
+  },
+  {
+    word: "yggdrasil",
+    hint: "An immense and central sacred tree in Norse cosmology.",
+    diff: "hard",
+  },
+  {
+    word: "ragnarok",
+    hint: "A series of events, including a great battle, foretold to lead to the death of a number of great figures in Norse mythology.",
+    diff: "hard",
+  },
+  {
+    word: "werewolf",
+    hint: "A human with the ability to shapeshift into a wolf.",
+    diff: "hard",
+  },
+  {
+    word: "leviathan",
+    hint: "A mythical sea serpent noted in theology and mythology.",
+    diff: "hard",
+  },
+];

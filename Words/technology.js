@@ -1,0 +1,228 @@
+window.WORD_BANK = window.WORD_BANK || {};
+window.WORD_BANK["technology"] = [
+  // EASY (4-5 Letters)
+  {
+    word: "code",
+    hint: "Instructions written for a computer to execute.",
+    diff: "easy",
+  },
+  {
+    word: "data",
+    hint: "Information processed or stored by a computer.",
+    diff: "easy",
+  },
+  {
+    word: "byte",
+    hint: "A unit of digital data, typically consisting of eight bits.",
+    diff: "easy",
+  },
+  {
+    word: "disk",
+    hint: "A magnetic storage medium for computer data.",
+    diff: "easy",
+  },
+  {
+    word: "mouse",
+    hint: "A hand-held pointing device used with a computer.",
+    diff: "easy",
+  },
+  {
+    word: "pixel",
+    hint: "The smallest unit of a digital image or display.",
+    diff: "easy",
+  },
+  {
+    word: "virus",
+    hint: "Malicious software designed to cause harm or spread.",
+    diff: "easy",
+  },
+  {
+    word: "cloud",
+    hint: "Servers accessed over the internet for storage and computing.",
+    diff: "easy",
+  },
+  {
+    word: "wifi",
+    hint: "Wireless networking technology that uses radio waves.",
+    diff: "easy",
+  },
+  {
+    word: "laser",
+    hint: "A device that emits a narrow, intense beam of light.",
+    diff: "easy",
+  },
+  {
+    word: "chip",
+    hint: "A small piece of semiconductor material carrying an integrated circuit.",
+    diff: "easy",
+  },
+  {
+    word: "html",
+    hint: "The standard markup language for documents designed to be displayed in a web browser.",
+    diff: "easy",
+  },
+  {
+    word: "spam",
+    hint: "Irrelevant or inappropriate messages sent on the internet.",
+    diff: "easy",
+  },
+  {
+    word: "cache",
+    hint: "A hardware or software component that stores data so future requests can be served faster.",
+    diff: "easy",
+  },
+
+  // MEDIUM (6-8 Letters)
+  {
+    word: "server",
+    hint: "A computer or system that provides resources, data, or services to other computers.",
+    diff: "medium",
+  },
+  {
+    word: "laptop",
+    hint: "A portable, relatively small computer suitable for use while traveling.",
+    diff: "medium",
+  },
+  {
+    word: "hacker",
+    hint: "A person who uses computers to gain unauthorized access to data.",
+    diff: "medium",
+  },
+  {
+    word: "router",
+    hint: "A device that forwards data packets between computer networks.",
+    diff: "medium",
+  },
+  {
+    word: "domain",
+    hint: "A distinct subset of the Internet with addresses sharing a common suffix.",
+    diff: "medium",
+  },
+  {
+    word: "tablet",
+    hint: "A wireless, portable personal computer with a touchscreen interface.",
+    diff: "medium",
+  },
+  {
+    word: "update",
+    hint: "A software patch or new version to improve a program.",
+    diff: "medium",
+  },
+  {
+    word: "network",
+    hint: "A group of two or more computer systems linked together.",
+    diff: "medium",
+  },
+  {
+    word: "browser",
+    hint: "A software application for accessing information on the World Wide Web.",
+    diff: "medium",
+  },
+  {
+    word: "cookie",
+    hint: "A small piece of data sent from a website and stored on the user's computer.",
+    diff: "medium",
+  },
+  {
+    word: "malware",
+    hint: "Software that is specifically designed to disrupt, damage, or gain unauthorized access.",
+    diff: "medium",
+  },
+  {
+    word: "virtual",
+    hint: "Not physically existing as such but made by software to appear to do so.",
+    diff: "medium",
+  },
+  {
+    word: "battery",
+    hint: "A container consisting of one or more cells, converting chemical energy into electricity.",
+    diff: "medium",
+  },
+  {
+    word: "monitor",
+    hint: "An output device that displays information in pictorial or text form.",
+    diff: "medium",
+  },
+  {
+    word: "firewall",
+    hint: "A network security system that monitors and controls incoming and outgoing network traffic.",
+    diff: "medium",
+  },
+  {
+    word: "software",
+    hint: "The programs and other operating information used by a computer.",
+    diff: "medium",
+  },
+  {
+    word: "database",
+    hint: "A structured set of data held in a computer.",
+    diff: "medium",
+  },
+
+  // HARD (9+ Letters)
+  {
+    word: "algorithm",
+    hint: "A process or set of rules to be followed in calculations or other problem-solving operations.",
+    diff: "hard",
+  },
+  {
+    word: "processor",
+    hint: "The electronic circuitry within a computer that executes instructions.",
+    diff: "hard",
+  },
+  {
+    word: "encryption",
+    hint: "The process of converting information or data into a code, especially to prevent unauthorized access.",
+    diff: "hard",
+  },
+  {
+    word: "bandwidth",
+    hint: "The maximum rate of data transfer across a given path.",
+    diff: "hard",
+  },
+  {
+    word: "bluetooth",
+    hint: "A short-range wireless technology standard for exchanging data.",
+    diff: "hard",
+  },
+  {
+    word: "mainframe",
+    hint: "A large high-speed computer, especially one supporting numerous peripherals or users.",
+    diff: "hard",
+  },
+  {
+    word: "motherboard",
+    hint: "A printed circuit board containing the principal components of a computer.",
+    diff: "hard",
+  },
+  {
+    word: "smartphone",
+    hint: "A mobile phone that performs many of the functions of a computer.",
+    diff: "hard",
+  },
+  {
+    word: "resolution",
+    hint: "The number of pixels contained on a display monitor.",
+    diff: "hard",
+  },
+  {
+    word: "cybernetics",
+    hint: "The science of communications and automatic control systems in both machines and living things.",
+    diff: "hard",
+  },
+  {
+    word: "artificial",
+    hint: "Made or produced by human beings rather than occurring naturally (often paired with intelligence).",
+    diff: "hard",
+  },
+  {
+    word: "cryptography",
+    hint: "The art of writing or solving codes.",
+    diff: "hard",
+  },
+  {
+    word: "application",
+    hint: "A program or piece of software designed to fulfill a particular purpose.",
+    diff: "hard",
+  },
+];

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE GALLOWS — Hangman</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div class="paper-texture"></div>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+
+    <!-- ══════════════ TITLE SCREEN ══════════════ -->
+    <div class="screen" id="screenTitle">
+      <div class="title-wrapper">
+        <div class="title-stamp">CLASSIFIED</div>
+
+        <div class="title-masthead">
+          <div class="masthead-rule"></div>
+          <h1 class="game-title">THE GALLOWS</h1>
+          <div class="masthead-sub">
+            A WORD DEDUCTION EXERCISE — EST. MCMXLII
+          </div>
+          <div class="masthead-rule thick"></div>
+        </div>
+
+        <p class="title-flavor">
+          &ldquo;Every wrong letter tightens the rope.<br />
+          Choose wisely, detective.&rdquo;
+        </p>
+
+        <div class="option-block">
+          <div class="option-label">⟦ SELECT CASE DIFFICULTY ⟧</div>
+          <div class="option-row">
+            <button class="opt-btn active" data-diff="easy">
+              ROOKIE<span class="opt-sub">4–5 letters</span>
+            </button>
+            <button class="opt-btn" data-diff="medium">
+              DETECTIVE<span class="opt-sub">6–8 letters</span>
+            </button>
+            <button class="opt-btn" data-diff="hard">
+              INSPECTOR<span class="opt-sub">9+ letters</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="option-block">
+          <div class="option-label">⟦ CASE FILE CATEGORY ⟧</div>
+          <div class="option-row wrap">
+            <button class="cat-btn active" data-cat="all">ALL FILES</button>
+            <button class="cat-btn" data-cat="animals">ANIMALS</button>
+            <button class="cat-btn" data-cat="countries">COUNTRIES</button>
+            <button class="cat-btn" data-cat="movies">MOVIES</button>
+            <button class="cat-btn" data-cat="science">SCIENCE</button>
+            <button class="cat-btn" data-cat="food">FOOD</button>
+            <button class="cat-btn" data-cat="technology">TECHNOLOGY</button>
+            <button class="cat-btn" data-cat="music">MUSIC</button>
+            <button class="cat-btn" data-cat="mythology">MYTHOLOGY</button>
+          </div>
+        </div>
+
+        <button class="btn-primary" id="btnStart">
+          <span>OPEN CASE FILE</span>
+        </button>
+
+        <div class="title-footer">
+          6 wrong guesses &nbsp;◆&nbsp; Live timer &nbsp;◆&nbsp; Score system
+          &nbsp;◆&nbsp; Hints included
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ GAME SCREEN ══════════════ -->
+    <div class="screen hidden" id="screenGame">
+      <div class="topbar">
+        <div class="topbar-cell">
+          <div class="tb-label">CASE CATEGORY</div>
+          <div class="tb-val" id="tbCategory">—</div>
+        </div>
+        <div class="topbar-cell center">
+          <div class="tb-label">SCORE</div>
+          <div class="tb-val highlight" id="tbScore">0</div>
+        </div>
+        <div class="topbar-cell right">
+          <div class="tb-label">ELAPSED</div>
+          <div class="tb-val mono" id="tbTimer">0:00</div>
+        </div>
+      </div>
+
+      <div class="game-layout">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+          <div class="gallows-frame">
+            <svg
+              id="gallowsSvg"
+              viewBox="0 0 260 300"
+              xmlns="http://www.w3.org/2000/svg">
+              <!-- Static gallows structure -->
+              <line class="g-static" x1="20" y1="290" x2="240" y2="290" />
+              <line class="g-static" x1="60" y1="290" x2="60" y2="15" />
+              <line class="g-static" x1="60" y1="15" x2="165" y2="15" />
+              <line class="g-static" x1="165" y1="15" x2="165" y2="50" />
+              <line class="g-static brace" x1="60" y1="70" x2="105" y2="15" />
+
+              <!-- Progressive body parts -->
+              <circle
+                id="p-head"
+                class="g-part"
+                cx="165"
+                cy="70"
+                r="20"
+                style="display: none" />
+              <line
+                id="p-body"
+                class="g-part"
+                x1="165"
+                y1="90"
+                x2="165"
+                y2="175"
+                style="display: none" />
+              <line
+                id="p-larm"
+                class="g-part"
+                x1="165"
+                y1="110"
+                x2="125"
+                y2="148"
+                style="display: none" />
+              <line
+                id="p-rarm"
+                class="g-part"
+                x1="165"
+                y1="110"
+                x2="205"
+                y2="148"
+                style="display: none" />
+              <line
+                id="p-lleg"
+                class="g-part"
+                x1="165"
+                y1="175"
+                x2="125"
+                y2="218"
+                style="display: none" />
+              <line
+                id="p-rleg"
+                class="g-part"
+                x1="165"
+                y1="175"
+                x2="205"
+                y2="218"
+                style="display: none" />
+
+              <!-- Dead face (loss only) -->
+              <line
+                id="f-leye"
+                class="g-dead"
+                x1="157"
+                y1="64"
+                x2="163"
+                y2="70"
+                style="display: none" />
+              <line
+                id="f-leye2"
+                class="g-dead"
+                x1="163"
+                y1="64"
+                x2="157"
+                y2="70"
+                style="display: none" />
+              <line
+                id="f-reye"
+                class="g-dead"
+                x1="167"
+                y1="64"
+                x2="173"
+                y2="70"
+                style="display: none" />
+              <line
+                id="f-reye2"
+                class="g-dead"
+                x1="173"
+                y1="64"
+                x2="167"
+                y2="70"
+                style="display: none" />
+              <path
+                id="f-mouth"
+                class="g-dead"
+                d="M156 80 Q165 75 174 80"
+                style="display: none" />
+            </svg>
+
+            <div class="attempts-row">
+              <div class="att-pips" id="attPips"></div>
+              <div class="att-text">
+                <span id="attLeft">6</span> attempts left
+              </div>
+            </div>
+          </div>
+
+          <!-- Hint card -->
+          <div class="hint-card">
+            <div class="hint-card-corner tl"></div>
+            <div class="hint-card-corner tr"></div>
+            <div class="hint-card-corner bl"></div>
+            <div class="hint-card-corner br"></div>
+            <div class="hint-stamp" id="hintStamp">OPEN</div>
+            <div class="hint-label">INTELLIGENCE BRIEF</div>
+            <div class="hint-text" id="hintText">—</div>
+            <div class="hint-diff" id="hintDiff">—</div>
+          </div>
+
+          <!-- Wrong letters -->
+          <div class="wrong-section">
+            <div class="wrong-label">❌ WRONG LEADS</div>
+            <div class="wrong-letters" id="wrongLetters">
+              <span class="wrong-empty">none yet</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+          <div class="word-section">
+            <div class="word-eyebrow">SUSPECT WORD</div>
+            <div class="word-display" id="wordDisplay"></div>
+            <div class="word-meta" id="wordMeta"></div>
+          </div>
+
+          <div class="status-bar" id="statusBar"></div>
+
+          <div class="keyboard-section">
+            <div class="kb-eyebrow">INTERROGATE A LETTER</div>
+            <div class="keyboard" id="keyboard"></div>
+          </div>
+
+          <div class="progress-section">
+            <div class="prog-label">CASE PROGRESS</div>
+            <div class="prog-track">
+              <div class="prog-fill" id="progFill" style="width: 0%"></div>
+              <div class="prog-text" id="progText">0 / 0 letters found</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-quit" id="btnQuit">✕ ABANDON CASE</button>
+    </div>
+
+    <!-- ══════════════ RESULT SCREEN ══════════════ -->
+    <div class="screen hidden" id="screenResult">
+      <div class="result-wrapper">
+        <div class="result-badge" id="resultBadge">⚖</div>
+        <div class="result-heading" id="resultHeading">CASE CLOSED</div>
+        <div class="result-flavor" id="resultFlavor">
+          The suspect has been identified.
+        </div>
+
+        <div class="result-word-block">
+          <div class="rwb-label">THE WORD WAS</div>
+          <div class="rwb-word" id="rwbWord">—</div>
+        </div>
+
+        <div class="result-stats">
+          <div class="rs-cell">
+            <div class="rs-label">FINAL SCORE</div>
+            <div class="rs-val" id="rScore">0</div>
+          </div>
+          <div class="rs-cell">
+            <div class="rs-label">TIME TAKEN</div>
+            <div class="rs-val" id="rTime">—</div>
+          </div>
+          <div class="rs-cell">
+            <div class="rs-label">ATTEMPTS LEFT</div>
+            <div class="rs-val" id="rAttempts">—</div>
+          </div>
+          <div class="rs-cell">
+            <div class="rs-label">CORRECT GUESSES</div>
+            <div class="rs-val" id="rCorrect">—</div>
+          </div>
+          <div class="rs-cell">
+            <div class="rs-label">WRONG GUESSES</div>
+            <div class="rs-val" id="rWrong">—</div>
+          </div>
+          <div class="rs-cell">
+            <div class="rs-label">ACCURACY</div>
+            <div class="rs-val" id="rAccuracy">—</div>
+          </div>
+        </div>
+
+        <div class="result-btns">
+          <button class="btn-primary" id="btnNewCase">NEW CASE FILE</button>
+          <button class="btn-secondary" id="btnMenu">MAIN OFFICE</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="Words/animals.js"></script>
+    <script src="Words/countries.js"></script>
+    <script src="Words/movies.js"></script>
+    <script src="Words/science.js"></script>
+    <script src="Words/food.js"></script>
+    <script src="Words/technology.js"></script>
+    <script src="Words/music.js"></script>
+    <script src="Words/mythology.js"></script>
+    <script src="Words/all.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
