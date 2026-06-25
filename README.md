@@ -1,4 +1,4 @@
-# 🕵️‍♂️ THE GALLOWS — A Noir Hangman Experience
+# THE GALLOWS - A Noir Hangman Experience
 
 Welcome to **THE GALLOWS**, a classic game of Hangman reimagined as a 1940s detective/noir investigation! Step into the shoes of a seasoned detective and solve classified case files before the rope tightens. 
 
@@ -6,7 +6,7 @@ Every wrong letter is a strike against your suspect. Choose wisely, detective.
 
 ---
 
-## 🔎 Features
+## Features
 
 - **Immersive Noir Theme**: A gritty, classified intelligence brief UI complete with paper textures, vignettes, and film grain.
 - **Dynamic Foley Audio**: Custom Web Audio API sound engine that generates organic, physical sounds—from the sharp clack of a vintage typewriter and heavy rubber *DECLINED* stamps, to the ominous reverberating slam of a jail cell door.
@@ -28,7 +28,7 @@ Every wrong letter is a strike against your suspect. Choose wisely, detective.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 This project is built using pure, vanilla web technologies. No external libraries or frameworks are required.
 - **HTML5**: Structured with semantic tags.
@@ -38,7 +38,7 @@ This project is built using pure, vanilla web technologies. No external librarie
 
 ---
 
-## 🚀 How to Play
+## How to Play
 
 Since this is a static web application, playing it is incredibly simple:
 
@@ -55,7 +55,7 @@ Since this is a static web application, playing it is incredibly simple:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 ├── index.html        # The main game interface
