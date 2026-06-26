@@ -242,7 +242,6 @@ const screens = {
   title: $("screenTitle"),
   game: $("screenGame"),
   result: $("screenResult"),
-  records: $("modalRecords"),
 };
 
 function showScreen(name) {
@@ -252,67 +251,7 @@ function showScreen(name) {
   setTimeout(() => screens[name].classList.remove("screen-enter"), 400);
 }
 
-const RECORDS_KEY = "hangman_records_v2";
-function getRecords() {
-  try {
-    const raw = localStorage.getItem(RECORDS_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch (e) {}
-  return { streak: 0, modes: { normal: {}, interrogation: {} } };
-}
-function saveRecords(rec) {
-  localStorage.setItem(RECORDS_KEY, JSON.stringify(rec));
-}
 
-function updateRecordsModal() {
-  const rec = getRecords();
-  const mode = $("recMode").value;
-  const diff = $("recDiff").value;
-  const cat = $("recCat").value;
-  
-  $("recStreak").textContent = rec.streak;
-  
-  const modeRec = rec.modes[mode] || {};
-  const diffRec = modeRec[diff] || {};
-  const specific = diffRec[cat] || { score: 0, time: 9999 };
-  
-  $("recScore").textContent = specific.score > 0 ? specific.score : "—";
-  $("recTime").textContent = specific.time === 9999 ? "—" : formatTime(specific.time);
-}
-
-function checkAndSaveRecords() {
-  const rec = getRecords();
-  let updated = false;
-  
-  if (state.isCampaign && state.won && state.campaignStage > rec.streak) {
-    rec.streak = state.campaignStage;
-    updated = true;
-  }
-  
-  if (!state.isCampaign && state.won && state.category !== "CUSTOM") {
-    let pureCat = state.category.toLowerCase();
-    if (pureCat.endsWith(" level")) pureCat = "all";
-    
-    const mode = state.gameMode;
-    const diff = document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
-    
-    if (!rec.modes[mode]) rec.modes[mode] = {};
-    if (!rec.modes[mode][diff]) rec.modes[mode][diff] = {};
-    if (!rec.modes[mode][diff][pureCat]) rec.modes[mode][diff][pureCat] = { score: 0, time: 9999 };
-    
-    const specific = rec.modes[mode][diff][pureCat];
-    
-    if (state.score > specific.score) {
-      specific.score = state.score;
-      updated = true;
-    }
-    if (state.gameMode === "normal" && state.elapsedSeconds < specific.time) {
-      specific.time = state.elapsedSeconds;
-      updated = true;
-    }
-  }
-  if (updated) saveRecords(rec);
-}
 
 /* ── WORD SELECTION ──────────────────────────────────────── */
 let wordBankCache = {};
@@ -802,8 +741,6 @@ function endGame(won, reason = "") {
     renderWordDisplay();
   }
 
-  checkAndSaveRecords();
-
   setTimeout(() => buildResultScreen(won), 1400);
 }
 
@@ -976,27 +913,6 @@ function init() {
       startGame(false, {word: w, hint: h, diff: "custom"});
     });
   }
-
-  // Records Modal
-  $("btnRecords").addEventListener("click", () => {
-    SFX.pageFlip();
-    $("recMode").value = document.querySelector(".mode-btn.active")?.dataset.mode || "normal";
-    $("recDiff").value = document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
-    $("recCat").value = document.querySelector(".cat-btn.active")?.dataset.cat || "all";
-    updateRecordsModal();
-    showScreen("records");
-  });
-  
-  ["recMode", "recDiff", "recCat"].forEach(id => {
-    $(id).addEventListener("change", () => {
-      SFX.keyClick();
-      updateRecordsModal();
-    });
-  });
-  $("btnCloseRecords").addEventListener("click", () => {
-    SFX.keyClick();
-    showScreen("title");
-  });
 
   // Quit
   $("btnQuit").addEventListener("click", () => {

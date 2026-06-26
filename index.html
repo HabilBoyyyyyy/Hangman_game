@@ -91,12 +91,6 @@
           <button class="btn-primary" id="btnCustom">
             <i class="fa-solid fa-user-secret"></i> CUSTOM CASE
           </button>
-          <button
-            class="btn-secondary"
-            id="btnRecords"
-            style="width: 100%; margin-top: 8px">
-            <i class="fa-solid fa-file-signature"></i> DEPARTMENT RECORDS
-          </button>
         </div>
 
         <div class="title-footer">
@@ -363,57 +357,6 @@
           </button>
           <button class="btn-secondary" id="btnMenu">MAIN OFFICE</button>
         </div>
-      </div>
-    </div>
-
-    <!-- ══════════════ RECORDS MODAL ══════════════ -->
-    <div class="screen hidden" id="modalRecords">
-      <div class="title-wrapper" style="max-width: 450px">
-        <div class="title-stamp">TOP SECRET</div>
-        <h2 class="game-title" style="font-size: 2.2rem">RECORDS</h2>
-        <div class="masthead-rule thick"></div>
-        <div class="records-filters" style="display: flex; gap: 8px; margin-bottom: 16px; width: 100%;">
-          <select id="recMode" class="rec-select" style="flex: 1; padding: 6px; background: var(--parchment2); border: 1px solid var(--ink); color: var(--ink); font-family: var(--font-mono); text-transform: uppercase;">
-            <option value="normal">Standard</option>
-            <option value="interrogation">Interrogation</option>
-          </select>
-          <select id="recDiff" class="rec-select" style="flex: 1; padding: 6px; background: var(--parchment2); border: 1px solid var(--ink); color: var(--ink); font-family: var(--font-mono); text-transform: uppercase;">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-          <select id="recCat" class="rec-select" style="flex: 1; padding: 6px; background: var(--parchment2); border: 1px solid var(--ink); color: var(--ink); font-family: var(--font-mono); text-transform: uppercase;">
-            <option value="all">All</option>
-            <option value="animals">Animals</option>
-            <option value="countries">Countries</option>
-            <option value="movies">Movies</option>
-            <option value="science">Science</option>
-            <option value="food">Food</option>
-            <option value="technology">Technology</option>
-            <option value="music">Music</option>
-            <option value="mythology">Mythology</option>
-          </select>
-        </div>
-        <div class="records-list" style="width: 100%; text-align: left">
-          <div class="rs-cell" style="margin-bottom: 12px">
-            <div class="rs-label">HIGHEST SCORE (SINGLE)</div>
-            <div class="rs-val highlight" id="recScore">0</div>
-          </div>
-          <div class="rs-cell" style="margin-bottom: 12px">
-            <div class="rs-label">FASTEST SOLVE</div>
-            <div class="rs-val mono" id="recTime">—</div>
-          </div>
-          <div class="rs-cell" style="margin-bottom: 12px">
-            <div class="rs-label">BEST CAMPAIGN STREAK</div>
-            <div class="rs-val" id="recStreak">0</div>
-          </div>
-        </div>
-        <button
-          class="btn-secondary"
-          id="btnCloseRecords"
-          style="margin-top: 16px">
-          CLOSE FILE
-        </button>
       </div>
     </div>
 
