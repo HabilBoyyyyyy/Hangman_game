@@ -1102,3 +1102,118 @@ path.g-dead {
     font-size: 1.1rem;
   }
 }
+
+/* ── NEW FEATURES (CAMPAIGN, TOOLS, MODAL, ANIMATIONS) ── */
+
+.mode-btn {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background: var(--parchment2);
+  border: 1px solid var(--ink-faded);
+  color: var(--ink-faded);
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.mode-btn:hover { background: var(--parchment3); border-color: var(--ink); color: var(--ink); }
+.mode-btn.active { background: var(--ink); border-color: var(--ink); color: var(--parchment); }
+
+.title-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+.title-actions i { margin-right: 6px; }
+
+/* Tools Section */
+.tools-section {
+  margin-top: 30px;
+  text-align: center;
+}
+.tools-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--ink-dim);
+  margin-bottom: 8px;
+}
+.tools-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.tool-btn {
+  background: var(--parchment3);
+  border: 1px solid var(--ink-mid);
+  color: var(--ink-mid);
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--shadow);
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tool-btn:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--parchment);
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+.tool-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Records Modal */
+#modalRecords {
+  background: rgba(26, 18, 8, 0.85);
+  backdrop-filter: blur(4px);
+}
+.records-list {
+  background: var(--parchment2);
+  padding: 16px;
+  border: 1px solid var(--ink-faded);
+  margin-bottom: 16px;
+}
+
+/* Animations */
+@keyframes flicker {
+  0%, 19.9%, 22%, 62.9%, 64%, 64.9%, 70%, 100% { opacity: 0.55; }
+  20%, 21.9%, 63%, 63.9%, 65%, 69.9% { opacity: 0.2; }
+}
+.vignette.flicker {
+  animation: flicker 10s infinite;
+}
+
+@keyframes stampDown {
+  0% { transform: scale(3) rotate(-15deg); opacity: 0; }
+  40% { transform: scale(0.9) rotate(-3deg); opacity: 1; }
+  60% { transform: scale(1.05) rotate(-3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+.result-stamp-anim {
+  animation: stampDown 0.35s cubic-bezier(0.2, 1, 0.3, 1) forwards !important;
+}
+
+.timer-danger {
+  color: var(--crimson-lite) !important;
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

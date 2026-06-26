@@ -76,10 +76,10 @@ const SFX = {
   },
   wrong() {
     // Heavy rubber stamp "Thud-Thud" on the case file
-    noise(0.12, 0.6, 250);
-    tone(100, 60, "sine", 0.12, 0.5, 0.01, 0); // was "square" — sine reads as a dull thud, not a blip
-    noise(0.15, 0.7, 200, 0.15);
-    tone(80, 40, "sine", 0.15, 0.6, 0.01, 0.15); // was "square"
+    noise(0.12, 0.6, 250); 
+    tone(100, 60, "square", 0.12, 0.5, 0.01, 0); 
+    noise(0.15, 0.7, 200, 0.15); 
+    tone(80, 40, "square", 0.15, 0.6, 0.01, 0.15);
   },
   duplicate() {
     // Paper rustle / scratching out a mistake
@@ -90,26 +90,27 @@ const SFX = {
   win() {
     // Rapid typewriter clacks + final satisfying ding and stamp
     for (let i = 0; i < 5; i++) {
-      noise(0.05, 0.3, 2000, i * 0.08); // noise alone carries the clack now (no square blip layered in)
+      noise(0.05, 0.3, 2000, i * 0.08);
+      tone(800, 700, "square", 0.04, 0.1, 0.005, i * 0.08);
     }
     tone(1200, 1200, "sine", 0.6, 0.4, 0.01, 0.4);
     tone(2400, 2400, "sine", 0.4, 0.2, 0.01, 0.4);
     noise(0.2, 0.5, 300, 0.5);
-    tone(90, 50, "sine", 0.2, 0.4, 0.01, 0.5); // was "square"
+    tone(90, 50, "square", 0.2, 0.4, 0.01, 0.5);
   },
   lose() {
     // Jail cell door slam (metal latch clank + heavy reverberating slam)
-    noise(0.1, 0.5, 1000);
-    tone(300, 150, "triangle", 0.2, 0.4, 0.01); // was "sawtooth"
-    noise(0.4, 0.7, 300, 0.1);
-    tone(120, 60, "triangle", 0.4, 0.6, 0.01, 0.1); // was "square"
-    tone(60, 30, "triangle", 0.4, 0.5, 0.01, 0.1); // was "sawtooth"
-    noise(0.8, 0.3, 150, 0.1);
+    noise(0.1, 0.5, 1000); 
+    tone(300, 150, "sawtooth", 0.2, 0.4, 0.01); 
+    noise(0.4, 0.7, 300, 0.1); 
+    tone(120, 60, "square", 0.4, 0.6, 0.01, 0.1);
+    tone(60, 30, "sawtooth", 0.4, 0.5, 0.01, 0.1);
+    noise(0.8, 0.3, 150, 0.1); 
   },
   keyClick() {
     // Analog typewriter key press
-    noise(0.03, 0.25, 2500); // strike
-    noise(0.02, 0.15, 4500, 0.01); // brief mechanical clink (replaces the old square blip)
+    noise(0.03, 0.2, 2500); 
+    tone(900, 600, "square", 0.04, 0.1, 0.002);
   },
   pageFlip() {
     // Flipping a paper file folder
@@ -126,15 +127,86 @@ const SFX = {
   },
 };
 
+let ambienceNode = null;
+let sirenTimeout = null;
+function startAmbience() {
+  if (ambienceNode) return;
+  try {
+    const ac = getAC();
+    const dur = 10;
+    const buf = ac.createBuffer(1, ac.sampleRate * dur, ac.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.5;
+    ambienceNode = ac.createBufferSource();
+    ambienceNode.buffer = buf;
+    ambienceNode.loop = true;
+    
+    const flt = ac.createBiquadFilter();
+    flt.type = "lowpass";
+    flt.frequency.value = 400; // Rain / muffled room tone
+    
+    const gain = ac.createGain();
+    gain.gain.value = 0.15; // Quiet background
+
+    ambienceNode.connect(flt);
+    flt.connect(gain);
+    gain.connect(ac.destination);
+    ambienceNode.start();
+    
+    playSiren();
+  } catch (e) {}
+}
+
+function playSiren() {
+  if (!ambienceNode) return;
+  try {
+    const ac = getAC();
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    osc.connect(gain);
+    gain.connect(ac.destination);
+    
+    osc.type = "sine";
+    const now = ac.currentTime;
+    osc.frequency.setValueAtTime(600, now);
+    osc.frequency.linearRampToValueAtTime(800, now + 2);
+    osc.frequency.linearRampToValueAtTime(600, now + 4);
+    
+    gain.gain.setValueAtTime(0, now);
+    gain.gain.linearRampToValueAtTime(0.02, now + 2);
+    gain.gain.linearRampToValueAtTime(0, now + 4);
+    
+    osc.start(now);
+    osc.stop(now + 4);
+    
+    sirenTimeout = setTimeout(playSiren, Math.random() * 20000 + 15000); 
+  } catch (e) {}
+}
+
+function stopAmbience() {
+  if (ambienceNode) {
+    try { ambienceNode.stop(); } catch(e){}
+    ambienceNode = null;
+  }
+  clearTimeout(sirenTimeout);
+}
+
 /* ── STATE ───────────────────────────────────────────────── */
 let state = {};
 
-function freshState() {
+function freshState(isCampaign = false) {
+  const oldScore = isCampaign ? (state.score || 0) : 0;
+  const oldStage = isCampaign ? (state.campaignStage || 0) : 0;
+  const oldMode = isCampaign ? (state.gameMode || "normal") : (document.querySelector(".mode-btn.active")?.dataset.mode || "normal");
   return {
     word: "",
     hint: "",
     category: "",
     difficulty: "easy",
+    gameMode: oldMode, 
+    isCampaign: isCampaign,
+    campaignStage: isCampaign ? oldStage + 1 : 0,
+    maxCampaignStages: 5,
     guessed: new Set(),
     wrongGuesses: [],
     correctCount: 0,
@@ -144,16 +216,19 @@ function freshState() {
     won: false,
     timerInterval: null,
     elapsedSeconds: 0,
-    score: 0,
+    timeRemaining: 60,
+    score: oldScore,
+    tools: { glass: 1, informant: 1, bribe: 1 }
   };
 }
 
-/* ── DOM ─────────────────────────────────────────────────── */
+/* ── DOM & RECORDS ───────────────────────────────────────── */
 const $ = (id) => document.getElementById(id);
 const screens = {
   title: $("screenTitle"),
   game: $("screenGame"),
   result: $("screenResult"),
+  records: $("modalRecords"),
 };
 
 function showScreen(name) {
@@ -163,13 +238,43 @@ function showScreen(name) {
   setTimeout(() => screens[name].classList.remove("screen-enter"), 400);
 }
 
+const RECORDS_KEY = "hangman_records";
+function getRecords() {
+  try {
+    return JSON.parse(localStorage.getItem(RECORDS_KEY)) || { score: 0, time: 9999, streak: 0 };
+  } catch (e) {
+    return { score: 0, time: 9999, streak: 0 };
+  }
+}
+function saveRecords(rec) {
+  localStorage.setItem(RECORDS_KEY, JSON.stringify(rec));
+}
+
+function updateRecordsModal() {
+  const rec = getRecords();
+  $("recScore").textContent = rec.score;
+  $("recTime").textContent = rec.time === 9999 ? "—" : formatTime(rec.time);
+  $("recStreak").textContent = rec.streak;
+}
+
+function checkAndSaveRecords() {
+  const rec = getRecords();
+  let updated = false;
+  if (!state.isCampaign && state.won) {
+    if (state.score > rec.score) { rec.score = state.score; updated = true; }
+    if (state.gameMode === "normal" && state.elapsedSeconds < rec.time) { rec.time = state.elapsedSeconds; updated = true; }
+  }
+  if (state.isCampaign && state.won && state.campaignStage > rec.streak) {
+    rec.streak = state.campaignStage; updated = true;
+  }
+  if (updated) saveRecords(rec);
+}
+
 /* ── WORD SELECTION ──────────────────────────────────────── */
 function pickWord(diff, cat) {
   let pool = WORD_BANK[cat] || WORD_BANK.all;
-  // Filter by difficulty length
   const filtered = pool.filter((entry) => {
-    const byDiff =
-      diff === "all" ? true : (DIFF_LENGTHS[diff]?.(entry.word) ?? true);
+    const byDiff = diff === "all" ? true : (DIFF_LENGTHS[diff]?.(entry.word) ?? true);
     return byDiff;
   });
   const source = filtered.length ? filtered : pool;
@@ -180,21 +285,40 @@ function pickWord(diff, cat) {
 function startTimer() {
   clearInterval(state.timerInterval);
   state.elapsedSeconds = 0;
+  state.timeRemaining = 60;
   updateTimerUI();
+  
   state.timerInterval = setInterval(() => {
-    state.elapsedSeconds++;
+    if (state.gameMode === "interrogation") {
+      state.timeRemaining--;
+      if (state.timeRemaining < 15) {
+        $("tbTimer").classList.add("timer-danger");
+        SFX.timerTick();
+      }
+      if (state.timeRemaining <= 0) {
+        endGame(false, "TIMEOUT");
+      }
+    } else {
+      state.elapsedSeconds++;
+    }
     updateTimerUI();
   }, 1000);
 }
 
 function stopTimer() {
   clearInterval(state.timerInterval);
+  $("tbTimer").classList.remove("timer-danger");
 }
 
 function updateTimerUI() {
-  const m = Math.floor(state.elapsedSeconds / 60);
-  const s = state.elapsedSeconds % 60;
-  $("tbTimer").textContent = `${m}:${s.toString().padStart(2, "0")}`;
+  if (state.gameMode === "interrogation") {
+    const s = state.timeRemaining;
+    $("tbTimer").textContent = `0:${s.toString().padStart(2, "0")}`;
+  } else {
+    const m = Math.floor(state.elapsedSeconds / 60);
+    const s = state.elapsedSeconds % 60;
+    $("tbTimer").textContent = `${m}:${s.toString().padStart(2, "0")}`;
+  }
 }
 
 function formatTime(sec) {
@@ -204,59 +328,58 @@ function formatTime(sec) {
 }
 
 /* ── GAME LIFECYCLE ──────────────────────────────────────── */
-function startGame() {
-  const diff =
-    document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
+function startGame(isCampaign = false) {
+  const diff = document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
   const cat = document.querySelector(".cat-btn.active")?.dataset.cat || "all";
 
-  state = freshState();
-  state.difficulty = diff;
+  state = freshState(isCampaign);
+  
+  // If campaign, scale difficulty based on stage
+  let activeDiff = diff;
+  if (state.isCampaign) {
+    if (state.campaignStage >= 4) activeDiff = "hard";
+    else if (state.campaignStage >= 2) activeDiff = "medium";
+    else activeDiff = "easy";
+    $("campaignCell").style.display = "flex";
+    $("tbCampaign").textContent = `Stage ${state.campaignStage}/${state.maxCampaignStages}`;
+  } else {
+    $("campaignCell").style.display = "none";
+  }
 
-  const entry = pickWord(diff, cat);
+  const entry = pickWord(activeDiff, cat);
   state.word = entry.word.toUpperCase();
   state.hint = entry.hint;
-  state.category =
-    cat === "all" ? entry.diff.toUpperCase() + " LEVEL" : cat.toUpperCase();
+  state.category = cat === "all" ? entry.diff.toUpperCase() + " LEVEL" : cat.toUpperCase();
 
-  // Set topbar
   $("tbCategory").textContent = state.category;
-  $("tbScore").textContent = "0";
+  $("tbScore").textContent = state.score;
 
-  // Reset gallows
   resetGallows();
+  resetTools();
+  document.querySelector(".vignette").classList.add("flicker");
+  $("resultBadge").classList.remove("result-stamp-anim");
 
-  // Set hint card
   $("hintText").textContent = state.hint;
-  $("hintDiff").textContent =
-    `DIFFICULTY: ${diff.toUpperCase()} · ${state.word.length} LETTERS`;
+  $("hintDiff").textContent = `DIFFICULTY: ${activeDiff.toUpperCase()} · ${state.word.length} LETTERS`;
   $("hintStamp").textContent = "OPEN";
   $("hintStamp").className = "hint-stamp";
 
-  // Build word display
   renderWordDisplay();
-
-  // Build keyboard
   buildKeyboard();
 
-  // Reset wrong letters
   $("wrongLetters").innerHTML = '<span class="wrong-empty">none yet</span>';
-
-  // Reset attempts
   renderAttemptPips();
   $("attLeft").textContent = MAX_WRONG;
 
-  // Reset status
   setStatus("Make your first deduction, Detective.", "neutral");
-
-  // Reset progress
   updateProgress();
 
-  // Metadata
   $("wordMeta").textContent = `${state.word.length}-letter word`;
 
   showScreen("game");
   startTimer();
   SFX.pageFlip();
+  startAmbience();
 }
 
 function resetGallows() {
@@ -273,6 +396,57 @@ function resetGallows() {
   });
 }
 
+/* ── TOOLS ───────────────────────────────────────────────── */
+function resetTools() {
+  $("toolGlass").disabled = false;
+  $("toolInformant").disabled = false;
+  $("toolBribe").disabled = false;
+}
+
+function useTool(type) {
+  if (state.gameOver || state.tools[type] <= 0) return;
+  state.tools[type]--;
+  
+  if (type === "glass") {
+    $("toolGlass").disabled = true;
+    SFX.pageFlip();
+    const missing = state.word.split("").filter(c => c !== " " && !state.guessed.has(c));
+    if (missing.length > 0) {
+      const char = missing[Math.floor(Math.random() * missing.length)];
+      setStatus(`Magnifying Glass revealed: "${char}"`, "neutral");
+      guessLetter(char, true);
+    }
+  } 
+  else if (type === "informant") {
+    $("toolInformant").disabled = true;
+    SFX.pageFlip();
+    // Informant gives a free hint message and reveals a vowel if possible
+    const vowels = state.word.split("").filter(c => "AEIOU".includes(c) && !state.guessed.has(c));
+    const pool = vowels.length > 0 ? vowels : state.word.split("").filter(c => c !== " " && !state.guessed.has(c));
+    if (pool.length > 0) {
+      const char = pool[Math.floor(Math.random() * pool.length)];
+      setStatus(`Informant tipped you off to: "${char}"`, "neutral");
+      guessLetter(char, true);
+    }
+  } 
+  else if (type === "bribe") {
+    $("toolBribe").disabled = true;
+    SFX.pageFlip();
+    if (state.wrongCount > 0) {
+      state.wrongCount--;
+      // Hide the last shown body part
+      const id = BODY_PARTS[state.wrongCount];
+      const el = $(id);
+      if (el) el.style.display = "none";
+      renderAttemptPips();
+      $("attLeft").textContent = MAX_WRONG - state.wrongCount;
+      setStatus("Bribe accepted. One attempt restored.", "neutral");
+    } else {
+      setStatus("Bribe wasted. No attempts to restore.", "wrong");
+    }
+  }
+}
+
 /* ── RENDER WORD ─────────────────────────────────────────── */
 function renderWordDisplay(flashCorrect = false) {
   const display = $("wordDisplay");
@@ -283,13 +457,11 @@ function renderWordDisplay(flashCorrect = false) {
     slot.className = "letter-slot";
 
     if (ch === " ") {
-      // If it's a space, assign a special class and don't add underlines
       slot.classList.add("space-slot");
     } else {
       const charEl = document.createElement("div");
       charEl.className = "letter-char";
       charEl.id = `slot-${i}`;
-
       const underline = document.createElement("div");
       underline.className = "letter-underline";
 
@@ -303,7 +475,6 @@ function renderWordDisplay(flashCorrect = false) {
       slot.appendChild(charEl);
       slot.appendChild(underline);
     }
-
     display.appendChild(slot);
   });
 
@@ -319,13 +490,12 @@ function renderWordDisplay(flashCorrect = false) {
 function buildKeyboard() {
   const kb = $("keyboard");
   kb.innerHTML = "";
-  // Added numbers, apostrophe, and colon to the string
   "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.,':".split("").forEach((letter) => {
     const btn = document.createElement("button");
     btn.className = "key-btn";
     btn.textContent = letter;
     btn.dataset.letter = letter;
-    btn.addEventListener("click", () => guessLetter(letter));
+    btn.addEventListener("click", () => guessLetter(letter, false));
     kb.appendChild(btn);
   });
 }
@@ -345,7 +515,7 @@ function updateKeyboard() {
 }
 
 /* ── GUESSING ────────────────────────────────────────────── */
-function guessLetter(letter) {
+function guessLetter(letter, fromTool = false) {
   letter = letter.toUpperCase();
   if (state.gameOver) return;
   if (!/^[A-Z0-9.,\-':]$/.test(letter)) return;
@@ -357,56 +527,59 @@ function guessLetter(letter) {
     return;
   }
 
-  SFX.keyClick();
+  if (!fromTool) SFX.keyClick();
   state.guessed.add(letter);
 
   if (state.word.includes(letter)) {
-    onCorrectGuess(letter);
+    onCorrectGuess(letter, fromTool);
   } else {
-    onWrongGuess(letter);
+    onWrongGuess(letter, fromTool);
   }
 
   updateKeyboard();
   checkEndCondition();
 }
-function onCorrectGuess(letter) {
+
+function onCorrectGuess(letter, fromTool) {
   state.correctCount++;
   const occurrences = state.word.split("").filter((c) => c === letter).length;
 
-  // Score: more occurrences = less value (make guessing rare letters rewarding)
   const letterScore = Math.max(10, 50 - (occurrences - 1) * 10);
   state.score += letterScore;
   $("tbScore").textContent = state.score;
 
-  SFX.correct();
+  if (!fromTool) SFX.correct();
   renderWordDisplay(true);
   updateProgress();
 
-  const msg =
-    occurrences > 1
+  if (!fromTool) {
+    const msg = occurrences > 1
       ? `✓ "${letter}" appears ${occurrences} times! +${letterScore} pts`
       : `✓ "${letter}" is in the word! +${letterScore} pts`;
-  setStatus(msg, "correct");
+    setStatus(msg, "correct");
+  }
 }
 
-function onWrongGuess(letter) {
+function onWrongGuess(letter, fromTool) {
   state.wrongCount++;
   state.wrongGuesses.push(letter);
 
-  SFX.wrong();
+  if (!fromTool) SFX.wrong();
   revealBodyPart(state.wrongCount - 1);
   renderWrongLetters();
   renderAttemptPips();
   $("attLeft").textContent = MAX_WRONG - state.wrongCount;
 
-  const remaining = MAX_WRONG - state.wrongCount;
-  const msgs = [
-    `✗ "${letter}" not found. ${remaining} attempts left.`,
-    `✗ "${letter}" is a dead end. ${remaining} left.`,
-    `✗ No "${letter}" here. ${remaining} attempts remaining.`,
-    `✗ Wrong lead, detective. ${remaining} left.`,
-  ];
-  setStatus(msgs[Math.floor(Math.random() * msgs.length)], "wrong");
+  if (!fromTool) {
+    const remaining = MAX_WRONG - state.wrongCount;
+    const msgs = [
+      `✗ "${letter}" not found. ${remaining} attempts left.`,
+      `✗ "${letter}" is a dead end. ${remaining} left.`,
+      `✗ No "${letter}" here. ${remaining} attempts remaining.`,
+      `✗ Wrong lead, detective. ${remaining} left.`,
+    ];
+    setStatus(msgs[Math.floor(Math.random() * msgs.length)], "wrong");
+  }
 }
 
 /* ── GALLOWS DRAWING ─────────────────────────────────────── */
@@ -417,7 +590,6 @@ function revealBodyPart(index) {
   el.style.display = "";
   el.classList.add("g-part-appear");
 
-  // Shake gallows frame
   const frame = $("gallowsSvg");
   frame.classList.remove("gallows-shake");
   void frame.offsetWidth;
@@ -466,8 +638,7 @@ function updateProgress() {
   const pct = unique.length > 0 ? Math.round((found / unique.length) * 100) : 0;
 
   $("progFill").style.width = pct + "%";
-  $("progText").textContent =
-    `${found} / ${unique.length} unique letters found`;
+  $("progText").textContent = `${found} / ${unique.length} unique letters found`;
 }
 
 /* ── STATUS BAR ──────────────────────────────────────────── */
@@ -479,7 +650,6 @@ function setStatus(msg, type) {
 
 /* ── END CONDITION ───────────────────────────────────────── */
 function checkEndCondition() {
-  // Win: all letters (excluding spaces) guessed
   const allGuessed = state.word
     .split("")
     .filter((c) => c !== " ")
@@ -489,68 +659,87 @@ function checkEndCondition() {
     return;
   }
 
-  // Lose
   if (state.wrongCount >= MAX_WRONG) {
     endGame(false);
     return;
   }
 }
 
-function endGame(won) {
+function endGame(won, reason = "") {
   state.gameOver = true;
   state.won = won;
   stopTimer();
 
-  // Disable keyboard
   document.querySelectorAll(".key-btn").forEach((btn) => (btn.disabled = true));
-
-  // Lock hint stamp
   $("hintStamp").textContent = won ? "SOLVED" : "FAILED";
   $("hintStamp").className = "hint-stamp" + (won ? "" : " closed");
+  document.querySelector(".vignette").classList.remove("flicker");
 
   if (won) {
-    // Bonus score for remaining attempts + speed
     const attBonus = (MAX_WRONG - state.wrongCount) * 25;
-    const speedBonus = Math.max(0, 200 - state.elapsedSeconds * 2);
+    const speedBonus = state.gameMode === "interrogation" 
+      ? state.timeRemaining * 5 
+      : Math.max(0, 200 - state.elapsedSeconds * 2);
     state.score += attBonus + speedBonus;
     $("tbScore").textContent = state.score;
     SFX.win();
     setStatus(`🏆 CASE SOLVED! The word was "${state.word}"`, "correct");
-    // Reveal whole word with fanfare
     renderWordDisplay(true);
   } else {
     revealDeadFace();
     SFX.lose();
-    setStatus(`💀 CASE FAILED! The word was "${state.word}"`, "wrong");
-    // Reveal word
+    if (reason === "TIMEOUT") {
+      setStatus(`⏰ TIME EXPIRED! The word was "${state.word}"`, "wrong");
+    } else {
+      setStatus(`💀 CASE FAILED! The word was "${state.word}"`, "wrong");
+    }
     state.word.split("").forEach((c) => state.guessed.add(c));
     renderWordDisplay();
   }
+
+  checkAndSaveRecords();
 
   setTimeout(() => buildResultScreen(won), 1400);
 }
 
 /* ── RESULT SCREEN ───────────────────────────────────────── */
 function buildResultScreen(won) {
-  $("resultBadge").textContent = won ? "🏆" : "💀";
+  $("resultBadge").textContent = won ? "⚖" : "💀"; // Reverted to justice scales for win to fit theme
+  $("resultBadge").classList.add("result-stamp-anim");
   $("resultHeading").textContent = won ? "CASE CLOSED" : "CASE FAILED";
   $("resultHeading").className = "result-heading " + (won ? "win" : "lose");
-  $("resultFlavor").textContent = won
-    ? "Outstanding deduction, Detective. The word has been identified."
-    : `You have been bested this time. The rope has claimed another.`;
+  
+  if (state.isCampaign && won) {
+    if (state.campaignStage >= state.maxCampaignStages) {
+      $("resultFlavor").textContent = "Campaign complete! Outstanding detective work.";
+    } else {
+      $("resultFlavor").textContent = `Stage ${state.campaignStage} complete. The plot thickens...`;
+    }
+  } else {
+    $("resultFlavor").textContent = won
+      ? "Outstanding deduction, Detective. The suspect has been identified."
+      : "You have been bested this time. The rope has claimed another.";
+  }
 
   $("rwbWord").textContent = state.word;
 
   const total = state.correctCount + state.wrongCount;
-  const acc =
-    total > 0 ? Math.round((state.correctCount / total) * 100) + "%" : "—";
+  const acc = total > 0 ? Math.round((state.correctCount / total) * 100) + "%" : "—";
 
   $("rScore").textContent = state.score;
-  $("rTime").textContent = formatTime(state.elapsedSeconds);
+  $("rTime").textContent = state.gameMode === "interrogation" ? `${60 - state.timeRemaining}s` : formatTime(state.elapsedSeconds);
   $("rAttempts").textContent = `${MAX_WRONG - state.wrongCount} / ${MAX_WRONG}`;
   $("rCorrect").textContent = state.correctCount;
   $("rWrong").textContent = state.wrongCount;
   $("rAccuracy").textContent = acc;
+
+  if (state.isCampaign && won && state.campaignStage < state.maxCampaignStages) {
+    $("btnNextCampaign").classList.remove("hidden");
+    $("btnNewCase").classList.add("hidden");
+  } else {
+    $("btnNextCampaign").classList.add("hidden");
+    $("btnNewCase").classList.remove("hidden");
+  }
 
   showScreen("result");
 }
@@ -562,7 +751,7 @@ function onKeyDown(e) {
   const key = e.key.toUpperCase();
   if (/^[A-Z0-9.,\-':]$/.test(key) && !e.ctrlKey && !e.metaKey && !e.altKey) {
     e.preventDefault();
-    guessLetter(key);
+    guessLetter(key, false);
   }
 }
 
@@ -588,12 +777,12 @@ function shakeLetter(letter) {
 function init() {
   showScreen("title");
 
-  // Difficulty buttons
-  document.querySelectorAll(".opt-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      document
-        .querySelectorAll(".opt-btn")
-        .forEach((b) => b.classList.remove("active"));
+  // Difficulty & Mode buttons
+  document.querySelectorAll(".opt-btn, .mode-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const isModeBtn = btn.classList.contains("mode-btn");
+      const selector = isModeBtn ? ".mode-btn" : ".opt-btn";
+      document.querySelectorAll(selector).forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       SFX.keyClick();
     });
@@ -602,39 +791,66 @@ function init() {
   // Category buttons
   document.querySelectorAll(".cat-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document
-        .querySelectorAll(".cat-btn")
-        .forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(".cat-btn").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       SFX.keyClick();
     });
   });
 
-  // Start
+  // Tools
+  $("toolGlass").addEventListener("click", () => useTool("glass"));
+  $("toolInformant").addEventListener("click", () => useTool("informant"));
+  $("toolBribe").addEventListener("click", () => useTool("bribe"));
+
+  // Start Normal
   $("btnStart").addEventListener("click", () => {
     SFX.pageFlip();
-    startGame();
+    startGame(false);
+  });
+
+  // Start Campaign
+  $("btnCampaign").addEventListener("click", () => {
+    SFX.pageFlip();
+    startGame(true);
+  });
+
+  // Next Campaign Stage
+  $("btnNextCampaign").addEventListener("click", () => {
+    SFX.pageFlip();
+    startGame(true);
+  });
+
+  // Records Modal
+  $("btnRecords").addEventListener("click", () => {
+    SFX.pageFlip();
+    updateRecordsModal();
+    showScreen("records");
+  });
+  $("btnCloseRecords").addEventListener("click", () => {
+    SFX.keyClick();
+    showScreen("title");
   });
 
   // Quit
   $("btnQuit").addEventListener("click", () => {
     stopTimer();
+    stopAmbience();
     state.gameOver = true;
     SFX.keyClick();
     showScreen("title");
   });
 
-  // Result screen
+  // Result screen -> New Case / Menu
   $("btnNewCase").addEventListener("click", () => {
     SFX.pageFlip();
-    startGame();
+    startGame(false);
   });
   $("btnMenu").addEventListener("click", () => {
     SFX.keyClick();
+    stopAmbience();
     showScreen("title");
   });
 
-  // Physical keyboard
   document.addEventListener("keydown", onKeyDown);
 }
 

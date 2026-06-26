@@ -8,6 +8,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap"
       rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <div class="paper-texture"></div>
@@ -63,9 +64,29 @@
           </div>
         </div>
 
-        <button class="btn-primary" id="btnStart">
-          <span>OPEN CASE FILE</span>
-        </button>
+        <div class="option-block">
+          <div class="option-label">⟦ OPERATION PROTOCOL ⟧</div>
+          <div class="option-row">
+            <button class="mode-btn active" data-mode="normal">
+              <i class="fa-solid fa-mug-hot"></i> STANDARD
+            </button>
+            <button class="mode-btn" data-mode="interrogation">
+              <i class="fa-solid fa-stopwatch"></i> INTERROGATION<span class="opt-sub">60s Timer</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="title-actions">
+          <button class="btn-primary" id="btnStart">
+            <i class="fa-solid fa-folder-open"></i> OPEN CASE FILE
+          </button>
+          <button class="btn-primary" id="btnCampaign">
+            <i class="fa-solid fa-briefcase"></i> START CAMPAIGN
+          </button>
+          <button class="btn-secondary" id="btnRecords" style="width: 100%; margin-top: 8px;">
+            <i class="fa-solid fa-file-signature"></i> DEPARTMENT RECORDS
+          </button>
+        </div>
 
         <div class="title-footer">
           6 wrong guesses &nbsp;◆&nbsp; Live timer &nbsp;◆&nbsp; Score system
@@ -84,6 +105,10 @@
         <div class="topbar-cell center">
           <div class="tb-label">SCORE</div>
           <div class="tb-val highlight" id="tbScore">0</div>
+        </div>
+        <div class="topbar-cell center" id="campaignCell" style="display: none;">
+          <div class="tb-label">CAMPAIGN</div>
+          <div class="tb-val" id="tbCampaign">Stage 1/5</div>
         </div>
         <div class="topbar-cell right">
           <div class="tb-label">ELAPSED</div>
@@ -217,9 +242,25 @@
 
           <!-- Wrong letters -->
           <div class="wrong-section">
-            <div class="wrong-label">❌ WRONG LEADS</div>
+            <div class="wrong-label"><i class="fa-solid fa-xmark"></i> WRONG LEADS</div>
             <div class="wrong-letters" id="wrongLetters">
               <span class="wrong-empty">none yet</span>
+            </div>
+          </div>
+
+          <!-- Detective Tools -->
+          <div class="tools-section">
+            <div class="tools-label">💼 DETECTIVE TOOLS</div>
+            <div class="tools-row">
+              <button class="tool-btn" id="toolGlass" title="Magnifying Glass: Reveal 1 Letter">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <button class="tool-btn" id="toolInformant" title="Informant: Free Hint">
+                <i class="fa-solid fa-user-secret"></i>
+              </button>
+              <button class="tool-btn" id="toolBribe" title="Bribe: Restore 1 Attempt">
+                <i class="fa-solid fa-money-bill-wave"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -295,8 +336,33 @@
 
         <div class="result-btns">
           <button class="btn-primary" id="btnNewCase">NEW CASE FILE</button>
+          <button class="btn-primary hidden" id="btnNextCampaign">NEXT STAGE</button>
           <button class="btn-secondary" id="btnMenu">MAIN OFFICE</button>
         </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ RECORDS MODAL ══════════════ -->
+    <div class="screen hidden" id="modalRecords">
+      <div class="title-wrapper" style="max-width: 450px;">
+        <div class="title-stamp">TOP SECRET</div>
+        <h2 class="game-title" style="font-size: 2.2rem;">RECORDS</h2>
+        <div class="masthead-rule thick"></div>
+        <div class="records-list" style="width: 100%; text-align: left;">
+          <div class="rs-cell" style="margin-bottom: 12px;">
+            <div class="rs-label">HIGHEST SCORE (SINGLE)</div>
+            <div class="rs-val highlight" id="recScore">0</div>
+          </div>
+          <div class="rs-cell" style="margin-bottom: 12px;">
+            <div class="rs-label">FASTEST SOLVE</div>
+            <div class="rs-val mono" id="recTime">—</div>
+          </div>
+          <div class="rs-cell" style="margin-bottom: 12px;">
+            <div class="rs-label">BEST CAMPAIGN STREAK</div>
+            <div class="rs-val" id="recStreak">0</div>
+          </div>
+        </div>
+        <button class="btn-secondary" id="btnCloseRecords" style="margin-top: 16px;">CLOSE FILE</button>
       </div>
     </div>
 
