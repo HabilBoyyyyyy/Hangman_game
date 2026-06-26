@@ -854,7 +854,7 @@ path.g-dead {
 /* Quit */
 .btn-quit {
   position: fixed;
-  top: 18px;
+  bottom: 28px;
   right: 28px;
   z-index: 30;
   font-family: var(--font-mono);
