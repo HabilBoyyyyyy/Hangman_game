@@ -1,5 +1,4 @@
-window.WORD_BANK = window.WORD_BANK || {};
-window.WORD_BANK["movies"] = [
+[
   {
     "word": "Dune",
     "hint": "A young nobleman travels to a harsh desert planet to secure the most valuable resource in the universe.",
@@ -1210,4 +1209,4 @@ window.WORD_BANK["movies"] = [
     "hint": "Carol Danvers gets her powers entangled with those of Kamala Khan and Monica Rambeau, forcing them to work together to save the universe.",
     "diff": "hard"
   }
-];
+]

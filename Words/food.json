@@ -1,5 +1,4 @@
-window.WORD_BANK = window.WORD_BANK || {};
-window.WORD_BANK["food"] = [
+[
   {
     "word": "taco",
     "hint": "A Mexican dish consisting of a folded tortilla filled with meat, cheese, and lettuce.",
@@ -1995,4 +1994,4 @@ window.WORD_BANK["food"] = [
     "hint": "Spongy confections made from sugar, corn syrup, gelatin, and flavoring.",
     "diff": "hard"
   }
-];
+]

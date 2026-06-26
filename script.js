@@ -67,27 +67,35 @@ function noise(dur = 0.1, vol = 0.2, lofreq = 300, delay = 0) {
   } catch (e) {}
 }
 
+function vibrate(pattern) {
+  if (navigator.vibrate) navigator.vibrate(pattern);
+}
+
 const SFX = {
   correct() {
+    vibrate(15);
     // Typewriter click + bell ding
     noise(0.08, 0.4, 3000); // Sharp mechanical clack
     tone(1400, 1400, "sine", 0.4, 0.3, 0.01, 0.05); // Bell fundamental
     tone(2800, 2800, "sine", 0.3, 0.1, 0.01, 0.05); // Bell harmonic
   },
   wrong() {
+    vibrate([40, 50, 40]);
     // Heavy rubber stamp "Thud-Thud" on the case file
-    noise(0.12, 0.6, 250); 
-    tone(100, 60, "square", 0.12, 0.5, 0.01, 0); 
-    noise(0.15, 0.7, 200, 0.15); 
+    noise(0.12, 0.6, 250);
+    tone(100, 60, "square", 0.12, 0.5, 0.01, 0);
+    noise(0.15, 0.7, 200, 0.15);
     tone(80, 40, "square", 0.15, 0.6, 0.01, 0.15);
   },
   duplicate() {
+    vibrate(30);
     // Paper rustle / scratching out a mistake
     noise(0.1, 0.25, 1200);
     noise(0.08, 0.3, 1000, 0.08);
     noise(0.12, 0.2, 1500, 0.15);
   },
   win() {
+    vibrate([50, 50, 100, 50, 150]);
     // Rapid typewriter clacks + final satisfying ding and stamp
     for (let i = 0; i < 5; i++) {
       noise(0.05, 0.3, 2000, i * 0.08);
@@ -99,17 +107,19 @@ const SFX = {
     tone(90, 50, "square", 0.2, 0.4, 0.01, 0.5);
   },
   lose() {
+    vibrate([150, 50, 200]);
     // Jail cell door slam (metal latch clank + heavy reverberating slam)
-    noise(0.1, 0.5, 1000); 
-    tone(300, 150, "sawtooth", 0.2, 0.4, 0.01); 
-    noise(0.4, 0.7, 300, 0.1); 
+    noise(0.1, 0.5, 1000);
+    tone(300, 150, "sawtooth", 0.2, 0.4, 0.01);
+    noise(0.4, 0.7, 300, 0.1);
     tone(120, 60, "square", 0.4, 0.6, 0.01, 0.1);
     tone(60, 30, "sawtooth", 0.4, 0.5, 0.01, 0.1);
-    noise(0.8, 0.3, 150, 0.1); 
+    noise(0.8, 0.3, 150, 0.1);
   },
   keyClick() {
+    vibrate(10);
     // Analog typewriter key press
-    noise(0.03, 0.2, 2500); 
+    noise(0.03, 0.2, 2500);
     tone(900, 600, "square", 0.04, 0.1, 0.002);
   },
   pageFlip() {
@@ -140,11 +150,11 @@ function startAmbience() {
     ambienceNode = ac.createBufferSource();
     ambienceNode.buffer = buf;
     ambienceNode.loop = true;
-    
+
     const flt = ac.createBiquadFilter();
     flt.type = "lowpass";
     flt.frequency.value = 400; // Rain / muffled room tone
-    
+
     const gain = ac.createGain();
     gain.gain.value = 0.15; // Quiet background
 
@@ -152,7 +162,7 @@ function startAmbience() {
     flt.connect(gain);
     gain.connect(ac.destination);
     ambienceNode.start();
-    
+
     playSiren();
   } catch (e) {}
 }
@@ -165,27 +175,29 @@ function playSiren() {
     const gain = ac.createGain();
     osc.connect(gain);
     gain.connect(ac.destination);
-    
+
     osc.type = "sine";
     const now = ac.currentTime;
     osc.frequency.setValueAtTime(600, now);
     osc.frequency.linearRampToValueAtTime(800, now + 2);
     osc.frequency.linearRampToValueAtTime(600, now + 4);
-    
+
     gain.gain.setValueAtTime(0, now);
     gain.gain.linearRampToValueAtTime(0.02, now + 2);
     gain.gain.linearRampToValueAtTime(0, now + 4);
-    
+
     osc.start(now);
     osc.stop(now + 4);
-    
-    sirenTimeout = setTimeout(playSiren, Math.random() * 20000 + 15000); 
+
+    sirenTimeout = setTimeout(playSiren, Math.random() * 20000 + 15000);
   } catch (e) {}
 }
 
 function stopAmbience() {
   if (ambienceNode) {
-    try { ambienceNode.stop(); } catch(e){}
+    try {
+      ambienceNode.stop();
+    } catch (e) {}
     ambienceNode = null;
   }
   clearTimeout(sirenTimeout);
@@ -195,15 +207,17 @@ function stopAmbience() {
 let state = {};
 
 function freshState(isCampaign = false) {
-  const oldScore = isCampaign ? (state.score || 0) : 0;
-  const oldStage = isCampaign ? (state.campaignStage || 0) : 0;
-  const oldMode = isCampaign ? (state.gameMode || "normal") : (document.querySelector(".mode-btn.active")?.dataset.mode || "normal");
+  const oldScore = isCampaign ? state.score || 0 : 0;
+  const oldStage = isCampaign ? state.campaignStage || 0 : 0;
+  const oldMode = isCampaign
+    ? state.gameMode || "normal"
+    : document.querySelector(".mode-btn.active")?.dataset.mode || "normal";
   return {
     word: "",
     hint: "",
     category: "",
     difficulty: "easy",
-    gameMode: oldMode, 
+    gameMode: oldMode,
     isCampaign: isCampaign,
     campaignStage: isCampaign ? oldStage + 1 : 0,
     maxCampaignStages: 5,
@@ -218,7 +232,7 @@ function freshState(isCampaign = false) {
     elapsedSeconds: 0,
     timeRemaining: 60,
     score: oldScore,
-    tools: { glass: 1, informant: 1, bribe: 1 }
+    tools: {glass: 1, informant: 1, bribe: 1},
   };
 }
 
@@ -238,13 +252,13 @@ function showScreen(name) {
   setTimeout(() => screens[name].classList.remove("screen-enter"), 400);
 }
 
-const RECORDS_KEY = "hangman_records";
+const RECORDS_KEY = "hangman_records_v2";
 function getRecords() {
   try {
-    return JSON.parse(localStorage.getItem(RECORDS_KEY)) || { score: 0, time: 9999, streak: 0 };
-  } catch (e) {
-    return { score: 0, time: 9999, streak: 0 };
-  }
+    const raw = localStorage.getItem(RECORDS_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return { streak: 0, modes: { normal: {}, interrogation: {} } };
 }
 function saveRecords(rec) {
   localStorage.setItem(RECORDS_KEY, JSON.stringify(rec));
@@ -252,29 +266,98 @@ function saveRecords(rec) {
 
 function updateRecordsModal() {
   const rec = getRecords();
-  $("recScore").textContent = rec.score;
-  $("recTime").textContent = rec.time === 9999 ? "—" : formatTime(rec.time);
+  const mode = $("recMode").value;
+  const diff = $("recDiff").value;
+  const cat = $("recCat").value;
+  
   $("recStreak").textContent = rec.streak;
+  
+  const modeRec = rec.modes[mode] || {};
+  const diffRec = modeRec[diff] || {};
+  const specific = diffRec[cat] || { score: 0, time: 9999 };
+  
+  $("recScore").textContent = specific.score > 0 ? specific.score : "—";
+  $("recTime").textContent = specific.time === 9999 ? "—" : formatTime(specific.time);
 }
 
 function checkAndSaveRecords() {
   const rec = getRecords();
   let updated = false;
-  if (!state.isCampaign && state.won) {
-    if (state.score > rec.score) { rec.score = state.score; updated = true; }
-    if (state.gameMode === "normal" && state.elapsedSeconds < rec.time) { rec.time = state.elapsedSeconds; updated = true; }
-  }
+  
   if (state.isCampaign && state.won && state.campaignStage > rec.streak) {
-    rec.streak = state.campaignStage; updated = true;
+    rec.streak = state.campaignStage;
+    updated = true;
+  }
+  
+  if (!state.isCampaign && state.won && state.category !== "CUSTOM") {
+    let pureCat = state.category.toLowerCase();
+    if (pureCat.endsWith(" level")) pureCat = "all";
+    
+    const mode = state.gameMode;
+    const diff = document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
+    
+    if (!rec.modes[mode]) rec.modes[mode] = {};
+    if (!rec.modes[mode][diff]) rec.modes[mode][diff] = {};
+    if (!rec.modes[mode][diff][pureCat]) rec.modes[mode][diff][pureCat] = { score: 0, time: 9999 };
+    
+    const specific = rec.modes[mode][diff][pureCat];
+    
+    if (state.score > specific.score) {
+      specific.score = state.score;
+      updated = true;
+    }
+    if (state.gameMode === "normal" && state.elapsedSeconds < specific.time) {
+      specific.time = state.elapsedSeconds;
+      updated = true;
+    }
   }
   if (updated) saveRecords(rec);
 }
 
 /* ── WORD SELECTION ──────────────────────────────────────── */
-function pickWord(diff, cat) {
-  let pool = WORD_BANK[cat] || WORD_BANK.all;
+let wordBankCache = {};
+
+async function fetchWordBank(cat) {
+  if (cat === "all") {
+    const cats = [
+      "animals",
+      "countries",
+      "movies",
+      "science",
+      "food",
+      "technology",
+      "music",
+      "mythology",
+    ];
+    let combined = [];
+    for (let c of cats) {
+      const data = await fetchWordBank(c);
+      combined = combined.concat(data);
+    }
+    return combined;
+  }
+
+  if (wordBankCache[cat]) return wordBankCache[cat];
+
+  try {
+    const response = await fetch(`Words/${cat}.json`);
+    const data = await response.json();
+    wordBankCache[cat] = data;
+    return data;
+  } catch (e) {
+    console.error("Failed to load category:", cat, e);
+    return [];
+  }
+}
+
+async function pickWordAsync(diff, cat) {
+  const pool = await fetchWordBank(cat);
+  if (!pool || !pool.length)
+    return {word: "ERROR", hint: "Network error loading words", diff: "easy"};
+
   const filtered = pool.filter((entry) => {
-    const byDiff = diff === "all" ? true : (DIFF_LENGTHS[diff]?.(entry.word) ?? true);
+    const byDiff =
+      diff === "all" ? true : (DIFF_LENGTHS[diff]?.(entry.word) ?? true);
     return byDiff;
   });
   const source = filtered.length ? filtered : pool;
@@ -287,7 +370,7 @@ function startTimer() {
   state.elapsedSeconds = 0;
   state.timeRemaining = 60;
   updateTimerUI();
-  
+
   state.timerInterval = setInterval(() => {
     if (state.gameMode === "interrogation") {
       state.timeRemaining--;
@@ -328,12 +411,13 @@ function formatTime(sec) {
 }
 
 /* ── GAME LIFECYCLE ──────────────────────────────────────── */
-function startGame(isCampaign = false) {
-  const diff = document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
+async function startGame(isCampaign = false, customWordObj = null) {
+  const diff =
+    document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
   const cat = document.querySelector(".cat-btn.active")?.dataset.cat || "all";
 
   state = freshState(isCampaign);
-  
+
   // If campaign, scale difficulty based on stage
   let activeDiff = diff;
   if (state.isCampaign) {
@@ -341,15 +425,25 @@ function startGame(isCampaign = false) {
     else if (state.campaignStage >= 2) activeDiff = "medium";
     else activeDiff = "easy";
     $("campaignCell").style.display = "flex";
-    $("tbCampaign").textContent = `Stage ${state.campaignStage}/${state.maxCampaignStages}`;
+    $("tbCampaign").textContent =
+      `Stage ${state.campaignStage}/${state.maxCampaignStages}`;
   } else {
     $("campaignCell").style.display = "none";
   }
 
-  const entry = pickWord(activeDiff, cat);
+  $("btnStart").disabled = true;
+  $("btnCampaign").disabled = true;
+
+  const entry = customWordObj
+    ? customWordObj
+    : await pickWordAsync(activeDiff, cat);
+
+  $("btnStart").disabled = false;
+  $("btnCampaign").disabled = false;
   state.word = entry.word.toUpperCase();
   state.hint = entry.hint;
-  state.category = cat === "all" ? entry.diff.toUpperCase() + " LEVEL" : cat.toUpperCase();
+  state.category =
+    cat === "all" ? entry.diff.toUpperCase() + " LEVEL" : cat.toUpperCase();
 
   $("tbCategory").textContent = state.category;
   $("tbScore").textContent = state.score;
@@ -360,7 +454,8 @@ function startGame(isCampaign = false) {
   $("resultBadge").classList.remove("result-stamp-anim");
 
   $("hintText").textContent = state.hint;
-  $("hintDiff").textContent = `DIFFICULTY: ${activeDiff.toUpperCase()} · ${state.word.length} LETTERS`;
+  $("hintDiff").textContent =
+    `DIFFICULTY: ${activeDiff.toUpperCase()} · ${state.word.length} LETTERS`;
   $("hintStamp").textContent = "OPEN";
   $("hintStamp").className = "hint-stamp";
 
@@ -406,30 +501,37 @@ function resetTools() {
 function useTool(type) {
   if (state.gameOver || state.tools[type] <= 0) return;
   state.tools[type]--;
-  
+
   if (type === "glass") {
     $("toolGlass").disabled = true;
     SFX.pageFlip();
-    const missing = state.word.split("").filter(c => c !== " " && !state.guessed.has(c));
+    const missing = state.word
+      .split("")
+      .filter((c) => c !== " " && !state.guessed.has(c));
     if (missing.length > 0) {
       const char = missing[Math.floor(Math.random() * missing.length)];
       setStatus(`Magnifying Glass revealed: "${char}"`, "neutral");
       guessLetter(char, true);
     }
-  } 
-  else if (type === "informant") {
+  } else if (type === "informant") {
     $("toolInformant").disabled = true;
     SFX.pageFlip();
     // Informant gives a free hint message and reveals a vowel if possible
-    const vowels = state.word.split("").filter(c => "AEIOU".includes(c) && !state.guessed.has(c));
-    const pool = vowels.length > 0 ? vowels : state.word.split("").filter(c => c !== " " && !state.guessed.has(c));
+    const vowels = state.word
+      .split("")
+      .filter((c) => "AEIOU".includes(c) && !state.guessed.has(c));
+    const pool =
+      vowels.length > 0
+        ? vowels
+        : state.word
+            .split("")
+            .filter((c) => c !== " " && !state.guessed.has(c));
     if (pool.length > 0) {
       const char = pool[Math.floor(Math.random() * pool.length)];
       setStatus(`Informant tipped you off to: "${char}"`, "neutral");
       guessLetter(char, true);
     }
-  } 
-  else if (type === "bribe") {
+  } else if (type === "bribe") {
     $("toolBribe").disabled = true;
     SFX.pageFlip();
     if (state.wrongCount > 0) {
@@ -553,9 +655,10 @@ function onCorrectGuess(letter, fromTool) {
   updateProgress();
 
   if (!fromTool) {
-    const msg = occurrences > 1
-      ? `✓ "${letter}" appears ${occurrences} times! +${letterScore} pts`
-      : `✓ "${letter}" is in the word! +${letterScore} pts`;
+    const msg =
+      occurrences > 1
+        ? `✓ "${letter}" appears ${occurrences} times! +${letterScore} pts`
+        : `✓ "${letter}" is in the word! +${letterScore} pts`;
     setStatus(msg, "correct");
   }
 }
@@ -638,7 +741,8 @@ function updateProgress() {
   const pct = unique.length > 0 ? Math.round((found / unique.length) * 100) : 0;
 
   $("progFill").style.width = pct + "%";
-  $("progText").textContent = `${found} / ${unique.length} unique letters found`;
+  $("progText").textContent =
+    `${found} / ${unique.length} unique letters found`;
 }
 
 /* ── STATUS BAR ──────────────────────────────────────────── */
@@ -677,9 +781,10 @@ function endGame(won, reason = "") {
 
   if (won) {
     const attBonus = (MAX_WRONG - state.wrongCount) * 25;
-    const speedBonus = state.gameMode === "interrogation" 
-      ? state.timeRemaining * 5 
-      : Math.max(0, 200 - state.elapsedSeconds * 2);
+    const speedBonus =
+      state.gameMode === "interrogation"
+        ? state.timeRemaining * 5
+        : Math.max(0, 200 - state.elapsedSeconds * 2);
     state.score += attBonus + speedBonus;
     $("tbScore").textContent = state.score;
     SFX.win();
@@ -704,16 +809,21 @@ function endGame(won, reason = "") {
 
 /* ── RESULT SCREEN ───────────────────────────────────────── */
 function buildResultScreen(won) {
+  if (won) vibrate(100);
+  else vibrate(150);
+
   $("resultBadge").textContent = won ? "⚖" : "💀"; // Reverted to justice scales for win to fit theme
   $("resultBadge").classList.add("result-stamp-anim");
   $("resultHeading").textContent = won ? "CASE CLOSED" : "CASE FAILED";
   $("resultHeading").className = "result-heading " + (won ? "win" : "lose");
-  
+
   if (state.isCampaign && won) {
     if (state.campaignStage >= state.maxCampaignStages) {
-      $("resultFlavor").textContent = "Campaign complete! Outstanding detective work.";
+      $("resultFlavor").textContent =
+        "Campaign complete! Outstanding detective work.";
     } else {
-      $("resultFlavor").textContent = `Stage ${state.campaignStage} complete. The plot thickens...`;
+      $("resultFlavor").textContent =
+        `Stage ${state.campaignStage} complete. The plot thickens...`;
     }
   } else {
     $("resultFlavor").textContent = won
@@ -724,16 +834,24 @@ function buildResultScreen(won) {
   $("rwbWord").textContent = state.word;
 
   const total = state.correctCount + state.wrongCount;
-  const acc = total > 0 ? Math.round((state.correctCount / total) * 100) + "%" : "—";
+  const acc =
+    total > 0 ? Math.round((state.correctCount / total) * 100) + "%" : "—";
 
   $("rScore").textContent = state.score;
-  $("rTime").textContent = state.gameMode === "interrogation" ? `${60 - state.timeRemaining}s` : formatTime(state.elapsedSeconds);
+  $("rTime").textContent =
+    state.gameMode === "interrogation"
+      ? `${60 - state.timeRemaining}s`
+      : formatTime(state.elapsedSeconds);
   $("rAttempts").textContent = `${MAX_WRONG - state.wrongCount} / ${MAX_WRONG}`;
   $("rCorrect").textContent = state.correctCount;
   $("rWrong").textContent = state.wrongCount;
   $("rAccuracy").textContent = acc;
 
-  if (state.isCampaign && won && state.campaignStage < state.maxCampaignStages) {
+  if (
+    state.isCampaign &&
+    won &&
+    state.campaignStage < state.maxCampaignStages
+  ) {
     $("btnNextCampaign").classList.remove("hidden");
     $("btnNewCase").classList.add("hidden");
   } else {
@@ -782,7 +900,9 @@ function init() {
     btn.addEventListener("click", (e) => {
       const isModeBtn = btn.classList.contains("mode-btn");
       const selector = isModeBtn ? ".mode-btn" : ".opt-btn";
-      document.querySelectorAll(selector).forEach((b) => b.classList.remove("active"));
+      document
+        .querySelectorAll(selector)
+        .forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       SFX.keyClick();
     });
@@ -791,7 +911,9 @@ function init() {
   // Category buttons
   document.querySelectorAll(".cat-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".cat-btn").forEach((b) => b.classList.remove("active"));
+      document
+        .querySelectorAll(".cat-btn")
+        .forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       SFX.keyClick();
     });
@@ -820,11 +942,56 @@ function init() {
     startGame(true);
   });
 
+  // Custom Case Modal
+  const btnCustom = $("btnCustom");
+  if (btnCustom) {
+    btnCustom.addEventListener("click", () => {
+      SFX.pageFlip();
+      showScreen("modalCustom");
+    });
+  }
+
+  const btnCancelCustom = $("btnCancelCustom");
+  if (btnCancelCustom) {
+    btnCancelCustom.addEventListener("click", () => {
+      SFX.keyClick();
+      showScreen("title");
+    });
+  }
+
+  const btnStartCustom = $("btnStartCustom");
+  if (btnStartCustom) {
+    btnStartCustom.addEventListener("click", () => {
+      const w = $("customWord").value.trim().toUpperCase();
+      const h = $("customHint").value.trim();
+      if (!w) return alert("You must enter a secret word!");
+      if (!/^[A-Z0-9.,\-': ]+$/.test(w))
+        return alert(
+          "Invalid characters. Only letters, numbers, and basic punctuation allowed.",
+        );
+
+      $("customWord").value = "";
+      $("customHint").value = "";
+      SFX.pageFlip();
+      startGame(false, {word: w, hint: h, diff: "custom"});
+    });
+  }
+
   // Records Modal
   $("btnRecords").addEventListener("click", () => {
     SFX.pageFlip();
+    $("recMode").value = document.querySelector(".mode-btn.active")?.dataset.mode || "normal";
+    $("recDiff").value = document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
+    $("recCat").value = document.querySelector(".cat-btn.active")?.dataset.cat || "all";
     updateRecordsModal();
     showScreen("records");
+  });
+  
+  ["recMode", "recDiff", "recCat"].forEach(id => {
+    $(id).addEventListener("change", () => {
+      SFX.keyClick();
+      updateRecordsModal();
+    });
   });
   $("btnCloseRecords").addEventListener("click", () => {
     SFX.keyClick();

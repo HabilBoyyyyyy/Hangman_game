@@ -1,5 +1,4 @@
-window.WORD_BANK = window.WORD_BANK || {};
-window.WORD_BANK["animals"] = [
+[
   {
     "word": "bear",
     "hint": "A large, heavy mammal that often hibernates during the winter.",
@@ -1480,4 +1479,4 @@ window.WORD_BANK["animals"] = [
     "hint": "A small, bipedal, feathered dinosaur featured heavily (and inaccurately) as a large predator in cinema.",
     "diff": "hard"
   }
-];
+]

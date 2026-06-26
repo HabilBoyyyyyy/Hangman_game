@@ -1,5 +1,4 @@
-window.WORD_BANK = window.WORD_BANK || {};
-window.WORD_BANK["countries"] = [
+[
   {
     "word": "chad",
     "hint": "A landlocked country in north-central Africa named after a large lake.",
@@ -975,4 +974,4 @@ window.WORD_BANK["countries"] = [
     "hint": "An archipelago and island country in the central Atlantic Ocean.",
     "diff": "hard"
   }
-];
+]

@@ -1,5 +1,4 @@
-window.WORD_BANK = window.WORD_BANK || {};
-window.WORD_BANK["science"] = [
+[
   {
     "word": "atom",
     "hint": "The basic building block of all matter.",
@@ -750,4 +749,4 @@ window.WORD_BANK["science"] = [
     "hint": "The action of purifying a liquid by a process of heating and cooling.",
     "diff": "hard"
   }
-];
+]
