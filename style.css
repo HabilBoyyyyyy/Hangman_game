@@ -874,6 +874,35 @@ path.g-dead {
   background: rgba(26, 18, 8, 0.8);
 }
 
+/* Audio Toggle */
+.btn-audio {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 30;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 230, 204, 0.25);
+  background: rgba(26, 18, 8, 0.6);
+  color: rgba(240, 230, 204, 0.5);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-audio:hover {
+  border-color: var(--brass-lite);
+  color: var(--brass-lite);
+  background: rgba(26, 18, 8, 0.8);
+}
+.btn-audio.muted {
+  color: var(--ink-mid);
+  border-color: var(--ink-mid);
+}
+
 /* ══════════════════════════════════════════
    RESULT SCREEN
 ══════════════════════════════════════════ */

@@ -14,57 +14,34 @@ const DIFF_LENGTHS = {
 const BODY_PARTS = ["p-head", "p-body", "p-larm", "p-rarm", "p-lleg", "p-rleg"];
 const MAX_WRONG = 6;
 
-/* ── WEB AUDIO ENGINE ────────────────────────────────────── */
-let audioCtx = null;
-function getAC() {
-  if (!audioCtx)
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if (audioCtx.state === "suspended") audioCtx.resume();
-  return audioCtx;
-}
+/* ── AUDIO ENGINE ────────────────────────────────────────── */
+let isMuted = false;
+const audioFiles = {
+  bgm: new Audio("Audio/bgm-noir.mp3"),
+  key: new Audio("Audio/sfx-key.mp3"),
+  correct: new Audio("Audio/sfx-correct.mp3"),
+  wrong: new Audio("Audio/sfx-wrong.mp3"),
+  duplicate: new Audio("Audio/sfx-duplicate.mp3"),
+  win: new Audio("Audio/sfx-win.mp3"),
+  lose: new Audio("Audio/sfx-lose.mp3"),
+  page: new Audio("Audio/sfx-page.mp3")
+};
 
-function tone(freq, freq2, type, dur, vol, attack, delay = 0) {
-  try {
-    const ac = getAC();
-    const osc = ac.createOscillator();
-    const gain = ac.createGain();
-    osc.connect(gain);
-    gain.connect(ac.destination);
-    osc.type = type;
-    const t = ac.currentTime + delay;
-    osc.frequency.setValueAtTime(freq, t);
-    if (freq2 !== freq)
-      osc.frequency.exponentialRampToValueAtTime(freq2, t + dur * 0.8);
-    gain.gain.setValueAtTime(0, t);
-    gain.gain.linearRampToValueAtTime(vol, t + attack);
-    gain.gain.setValueAtTime(vol * 0.8, t + dur - 0.1);
-    gain.gain.linearRampToValueAtTime(0, t + dur);
-    osc.start(t);
-    osc.stop(t + dur + 0.05);
-  } catch (e) {}
-}
+// Configure background music
+audioFiles.bgm.loop = true;
+audioFiles.bgm.volume = 0.4;
 
-function noise(dur = 0.1, vol = 0.2, lofreq = 300, delay = 0) {
-  try {
-    const ac = getAC();
-    const buf = ac.createBuffer(1, ac.sampleRate * dur, ac.sampleRate);
-    const d = buf.getChannelData(0);
-    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-    const src = ac.createBufferSource();
-    src.buffer = buf;
-    const flt = ac.createBiquadFilter();
-    flt.type = "lowpass";
-    flt.frequency.value = lofreq;
-    const gain = ac.createGain();
-    const t = ac.currentTime + delay;
-    gain.gain.setValueAtTime(vol, t);
-    gain.gain.linearRampToValueAtTime(0, t + dur);
-    src.connect(flt);
-    flt.connect(gain);
-    gain.connect(ac.destination);
-    src.start(t);
-    src.stop(t + dur);
-  } catch (e) {}
+function playAudio(id) {
+  if (isMuted) return;
+  const a = audioFiles[id];
+  if (!a) return;
+  
+  if (id !== "bgm") {
+    // Clone node allows overlapping sounds (e.g. typing quickly)
+    const clone = a.cloneNode();
+    clone.volume = 0.6;
+    clone.play().catch(() => {});
+  }
 }
 
 function vibrate(pattern) {
@@ -74,133 +51,96 @@ function vibrate(pattern) {
 const SFX = {
   correct() {
     vibrate(15);
-    // Typewriter click + bell ding
-    noise(0.08, 0.4, 3000); // Sharp mechanical clack
-    tone(1400, 1400, "sine", 0.4, 0.3, 0.01, 0.05); // Bell fundamental
-    tone(2800, 2800, "sine", 0.3, 0.1, 0.01, 0.05); // Bell harmonic
+    playAudio("correct");
   },
   wrong() {
     vibrate([40, 50, 40]);
-    // Heavy rubber stamp "Thud-Thud" on the case file
-    noise(0.12, 0.6, 250);
-    tone(100, 60, "square", 0.12, 0.5, 0.01, 0);
-    noise(0.15, 0.7, 200, 0.15);
-    tone(80, 40, "square", 0.15, 0.6, 0.01, 0.15);
+    playAudio("wrong");
   },
   duplicate() {
     vibrate(30);
-    // Paper rustle / scratching out a mistake
-    noise(0.1, 0.25, 1200);
-    noise(0.08, 0.3, 1000, 0.08);
-    noise(0.12, 0.2, 1500, 0.15);
+    playAudio("duplicate");
   },
   win() {
     vibrate([50, 50, 100, 50, 150]);
-    // Rapid typewriter clacks + final satisfying ding and stamp
-    for (let i = 0; i < 5; i++) {
-      noise(0.05, 0.3, 2000, i * 0.08);
-      tone(800, 700, "square", 0.04, 0.1, 0.005, i * 0.08);
-    }
-    tone(1200, 1200, "sine", 0.6, 0.4, 0.01, 0.4);
-    tone(2400, 2400, "sine", 0.4, 0.2, 0.01, 0.4);
-    noise(0.2, 0.5, 300, 0.5);
-    tone(90, 50, "square", 0.2, 0.4, 0.01, 0.5);
+    playAudio("win");
   },
   lose() {
     vibrate([150, 50, 200]);
-    // Jail cell door slam (metal latch clank + heavy reverberating slam)
-    noise(0.1, 0.5, 1000);
-    tone(300, 150, "sawtooth", 0.2, 0.4, 0.01);
-    noise(0.4, 0.7, 300, 0.1);
-    tone(120, 60, "square", 0.4, 0.6, 0.01, 0.1);
-    tone(60, 30, "sawtooth", 0.4, 0.5, 0.01, 0.1);
-    noise(0.8, 0.3, 150, 0.1);
+    playAudio("lose");
   },
   keyClick() {
     vibrate(10);
-    // Analog typewriter key press
-    noise(0.03, 0.2, 2500);
-    tone(900, 600, "square", 0.04, 0.1, 0.002);
+    playAudio("key");
   },
   pageFlip() {
-    // Flipping a paper file folder
-    noise(0.12, 0.3, 1500);
-    noise(0.15, 0.2, 800, 0.05);
+    playAudio("page");
   },
   timerTick() {
-    tone(1200, 1200, "sine", 0.04, 0.12, 0.002);
+    if (isMuted) return;
+    try {
+      const ac = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ac.createOscillator();
+      const gain = ac.createGain();
+      osc.connect(gain);
+      gain.connect(ac.destination);
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(1200, ac.currentTime);
+      gain.gain.setValueAtTime(0, ac.currentTime);
+      gain.gain.linearRampToValueAtTime(0.04, ac.currentTime + 0.002);
+      gain.gain.linearRampToValueAtTime(0, ac.currentTime + 0.12);
+      osc.start(ac.currentTime);
+      osc.stop(ac.currentTime + 0.15);
+    } catch (e) {}
   },
   wordReveal() {
-    [261, 329, 392].forEach((f, i) =>
-      tone(f, f * 1.02, "sine", 0.3, 0.2, 0.005, i * 0.07),
-    );
+    if (isMuted) return;
+    try {
+      const ac = new (window.AudioContext || window.webkitAudioContext)();
+      [261, 329, 392].forEach((f, i) => {
+        const osc = ac.createOscillator();
+        const gain = ac.createGain();
+        osc.connect(gain);
+        gain.connect(ac.destination);
+        osc.type = "sine";
+        const t = ac.currentTime + i * 0.07;
+        osc.frequency.setValueAtTime(f, t);
+        osc.frequency.exponentialRampToValueAtTime(f * 1.02, t + 0.24);
+        gain.gain.setValueAtTime(0, t);
+        gain.gain.linearRampToValueAtTime(0.2, t + 0.005);
+        gain.gain.setValueAtTime(0.16, t + 0.2);
+        gain.gain.linearRampToValueAtTime(0, t + 0.3);
+        osc.start(t);
+        osc.stop(t + 0.35);
+      });
+    } catch(e) {}
   },
 };
 
-let ambienceNode = null;
-let sirenTimeout = null;
 function startAmbience() {
-  if (ambienceNode) return;
-  try {
-    const ac = getAC();
-    const dur = 10;
-    const buf = ac.createBuffer(1, ac.sampleRate * dur, ac.sampleRate);
-    const d = buf.getChannelData(0);
-    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * 0.5;
-    ambienceNode = ac.createBufferSource();
-    ambienceNode.buffer = buf;
-    ambienceNode.loop = true;
-
-    const flt = ac.createBiquadFilter();
-    flt.type = "lowpass";
-    flt.frequency.value = 400; // Rain / muffled room tone
-
-    const gain = ac.createGain();
-    gain.gain.value = 0.15; // Quiet background
-
-    ambienceNode.connect(flt);
-    flt.connect(gain);
-    gain.connect(ac.destination);
-    ambienceNode.start();
-
-    playSiren();
-  } catch (e) {}
-}
-
-function playSiren() {
-  if (!ambienceNode) return;
-  try {
-    const ac = getAC();
-    const osc = ac.createOscillator();
-    const gain = ac.createGain();
-    osc.connect(gain);
-    gain.connect(ac.destination);
-
-    osc.type = "sine";
-    const now = ac.currentTime;
-    osc.frequency.setValueAtTime(600, now);
-    osc.frequency.linearRampToValueAtTime(800, now + 2);
-    osc.frequency.linearRampToValueAtTime(600, now + 4);
-
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.02, now + 2);
-    gain.gain.linearRampToValueAtTime(0, now + 4);
-
-    osc.start(now);
-    osc.stop(now + 4);
-
-    sirenTimeout = setTimeout(playSiren, Math.random() * 20000 + 15000);
-  } catch (e) {}
+  if (isMuted) return;
+  audioFiles.bgm.play().catch(() => {});
 }
 
 function stopAmbience() {
-  if (ambienceNode) {
-    try {
-      ambienceNode.stop();
-    } catch (e) {}
-    ambienceNode = null;
+  audioFiles.bgm.pause();
+  audioFiles.bgm.currentTime = 0;
+}
+
+function toggleMute() {
+  isMuted = !isMuted;
+  const btn = document.getElementById("btnAudioToggle");
+  if (isMuted) {
+    btn.classList.add("muted");
+    btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    audioFiles.bgm.pause();
+  } else {
+    btn.classList.remove("muted");
+    btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    if (document.getElementById("screenGame").classList.contains("hidden") === false) {
+       startAmbience();
+    }
   }
-  clearTimeout(sirenTimeout);
 }
 
 /* ── STATE ───────────────────────────────────────────────── */
@@ -831,6 +771,12 @@ function shakeLetter(letter) {
 /* ── INIT ────────────────────────────────────────────────── */
 function init() {
   showScreen("title");
+
+  // Audio Toggle
+  const btnAudioToggle = document.getElementById("btnAudioToggle");
+  if (btnAudioToggle) {
+    btnAudioToggle.addEventListener("click", toggleMute);
+  }
 
   // Difficulty & Mode buttons
   document.querySelectorAll(".opt-btn, .mode-btn").forEach((btn) => {
