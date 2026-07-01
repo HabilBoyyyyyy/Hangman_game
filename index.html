@@ -88,9 +88,7 @@
           <button class="btn-primary" id="btnCampaign">
             <i class="fa-solid fa-briefcase"></i> START CAMPAIGN
           </button>
-          <button class="btn-primary" id="btnCustom">
-            <i class="fa-solid fa-user-secret"></i> CUSTOM CASE
-          </button>
+
         </div>
 
         <div class="title-footer">
@@ -360,74 +358,6 @@
       </div>
     </div>
 
-    <!-- ══════════════ CUSTOM CASE MODAL ══════════════ -->
-    <div class="screen hidden" id="modalCustom">
-      <div class="title-wrapper" style="max-width: 450px">
-        <div class="title-stamp">CLASSIFIED</div>
-        <h2 class="game-title" style="font-size: 2rem">CUSTOM CASE</h2>
-        <div class="masthead-rule thick"></div>
-        <div style="margin: 20px 0; text-align: left">
-          <label
-            style="
-              font-family: var(--font-mono);
-              color: var(--ink-dim);
-              font-size: 0.7rem;
-            "
-            >SECRET WORD</label
-          >
-          <input
-            type="text"
-            id="customWord"
-            placeholder="e.g. BOURBON"
-            style="
-              width: 100%;
-              padding: 10px;
-              margin-bottom: 15px;
-              background: var(--parchment2);
-              border: 1px solid var(--ink);
-              color: var(--ink);
-              font-family: var(--font-title);
-              font-size: 1.2rem;
-              text-transform: uppercase;
-            " />
-          <label
-            style="
-              font-family: var(--font-mono);
-              color: var(--ink-dim);
-              font-size: 0.7rem;
-            "
-            >CLUE / HINT</label
-          >
-          <input
-            type="text"
-            id="customHint"
-            placeholder="e.g. A type of whiskey"
-            style="
-              width: 100%;
-              padding: 10px;
-              background: var(--parchment2);
-              border: 1px solid var(--ink);
-              color: var(--ink);
-              font-family: var(--font-body);
-              font-size: 1rem;
-            " />
-        </div>
-        <div style="display: flex; gap: 10px; justify-content: center">
-          <button
-            class="btn-primary"
-            id="btnStartCustom"
-            style="padding: 12px 24px">
-            HAND TO PLAYER
-          </button>
-          <button
-            class="btn-secondary"
-            id="btnCancelCustom"
-            style="padding: 12px 24px">
-            CANCEL
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- ══════════════ GLOBAL AUDIO TOGGLE ══════════════ -->
     <button class="btn-audio" id="btnAudioToggle" title="Toggle Audio">

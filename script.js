@@ -24,7 +24,7 @@ const audioFiles = {
   duplicate: new Audio("Audio/sfx-duplicate.mp3"),
   win: new Audio("Audio/sfx-win.mp3"),
   lose: new Audio("Audio/sfx-lose.mp3"),
-  page: new Audio("Audio/sfx-page.mp3")
+  page: new Audio("Audio/sfx-page.mp3"),
 };
 
 // Configure background music
@@ -35,7 +35,7 @@ function playAudio(id) {
   if (isMuted) return;
   const a = audioFiles[id];
   if (!a) return;
-  
+
   if (id !== "bgm") {
     // Clone node allows overlapping sounds (e.g. typing quickly)
     const clone = a.cloneNode();
@@ -113,7 +113,7 @@ const SFX = {
         osc.start(t);
         osc.stop(t + 0.35);
       });
-    } catch(e) {}
+    } catch (e) {}
   },
 };
 
@@ -137,8 +137,11 @@ function toggleMute() {
   } else {
     btn.classList.remove("muted");
     btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-    if (document.getElementById("screenGame").classList.contains("hidden") === false) {
-       startAmbience();
+    if (
+      document.getElementById("screenGame").classList.contains("hidden") ===
+      false
+    ) {
+      startAmbience();
     }
   }
 }
@@ -190,8 +193,6 @@ function showScreen(name) {
   screens[name].classList.add("screen-enter");
   setTimeout(() => screens[name].classList.remove("screen-enter"), 400);
 }
-
-
 
 /* ── WORD SELECTION ──────────────────────────────────────── */
 let wordBankCache = {};
@@ -290,7 +291,7 @@ function formatTime(sec) {
 }
 
 /* ── GAME LIFECYCLE ──────────────────────────────────────── */
-async function startGame(isCampaign = false, customWordObj = null) {
+async function startGame(isCampaign = false) {
   const diff =
     document.querySelector(".opt-btn.active")?.dataset.diff || "easy";
   const cat = document.querySelector(".cat-btn.active")?.dataset.cat || "all";
@@ -313,9 +314,7 @@ async function startGame(isCampaign = false, customWordObj = null) {
   $("btnStart").disabled = true;
   $("btnCampaign").disabled = true;
 
-  const entry = customWordObj
-    ? customWordObj
-    : await pickWordAsync(activeDiff, cat);
+  const entry = await pickWordAsync(activeDiff, cat);
 
   $("btnStart").disabled = false;
   $("btnCampaign").disabled = false;
@@ -825,40 +824,6 @@ function init() {
     startGame(true);
   });
 
-  // Custom Case Modal
-  const btnCustom = $("btnCustom");
-  if (btnCustom) {
-    btnCustom.addEventListener("click", () => {
-      SFX.pageFlip();
-      showScreen("modalCustom");
-    });
-  }
-
-  const btnCancelCustom = $("btnCancelCustom");
-  if (btnCancelCustom) {
-    btnCancelCustom.addEventListener("click", () => {
-      SFX.keyClick();
-      showScreen("title");
-    });
-  }
-
-  const btnStartCustom = $("btnStartCustom");
-  if (btnStartCustom) {
-    btnStartCustom.addEventListener("click", () => {
-      const w = $("customWord").value.trim().toUpperCase();
-      const h = $("customHint").value.trim();
-      if (!w) return alert("You must enter a secret word!");
-      if (!/^[A-Z0-9.,\-': ]+$/.test(w))
-        return alert(
-          "Invalid characters. Only letters, numbers, and basic punctuation allowed.",
-        );
-
-      $("customWord").value = "";
-      $("customHint").value = "";
-      SFX.pageFlip();
-      startGame(false, {word: w, hint: h, diff: "custom"});
-    });
-  }
 
   // Quit
   $("btnQuit").addEventListener("click", () => {
