@@ -185,13 +185,142 @@ const screens = {
   title: $("screenTitle"),
   game: $("screenGame"),
   result: $("screenResult"),
+  storyBriefing: $("screenStoryBriefing"),
 };
 
 function showScreen(name) {
   Object.values(screens).forEach((s) => s.classList.add("hidden"));
+  // Hide flashlight when leaving game screen
+  if (name !== "game") {
+    $("flashlightOverlay").classList.remove("active");
+  } else {
+    // Show flashlight on game screen (desktop only)
+    if (!isTouchDevice()) {
+      $("flashlightOverlay").classList.add("active");
+    }
+  }
   screens[name].classList.remove("hidden");
   screens[name].classList.add("screen-enter");
   setTimeout(() => screens[name].classList.remove("screen-enter"), 400);
+}
+
+function isTouchDevice() {
+  return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+/* ── CAMPAIGN STORY DATA ────────────────────────────────── */
+let campaignStoryData = null;
+
+async function fetchCampaignStory() {
+  if (campaignStoryData) return campaignStoryData;
+  try {
+    const response = await fetch('Words/campaign_story.json');
+    campaignStoryData = await response.json();
+    return campaignStoryData;
+  } catch (e) {
+    console.error('Failed to load campaign story:', e);
+    return null;
+  }
+}
+
+/* ── STORY BRIEFING ─────────────────────────────────────── */
+let typewriterTimeout = null;
+
+function showStoryBriefing(stageIndex) {
+  return new Promise(async (resolve) => {
+    const storyData = await fetchCampaignStory();
+    if (!storyData || !storyData[stageIndex]) {
+      resolve();
+      return;
+    }
+
+    const stage = storyData[stageIndex];
+    $("storyChapterLabel").textContent = `CHAPTER ${stage.stage}`;
+    $("storyChapterTitle").textContent = stage.chapter;
+    $("storyText").textContent = '';
+    $("storyCursor").classList.remove('hidden');
+
+    const proceedBtn = $("btnStoryProceed");
+    proceedBtn.classList.add('hidden');
+    proceedBtn.classList.remove('visible');
+
+    // Force re-trigger CSS animations by cloning elements
+    const wrapper = document.querySelector('.story-wrapper');
+    wrapper.querySelectorAll('[class*="story-chapter"], .story-divider, .story-text-container').forEach(el => {
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = '';
+    });
+
+    showScreen('storyBriefing');
+    SFX.pageFlip();
+
+    // Typewriter effect
+    const text = stage.story;
+    let charIndex = 0;
+
+    function typeNextChar() {
+      if (charIndex < text.length) {
+        $("storyText").textContent += text[charIndex];
+        charIndex++;
+        typewriterTimeout = setTimeout(typeNextChar, 32);
+      } else {
+        // Typing finished - show proceed button
+        $("storyCursor").classList.add('hidden');
+        proceedBtn.classList.remove('hidden');
+        setTimeout(() => proceedBtn.classList.add('visible'), 50);
+      }
+    }
+
+    // Start typing after the fade-in animations complete
+    setTimeout(typeNextChar, 1200);
+
+    // Handle proceed button
+    const handler = () => {
+      proceedBtn.removeEventListener('click', handler);
+      clearTimeout(typewriterTimeout);
+      SFX.pageFlip();
+      resolve();
+    };
+    proceedBtn.addEventListener('click', handler);
+  });
+}
+
+/* ── MANILA FOLDER ANIMATION ────────────────────────────── */
+function playFolderAnimation() {
+  return new Promise((resolve) => {
+    const overlay = $("folderOverlay");
+    const body = $("folderBody");
+    const flap = $("folderFlap");
+
+    // Reset animations
+    body.style.animation = 'none';
+    flap.classList.remove('opening');
+    overlay.classList.remove('fade-out');
+    overlay.style.animation = 'none';
+    void overlay.offsetWidth;
+
+    // Show overlay and start
+    overlay.classList.remove('hidden');
+    overlay.style.animation = '';
+    body.style.animation = '';
+    SFX.pageFlip();
+
+    // Flap opens after slide-up
+    setTimeout(() => {
+      flap.classList.add('opening');
+    }, 600);
+
+    // Fade out and resolve
+    setTimeout(() => {
+      overlay.classList.add('fade-out');
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('fade-out');
+        resolve();
+      }, 400);
+    }, 1600);
+  });
 }
 
 /* ── WORD SELECTION ──────────────────────────────────────── */
@@ -300,28 +429,49 @@ async function startGame(isCampaign = false) {
 
   // If campaign, scale difficulty based on stage
   let activeDiff = diff;
+  let entry;
+
   if (state.isCampaign) {
-    if (state.campaignStage >= 4) activeDiff = "hard";
-    else if (state.campaignStage >= 2) activeDiff = "medium";
-    else activeDiff = "easy";
+    // Load story data for campaign
+    const storyData = await fetchCampaignStory();
+    const stageData = storyData ? storyData[state.campaignStage - 1] : null;
+
+    if (stageData) {
+      entry = {
+        word: stageData.word,
+        hint: stageData.hint,
+        diff: state.campaignStage >= 4 ? "hard" : state.campaignStage >= 2 ? "medium" : "easy"
+      };
+      // Store story data on state for result screen
+      state.storyData = stageData;
+    } else {
+      // Fallback to random word if story data fails
+      if (state.campaignStage >= 4) activeDiff = "hard";
+      else if (state.campaignStage >= 2) activeDiff = "medium";
+      else activeDiff = "easy";
+      entry = await pickWordAsync(activeDiff, cat);
+    }
+
+    activeDiff = state.campaignStage >= 4 ? "hard" : state.campaignStage >= 2 ? "medium" : "easy";
     $("campaignCell").style.display = "flex";
     $("tbCampaign").textContent =
-      `Stage ${state.campaignStage}/${state.maxCampaignStages}`;
+      `Chapter ${state.campaignStage}/${state.maxCampaignStages}`;
   } else {
     $("campaignCell").style.display = "none";
+
+    $("btnStart").disabled = true;
+    $("btnCampaign").disabled = true;
+    entry = await pickWordAsync(activeDiff, cat);
+    $("btnStart").disabled = false;
+    $("btnCampaign").disabled = false;
   }
 
-  $("btnStart").disabled = true;
-  $("btnCampaign").disabled = true;
-
-  const entry = await pickWordAsync(activeDiff, cat);
-
-  $("btnStart").disabled = false;
-  $("btnCampaign").disabled = false;
   state.word = entry.word.toUpperCase();
   state.hint = entry.hint;
   state.category =
-    cat === "all" ? entry.diff.toUpperCase() + " LEVEL" : cat.toUpperCase();
+    state.isCampaign
+      ? "CAMPAIGN"
+      : cat === "all" ? (entry.diff || "easy").toUpperCase() + " LEVEL" : cat.toUpperCase();
 
   $("tbCategory").textContent = state.category;
   $("tbScore").textContent = state.score;
@@ -696,11 +846,14 @@ function buildResultScreen(won) {
   if (state.isCampaign && won) {
     if (state.campaignStage >= state.maxCampaignStages) {
       $("resultFlavor").textContent =
-        "Campaign complete! Outstanding detective work.";
+        state.storyData?.resultTeaser || "Campaign complete! Outstanding detective work.";
     } else {
       $("resultFlavor").textContent =
-        `Stage ${state.campaignStage} complete. The plot thickens...`;
+        state.storyData?.resultTeaser || `Chapter ${state.campaignStage} complete. The plot thickens...`;
     }
+  } else if (state.isCampaign && !won) {
+    $("resultFlavor").textContent =
+      "The case has gone cold. The trail is lost. Return to the office and start again, Detective.";
   } else {
     $("resultFlavor").textContent = won
       ? "Outstanding deduction, Detective. The suspect has been identified."
@@ -729,6 +882,7 @@ function buildResultScreen(won) {
     state.campaignStage < state.maxCampaignStages
   ) {
     $("btnNextCampaign").classList.remove("hidden");
+    $("btnNextCampaign").innerHTML = '<i class="fa-solid fa-book-open"></i> NEXT CHAPTER';
     $("btnNewCase").classList.add("hidden");
   } else {
     $("btnNextCampaign").classList.add("hidden");
@@ -767,9 +921,33 @@ function shakeLetter(letter) {
   });
 }
 
+/* ── FLASHLIGHT EFFECT ───────────────────────────────────── */
+function initFlashlight() {
+  const overlay = $("flashlightOverlay");
+  if (isTouchDevice()) return; // No flashlight on touch devices
+
+  document.addEventListener('mousemove', (e) => {
+    // Only update when game screen is visible
+    if (screens.game.classList.contains('hidden')) return;
+
+    const x = e.clientX;
+    const y = e.clientY;
+    overlay.style.background = `radial-gradient(
+      circle 250px at ${x}px ${y}px,
+      transparent 0%,
+      transparent 40%,
+      rgba(10, 6, 2, 0.18) 70%,
+      rgba(10, 6, 2, 0.32) 100%
+    )`;
+  });
+}
+
 /* ── INIT ────────────────────────────────────────────────── */
 function init() {
   showScreen("title");
+
+  // Initialize flashlight effect
+  initFlashlight();
 
   // Audio Toggle
   const btnAudioToggle = document.getElementById("btnAudioToggle");
@@ -806,21 +984,29 @@ function init() {
   $("toolInformant").addEventListener("click", () => useTool("informant"));
   $("toolBribe").addEventListener("click", () => useTool("bribe"));
 
-  // Start Normal
-  $("btnStart").addEventListener("click", () => {
-    SFX.pageFlip();
+  // Start Normal (with manila folder animation)
+  $("btnStart").addEventListener("click", async () => {
+    $("btnStart").disabled = true;
+    $("btnCampaign").disabled = true;
+    await playFolderAnimation();
+    $("btnStart").disabled = false;
+    $("btnCampaign").disabled = false;
     startGame(false);
   });
 
-  // Start Campaign
-  $("btnCampaign").addEventListener("click", () => {
-    SFX.pageFlip();
+  // Start Campaign (with story briefing)
+  $("btnCampaign").addEventListener("click", async () => {
+    // Reset campaign state for fresh start
+    state.score = 0;
+    state.campaignStage = 0;
+    await showStoryBriefing(0);
     startGame(true);
   });
 
-  // Next Campaign Stage
-  $("btnNextCampaign").addEventListener("click", () => {
-    SFX.pageFlip();
+  // Next Campaign Stage (with story briefing)
+  $("btnNextCampaign").addEventListener("click", async () => {
+    const nextStageIndex = state.campaignStage; // campaignStage is already the completed stage
+    await showStoryBriefing(nextStageIndex);
     startGame(true);
   });
 
@@ -835,8 +1021,8 @@ function init() {
   });
 
   // Result screen -> New Case / Menu
-  $("btnNewCase").addEventListener("click", () => {
-    SFX.pageFlip();
+  $("btnNewCase").addEventListener("click", async () => {
+    await playFolderAnimation();
     startGame(false);
   });
   $("btnMenu").addEventListener("click", () => {
@@ -846,6 +1032,10 @@ function init() {
   });
 
   document.addEventListener("keydown", onKeyDown);
+
+  // Pre-fetch campaign story data
+  fetchCampaignStory();
 }
 
 document.addEventListener("DOMContentLoaded", init);
+

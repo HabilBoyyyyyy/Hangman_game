@@ -1289,3 +1289,327 @@ path.g-dead {
     opacity: 0.5;
   }
 }
+
+/* ══════════════════════════════════════════
+   STORY BRIEFING SCREEN
+══════════════════════════════════════════ */
+#screenStoryBriefing {
+  background: rgba(10, 6, 2, 0.95);
+  z-index: 10;
+}
+
+.story-wrapper {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 56px 64px;
+  max-width: 700px;
+  width: 90%;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 18, 8, 0.95) 0%,
+    rgba(20, 12, 4, 0.98) 100%
+  );
+  border: 1px solid var(--brass);
+  box-shadow:
+    0 0 40px rgba(154, 125, 58, 0.15),
+    0 0 100px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(154, 125, 58, 0.2);
+}
+
+.story-chapter-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  color: var(--brass);
+  opacity: 0;
+  animation: storyFadeIn 0.6s 0.2s ease-out forwards;
+}
+
+.story-chapter-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--parchment);
+  letter-spacing: 0.15em;
+  text-shadow:
+    0 0 20px rgba(232, 200, 112, 0.3),
+    2px 2px 0 rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: storyFadeIn 0.6s 0.5s ease-out forwards;
+}
+
+.story-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+  opacity: 0;
+  animation: storyFadeIn 0.6s 0.7s ease-out forwards;
+}
+
+.story-text-container {
+  min-height: 120px;
+  text-align: left;
+  padding: 20px 0;
+  opacity: 0;
+  animation: storyFadeIn 0.6s 0.9s ease-out forwards;
+}
+
+.story-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--parchment2);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  display: inline;
+}
+
+.story-cursor {
+  display: inline;
+  font-family: var(--font-mono);
+  color: var(--brass-glow);
+  font-size: 1.1rem;
+  animation: cursorBlink 0.8s step-end infinite;
+  vertical-align: baseline;
+}
+.story-cursor.hidden {
+  display: none;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes storyFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.story-proceed {
+  margin-top: 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.story-proceed.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════════════════
+   MANILA FOLDER OVERLAY
+══════════════════════════════════════════ */
+.folder-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 6, 2, 0.85);
+  opacity: 0;
+  animation: folderBgFadeIn 0.3s ease-out forwards;
+}
+.folder-overlay.hidden {
+  display: none;
+}
+.folder-overlay.fade-out {
+  animation: folderBgFadeOut 0.4s ease-in forwards;
+}
+
+@keyframes folderBgFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes folderBgFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.folder-body {
+  position: relative;
+  width: 420px;
+  height: 320px;
+  background: linear-gradient(
+    175deg,
+    #d4a84b 0%,
+    #c89a3e 15%,
+    #dbb35c 50%,
+    #c89a3e 85%,
+    #b8892e 100%
+  );
+  border-radius: 4px;
+  box-shadow:
+    8px 8px 0 rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(120vh);
+  animation: folderSlideUp 0.6s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Folder tab at top */
+.folder-tab {
+  position: absolute;
+  top: -28px;
+  left: 50px;
+  width: 120px;
+  height: 30px;
+  background: linear-gradient(
+    180deg,
+    #dbb35c 0%,
+    #c89a3e 100%
+  );
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #5a4420;
+  border: 1px solid rgba(90, 68, 32, 0.3);
+  border-bottom: none;
+}
+
+/* Folder flap (opens upward) */
+.folder-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    180deg,
+    #c89a3e 0%,
+    #dbb35c 100%
+  );
+  border-radius: 4px 4px 0 0;
+  transform-origin: bottom center;
+  border-bottom: 2px dashed rgba(90, 68, 32, 0.3);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.1);
+}
+.folder-flap.opening {
+  animation: flapOpen 0.5s 0.75s ease-out forwards;
+}
+
+/* CLASSIFIED stamp on folder */
+.folder-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  letter-spacing: 0.25em;
+  color: rgba(139, 26, 26, 0.7);
+  border: 3px solid rgba(139, 26, 26, 0.5);
+  padding: 6px 20px;
+  opacity: 0;
+  animation: folderStampIn 0.3s 0.9s ease-out forwards;
+}
+
+/* Ruled lines on folder */
+.folder-lines {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  animation: folderStampIn 0.3s 1s ease-out forwards;
+}
+.folder-line {
+  height: 1px;
+  background: rgba(90, 68, 32, 0.25);
+}
+
+@keyframes folderSlideUp {
+  from {
+    transform: translateY(120vh) rotate(2deg);
+  }
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes flapOpen {
+  0% {
+    transform: perspective(500px) rotateX(0deg);
+  }
+  100% {
+    transform: perspective(500px) rotateX(-170deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes folderStampIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+  }
+}
+
+/* ══════════════════════════════════════════
+   FLASHLIGHT OVERLAY
+══════════════════════════════════════════ */
+.flashlight-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    circle 250px at 50% 50%,
+    transparent 0%,
+    transparent 40%,
+    rgba(10, 6, 2, 0.18) 70%,
+    rgba(10, 6, 2, 0.32) 100%
+  );
+}
+.flashlight-overlay.active {
+  opacity: 1;
+}
+
+/* Responsive adjustments for new elements */
+@media (max-width: 900px) {
+  .story-wrapper {
+    padding: 36px 28px;
+  }
+  .folder-body {
+    width: 300px;
+    height: 240px;
+  }
+  .folder-stamp {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .folder-body {
+    width: 260px;
+    height: 200px;
+  }
+  .folder-tab {
+    width: 100px;
+    font-size: 0.5rem;
+    left: 30px;
+  }
+}

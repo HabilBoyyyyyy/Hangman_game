@@ -1,0 +1,42 @@
+[
+  {
+    "stage": 1,
+    "chapter": "THE CALL",
+    "word": "WITNESS",
+    "hint": "Someone who saw what happened that night at the pier.",
+    "story": "The precinct phone rang at 2 AM. A dock worker had vanished from Vermillion Pier. No body, no note — just a pair of boots at the water's edge. Someone had seen something…",
+    "resultTeaser": "A witness has come forward. But can their testimony be trusted? The trail leads deeper…"
+  },
+  {
+    "stage": 2,
+    "chapter": "THE LEAD",
+    "word": "HARBOUR",
+    "hint": "A sheltered place along the coast where ships dock and secrets hide.",
+    "story": "The witness spoke in whispers. She described a figure in a long coat, dragging something heavy toward the old harbour warehouse. The fog was thick that night…",
+    "resultTeaser": "The harbour warehouse holds more than cargo. Something was left behind in the dust…"
+  },
+  {
+    "stage": 3,
+    "chapter": "THE EVIDENCE",
+    "word": "REVOLVER",
+    "hint": "A type of firearm with a rotating cylinder — cold steel under a tarp.",
+    "story": "Inside the warehouse, dust covered everything — except a cleared circle on the floor. And there, half-hidden beneath a tarp: cold steel. Someone had left behind their weapon…",
+    "resultTeaser": "The weapon has a serial number. It can be traced. The net is closing…"
+  },
+  {
+    "stage": 4,
+    "chapter": "THE SUSPECT",
+    "word": "CHANDLER",
+    "hint": "The name on the pawn shop receipt — a regular who always paid in cash.",
+    "story": "The serial number traced back to a pawn shop on 5th Avenue. The owner's records showed one name — a regular who always paid in cash and never gave a straight answer…",
+    "resultTeaser": "You have a name. Now you need proof. One final piece to seal the case…"
+  },
+  {
+    "stage": 5,
+    "chapter": "THE VERDICT",
+    "word": "GUILTY",
+    "hint": "The final word the jury delivered — the conclusion of justice.",
+    "story": "The evidence was laid out on the desk. The coat fibers, the weapon, the witness testimony — it all pointed to one person. The jury needed only 30 minutes. The verdict was clear…",
+    "resultTeaser": "Justice has been served. The Vermillion Pier case is closed. Outstanding work, Detective."
+  }
+]
